@@ -1,10 +1,10 @@
 import React from 'react';
 import Header from '../components/shared/Header';
 import Footer from '../components/shared/Footer';
-import MainPageContent from '../components/home/MainPageContent';
-import {Box} from '@mui/material';
+import PartyList from "../components/home/PartiesList";
+import {Box, Typography} from '@mui/material';
 
-const Home: React.FC = () => {
+const Parties: React.FC = () => {
     return (
         <Box
             sx={{
@@ -14,12 +14,13 @@ const Home: React.FC = () => {
             }}
         >
             <Header/>
-            <Box sx={{flex: 1}}>
-                <MainPageContent/>
+            <Box sx={{flex: 1, p: 3}}>
+                <Typography variant="h3" sx={{mb: 2}}>Partiti</Typography>
+                <PartyList/>
             </Box>
             <Footer/>
         </Box>
     );
 };
 
-export default Home;
+export default Parties;

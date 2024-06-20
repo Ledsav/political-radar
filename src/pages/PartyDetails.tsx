@@ -1,10 +1,10 @@
 import React from 'react';
+import {Box} from '@mui/material';
 import Header from '../components/shared/Header';
 import Footer from '../components/shared/Footer';
-import MainPageContent from '../components/home/MainPageContent';
-import {Box} from '@mui/material';
+import PartyDetails from '../components/parties/PartyDetails';
 
-const Home: React.FC = () => {
+const PartyDetailPage: React.FC = () => {
     return (
         <Box
             sx={{
@@ -15,11 +15,11 @@ const Home: React.FC = () => {
         >
             <Header/>
             <Box sx={{flex: 1}}>
-                <MainPageContent/>
+                <PartyDetails/>
             </Box>
             <Footer/>
         </Box>
     );
 };
 
-export default Home;
+export default PartyDetailPage;

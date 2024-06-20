@@ -1,13 +1,59 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #ffffff; /* White background */
+    color: #333; /* Dark grey text for better readability */
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+a {
+    color: inherit; /* Ensures that links do not introduce a different color and match the text color */
+    text-decoration: none; /* Removes underline from links */
+}
+
+ul {
+    padding: 0;
+    list-style: none; /* Removes bullet points from lists */
+}
+
+header, footer {
+    background-color: #fff; /* White background for header and footer */
+    padding: 10px 20px; /* Padding for some spacing around the content */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for a slight depth */
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-around; /* Space out navigation items evenly */
+    align-items: center; /* Center items vertically */
+}
+
+footer {
+    text-align: center; /* Center the footer content */
+    margin-top: 20px; /* Add space above the footer */
+}
+
+/* Additional styles for form elements and buttons */
+input[type="text"], button {
+
+}
+
+button {
+    background-color: #4CAF50; /* Green background color */
+    border: none;
+    color: white;
+    text-transform: uppercase; /* Uppercase text for buttons */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+button:hover {
+    background-color: #45a049; /* Slightly darker green on hover */
 }
