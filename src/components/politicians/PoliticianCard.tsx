@@ -3,7 +3,7 @@ import StyledCard from "../shared/StyledCard";
 
 interface PoliticianCardProps {
     politician: {
-        id: number;
+        id: string;  // Ensure this is a string
         name: string;
         party: string;
         image: string;
@@ -18,6 +18,8 @@ const PoliticianCard: React.FC<PoliticianCardProps> = ({politician}) => {
             subtitle={politician.party}
             linkTo={`/politicians/${politician.id}`}
             image={politician.image}
+            objectFit={'cover'}
+            objectPosition={'50% 20%'}
         />
     );
 };

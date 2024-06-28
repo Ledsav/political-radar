@@ -3,7 +3,7 @@ import StyledCard from "../shared/StyledCard";
 
 interface PartyCardProps {
     party: {
-        id: number;
+        id: string;
         name: string;
         orientation: string;
         image: string;

@@ -8,14 +8,24 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 
 interface StyledCardProps {
-    id: number;
+    id: string;
     title: string;
     subtitle: string;
     linkTo: string;
     image: string;
+    objectFit?: 'contain' | 'cover';
+    objectPosition?: string;
 }
 
-const StyledCard: React.FC<StyledCardProps> = ({id, title, subtitle, linkTo, image}) => {
+const StyledCard: React.FC<StyledCardProps> = ({
+                                                   id,
+                                                   title,
+                                                   subtitle,
+                                                   linkTo,
+                                                   image,
+                                                   objectFit = 'contain',
+                                                   objectPosition = 'center'
+                                               }) => {
     const theme = useTheme();
 
     return (
@@ -45,9 +55,10 @@ const StyledCard: React.FC<StyledCardProps> = ({id, title, subtitle, linkTo, ima
                     image={image}
                     alt={title}
                     sx={{
-                        objectFit: 'contain', // Ensures the image scales properly
-                        width: '100%', // Ensure the image takes full width of the container
-                        height: '140px', // Ensure the image takes the defined height
+                        objectFit: objectFit,
+                        objectPosition: objectFit === 'cover' ? objectPosition : 'center',
+                        width: '100%',
+                        height: '280px',
                         backgroundColor: theme.palette.secondary.main
                     }}
                 />

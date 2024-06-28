@@ -1,6 +1,6 @@
 import React from 'react';
 import useFetchData from "../../hooks/useFetchData";
-import PoliticianCard from "../politicians/PoliticianCard";
+import PoliticianCard from "./PoliticianCard";
 import HorizontalScrollableList from '../shared/HorizontalScrollableList';
 import {Box} from "@mui/material";
 
@@ -29,7 +29,7 @@ const PoliticianList: React.FC = () => {
             {politicians.map((politician: any, index: number) => (
                 <Box key={index} sx={{minWidth: '300px', maxWidth: '300px'}}>
                     <PoliticianCard politician={{
-                        id: index,
+                        id: politician.id,
                         name: politician.author,
                         party: politician.party,
                         image: politician.author_image // Ensure this field is available in your data

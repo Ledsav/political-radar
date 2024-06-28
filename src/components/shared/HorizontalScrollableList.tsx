@@ -13,26 +13,27 @@ interface HorizontalScrollableListProps {
 const HorizontalScrollableList: React.FC<HorizontalScrollableListProps> = ({children}) => {
     const items = React.Children.toArray(children);
     const theme = useTheme();
+    const uniqueClassName = 'custom-scrollbar';
 
     return (
         <>
             <GlobalStyles styles={{
-                '::-webkit-scrollbar': {
+                [`.${uniqueClassName} .react-horizontal-scrolling-menu--scroll-container::-webkit-scrollbar`]: {
                     width: '12px',
                     height: '12px',
                 },
-                '::-webkit-scrollbar-track': {
+                [`.${uniqueClassName} .react-horizontal-scrolling-menu--scroll-container::-webkit-scrollbar-track`]: {
                     background: 'transparent',
                 },
-                '::-webkit-scrollbar-thumb': {
+                [`.${uniqueClassName} .react-horizontal-scrolling-menu--scroll-container::-webkit-scrollbar-thumb`]: {
                     background: theme.palette.primary.main,
                     borderRadius: '6px',
                 },
-                '::-webkit-scrollbar-thumb:hover': {
+                [`.${uniqueClassName} .react-horizontal-scrolling-menu--scroll-container::-webkit-scrollbar-thumb:hover`]: {
                     background: theme.palette.primary.dark,
                 }
             }}/>
-            <Box sx={{width: '100%', overflow: 'hidden', position: 'relative'}}>
+            <Box className={uniqueClassName} sx={{width: '100%', overflow: 'hidden', position: 'relative'}}>
                 <ScrollMenu
                     LeftArrow={LeftArrow}
                     RightArrow={RightArrow}

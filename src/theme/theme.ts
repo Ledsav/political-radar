@@ -52,21 +52,21 @@ const theme = createTheme({
     typography: {
         fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
         h5: {
-            fontWeight: 500, // Medium weight for slightly bolder headings
-            color: '#333', // Darker text for better readability
+            fontWeight: 500,
+            color: '#333',
         },
         button: {
             fontFamily: '"Antonio","Bebas Neue", "Roboto", "Helvetica", "Arial", sans-serif',
-            textTransform: 'none', // Buttons with normal casing
+            textTransform: 'none',
         },
         h1: {
             fontFamily: '"Antonio","Bebas Neue", "Roboto", "Helvetica", "Arial", sans-serif',
-            fontWeight: 400, // Normal weight for Bebas Neue
+            fontWeight: 400,
             fontSize: '2.5rem',
         },
         h2: {
             fontFamily: '"Antonio","Bebas Neue", "Roboto", "Helvetica", "Arial", sans-serif',
-            fontWeight: 400, // Normal weight for Bebas Neue
+            fontWeight: 400,
             fontSize: '2rem',
         },
         // Add more variants if needed

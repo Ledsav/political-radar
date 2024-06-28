@@ -2,7 +2,7 @@ import React from 'react';
 import useFetchData from '../../hooks/useFetchData';
 import HorizontalScrollableList from "../shared/HorizontalScrollableList";
 import {Box} from "@mui/material";
-import PartyCard from "../parties/PartyCard";
+import PartyCard from "./PartyCard";
 
 const PartyList: React.FC = () => {
     const {data: responseData, loading, error} = useFetchData('party_averages');
@@ -27,9 +27,9 @@ const PartyList: React.FC = () => {
     return (
         <HorizontalScrollableList>
             {parties.map((party: any, index: number) => (
-                <Box key={index} sx={{minWidth: '200px', maxWidth: '200px'}}>
+                <Box key={index} sx={{minWidth: '300px', maxWidth: '300px'}}>
                     <PartyCard party={{
-                        id: index,
+                        id: party.id,
                         name: party.party,
                         orientation: party.orientation,
                         image: party.party_image
