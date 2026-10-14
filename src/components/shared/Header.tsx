@@ -11,6 +11,7 @@ import MenuItem from '@mui/material/MenuItem';
 import MenuIcon from '@mui/icons-material/Menu';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import {useTheme} from '@mui/material/styles';
+import LogoMark from './LogoMark';
 
 const Header: React.FC = () => {
     const location = useLocation();
@@ -65,11 +66,15 @@ const Header: React.FC = () => {
                 width: '100%',
                 padding: '8px'
             }}>
+                {/* Site name, not a page heading: each page has its own h1. */}
                 <Typography
                     variant="h1"
+                    component="div"
                     sx={{fontSize: {xs: '1.5rem', sm: '2.5rem'}, fontWeight: 'bold'}}
                 >
-                    <Link to="/" style={{textDecoration: 'none', color: 'inherit'}}>
+                    <Link to="/" aria-label="Radar Politico, home"
+                          style={{textDecoration: 'none', color: 'inherit', display: 'flex', alignItems: 'center', gap: '0.35em'}}>
+                        <LogoMark size="1em"/>
                         RADAR POLITICO
                     </Link>
                 </Typography>

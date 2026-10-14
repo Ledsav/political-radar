@@ -90,6 +90,20 @@ Futuro Nazionale have no free logo on Commons and get a typographic card instead
 
 Fonts are bundled via `@fontsource`, so the site makes no third-party requests.
 
+### Logo
+
+The mark, **"Margine"**, is a square speech bubble with a ± cut out of it: every statement, with its margin
+of error. Masters are in `design/logo/`:
+
+- `radar-politico-symbol.svg`: the master symbol
+- `-symbol-small.svg`: a heavier cut for 16–32 px
+- `-lockup.svg`: symbol plus wordmark, with Antonio Bold traced to outlines (Antonio is OFL-licensed)
+- white, black and app-icon variants, plus `test-sheet.png`
+
+The rejected concepts are kept in `design/logo-concepts/`. In the app the mark is `src/components/shared/LogoMark.tsx`,
+which inherits the text colour. The favicons, app icons and `site.webmanifest` in `public/` use black on lime (`#abfb73`),
+so they show up in both light and dark browser tabs.
+
 ---
 
 ## How accurate is it?
