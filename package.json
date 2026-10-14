@@ -20,7 +20,9 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "prerender": "vite-node scripts/prerender.ts",
+    "build:pages": "npm run build && npm run prerender"
   },
   "devDependencies": {
     "@testing-library/dom": "^10.4.0",

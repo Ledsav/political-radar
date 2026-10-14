@@ -11,6 +11,8 @@ import {ErrorMessage, Loading, NotFoundMessage} from '../components/shared/Statu
 import {assetUrl, loadMeta, loadParties, loadPoliticians} from '../data/api';
 import {useData} from '../data/useData';
 import {formatDate} from '../data/ratings';
+import {notFoundMeta, partyMeta} from '../seo/meta';
+import {useDocumentMeta} from '../seo/useDocumentMeta';
 
 const PartyDetailPage: React.FC = () => {
     const {id = ''} = useParams<{id: string}>();
@@ -22,6 +24,7 @@ const PartyDetailPage: React.FC = () => {
         })),
         [id],
     );
+    useDocumentMeta(data ? (data.party ? partyMeta(data.party) : notFoundMeta(`parties/${id}`)) : null);
 
     let content: React.ReactNode;
     if (loading) content = <Loading/>;

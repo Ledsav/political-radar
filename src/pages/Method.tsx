@@ -5,6 +5,8 @@ import {ErrorMessage, Loading} from '../components/shared/Status';
 import {loadMeta} from '../data/api';
 import {useData} from '../data/useData';
 import {RATINGS} from '../data/ratings';
+import {methodMeta} from '../seo/meta';
+import {useDocumentMeta} from '../seo/useDocumentMeta';
 
 const H: React.FC<{children: React.ReactNode}> = ({children}) => (
     <Typography variant="h2" component="h2" sx={{mt: 5, mb: 1.5}}>{children}</Typography>
@@ -15,6 +17,7 @@ const P: React.FC<{children: React.ReactNode}> = ({children}) => (
 
 const Method: React.FC = () => {
     const {data: meta, loading, error} = useData(loadMeta);
+    useDocumentMeta(methodMeta());
 
     return (
         <Layout>

@@ -10,6 +10,8 @@ import {ErrorMessage, Loading, NotFoundMessage} from '../components/shared/Statu
 import {loadMeta, loadPoliticians, loadStatements} from '../data/api';
 import {useData} from '../data/useData';
 import {formatDate} from '../data/ratings';
+import {notFoundMeta, politicianMeta} from '../seo/meta';
+import {useDocumentMeta} from '../seo/useDocumentMeta';
 
 const PoliticianDetailPage: React.FC = () => {
     const {id = ''} = useParams<{id: string}>();
@@ -21,6 +23,7 @@ const PoliticianDetailPage: React.FC = () => {
         [id],
     );
     const statements = useData(() => loadStatements(id), [id]);
+    useDocumentMeta(data ? (data.politician ? politicianMeta(data.politician) : notFoundMeta(`politicians/${id}`)) : null);
 
     let content: React.ReactNode;
     if (loading) content = <Loading/>;

@@ -1,3 +1,21 @@
+/* Plain-HTML version of each page, written into #root at build time for search
+   engines; React replaces it on load. Styled so the brief flash looks deliberate. */
+.prerender {
+    max-width: 900px;
+    padding: 24px;
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    line-height: 1.5;
+}
+
+.prerender h1, .prerender h2 {
+    font-family: 'Antonio', 'Roboto', sans-serif;
+    text-transform: uppercase;
+}
+
+.prerender a {
+    text-decoration: underline;
+}
+
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

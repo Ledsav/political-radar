@@ -8,6 +8,8 @@ import {ErrorMessage, Loading} from '../components/shared/Status';
 import {loadPoliticians} from '../data/api';
 import {useData} from '../data/useData';
 import {fold} from '../data/search';
+import {politiciansMeta} from '../seo/meta';
+import {useDocumentMeta} from '../seo/useDocumentMeta';
 
 type SortKey = 'rated' | 'scoreDesc' | 'scoreAsc' | 'name';
 
@@ -20,6 +22,7 @@ const SORTS: Record<SortKey, {label: string; compare: (a: {rated: number; score:
 
 const Politicians: React.FC = () => {
     const {data, loading, error} = useData(loadPoliticians);
+    useDocumentMeta(data ? politiciansMeta(data.length) : null);
     const [query, setQuery] = useState('');
     const [party, setParty] = useState('');
     const [sort, setSort] = useState<SortKey>('rated');

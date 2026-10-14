@@ -7,9 +7,12 @@ import RankingChart from '../components/charts/RankingChart';
 import {ErrorMessage, Loading} from '../components/shared/Status';
 import {loadParties} from '../data/api';
 import {useData} from '../data/useData';
+import {partiesMeta} from '../seo/meta';
+import {useDocumentMeta} from '../seo/useDocumentMeta';
 
 const Parties: React.FC = () => {
     const {data, loading, error} = useData(loadParties);
+    useDocumentMeta(data ? partiesMeta(data.length) : null);
 
     return (
         <Layout>

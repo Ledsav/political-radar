@@ -33,13 +33,14 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
-      - name: Build for /<repo>/
-        run: npm run build
+      # Gives the published URL, including a custom domain, and its path.
+      - id: pages
+        uses: actions/configure-pages@v5
+      - name: Build and pre-render every page
+        run: npm run build:pages
         env:
-          BASE_PATH: /${{ github.event.repository.name }}/
-      # Pages has no rewrites: serve the app for unknown paths so deep links
-      # like /politicians/matteo-salvini work.
-      - run: cp build/index.html build/404.html
+          BASE_PATH: ${{ steps.pages.outputs.base_path }}/
+          SITE_URL: ${{ steps.pages.outputs.base_url }}/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: build

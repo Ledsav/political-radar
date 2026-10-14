@@ -192,15 +192,25 @@ The site is published at **https://www.albertovaldesrey.com/political-radar/** b
   `push` workflows by themselves), or manually from the Actions tab.
 - It builds with `BASE_PATH=/political-radar/`. `vite.config.ts` uses that as the base URL and the router uses it
   as its basename. Without `BASE_PATH` the app builds for the domain root, which is what `npm run dev` uses.
-- It copies `index.html` to `404.html`. Pages has no URL rewriting, so this makes direct links such as
-  `/political-radar/politicians/matteo-salvini` load the app, which then shows the right page.
+- It runs `npm run build:pages`, which is `vite build` followed by `scripts/prerender.ts`. GitHub Pages can't
+  rewrite URLs, so the pre-renderer writes a real HTML file for each of the 284 routes. Every route is therefore
+  served with status 200, with its own `<title>`, description, canonical URL, Open Graph/Twitter tags (share image:
+  `public/og-image.png`), JSON-LD and a plain-HTML version of its content for crawlers. React replaces that
+  content when it loads. Unknown URLs get `404.html`: a real not-found page marked `noindex`. `sitemap.xml` and
+  `robots.txt` are generated too. Title and meta tags stay in sync during in-app navigation via
+  `src/seo/useDocumentMeta.ts`, and the same texts come from `src/seo/meta.ts` in both places.
+
+**Search engines:** crawlers only read `robots.txt` at the domain root (`albertovaldesrey.com/robots.txt`, which
+belongs to your main site), so the generated one here is ignored. Submit
+`https://www.albertovaldesrey.com/political-radar/sitemap.xml` in Google Search Console, or add a `Sitemap:`
+line for it to the root site's robots.txt.
 
 One-time setup: repo → **Settings → Pages → Build and deployment → Source: GitHub Actions**.
 
 To preview the Pages build locally:
 
 ```sh
-BASE_PATH=/political-radar/ npm run build && BASE_PATH=/political-radar/ npm run preview
+BASE_PATH=/political-radar/ npm run build:pages && BASE_PATH=/political-radar/ npm run preview
 # open http://localhost:4173/political-radar/   (Git Bash on Windows: prefix with MSYS_NO_PATHCONV=1)
 ```
 

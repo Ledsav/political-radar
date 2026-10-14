@@ -1,4 +1,4 @@
-import {fireEvent, render, screen} from '@testing-library/react';
+import {fireEvent, render, screen, waitFor} from '@testing-library/react';
 import {MemoryRouter} from 'react-router-dom';
 import {ThemeProvider} from '@mui/material/styles';
 import {AppRoutes} from './App';
@@ -115,4 +115,22 @@ test('the search dropdown says when nothing matches', async () => {
     const input = screen.getByRole('combobox', {name: 'Cerca un politico o un partito'});
     fireEvent.change(input, {target: {value: 'zzz'}});
     expect(await screen.findByText('Nessun politico o partito trovato per «zzz»')).toBeInTheDocument();
+});
+
+const headContent = (selector: string, attr = 'content') => document.head.querySelector(selector)?.getAttribute(attr);
+
+test('politician pages set their own title, description and canonical URL', async () => {
+    renderAt('/politicians/matteo-salvini');
+    await screen.findByText('MATTEO SALVINI');
+    await waitFor(() => expect(document.title).toBe('Matteo Salvini (Lega) | Radar Politico'));
+    expect(headContent('meta[name="description"]')).toMatch(/^Matteo Salvini: 6 dichiarazioni verificate da Pagella Politica\. Attendibilità 68\/100 \(margine 60–75\)/);
+    expect(headContent('link[rel="canonical"]', 'href')).toBe('http://localhost:3000/politicians/matteo-salvini');
+    expect(headContent('meta[name="robots"]')).toBe('index, follow');
+});
+
+test('unknown pages are marked noindex', async () => {
+    renderAt('/politicians/nessuno');
+    await screen.findByText('Politico non trovato');
+    await waitFor(() => expect(headContent('meta[name="robots"]')).toBe('noindex'));
+    expect(document.title).toBe('Pagina non trovata | Radar Politico');
 });
