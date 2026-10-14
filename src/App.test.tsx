@@ -14,7 +14,8 @@ const politicians: Politician[] = [
     {...base, id: 'mario-rossi', name: 'Mario Rossi', party: 'Lega', partySlug: 'lega', image: null,
         rated: 1, breakdown: {vero: 0, quasi: 0, ni: 0, pinocchio: 0, panzana: 1}, score: 47, score_low: 30, score_high: 64, reliable: false},
 ];
-const parties: Party[] = [{...base, id: 'lega', name: 'Lega', politicians: 2, rated: 7, breakdown, score: 62, score_low: 55, score_high: 69, reliable: true}];
+const parties: Party[] = [{...base, id: 'lega', name: 'Lega', politicians: 2,
+    logo: {path: 'logos/lega.png', author: 'Lega', license: 'Public domain', source: 'https://commons.wikimedia.org/wiki/File:Lega.svg'}, rated: 7, breakdown, score: 62, score_low: 55, score_high: 69, reliable: true}];
 const statements: Statement[] = [
     {id: 1, published: '2024-05-01', claim: 'Il PIL è cresciuto del 2%', claimDate: '1 maggio', claimSource: null,
         factCheck: 'https://pagellapolitica.it/articoli/pil', verdict: 'Il leader della Lega esagera.', rating: 'ni', ratedBy: 'llm'},
@@ -81,6 +82,8 @@ test('a party page lists its members', async () => {
     expect(await screen.findByText('LEGA')).toBeInTheDocument();
     expect(screen.getByText('Matteo Salvini')).toBeInTheDocument();
     expect(screen.getByText('Mario Rossi')).toBeInTheDocument();
+    expect(screen.getByAltText('Lega')).toHaveAttribute('src', '/logos/lega.png');
+    expect(screen.getByText(/Logo: Lega, Public domain, via/)).toBeInTheDocument();
 });
 
 test('the methodology page reports the counts from meta.json', async () => {

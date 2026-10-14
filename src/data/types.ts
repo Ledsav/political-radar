@@ -24,10 +24,18 @@ export interface Politician extends Stats {
     image: string | null;
 }
 
+export interface ImageCredit {
+    path: string;
+    author: string;
+    license: string;
+    source: string;
+}
+
 export interface Party extends Stats {
     id: string;
     name: string;
     politicians: number;
+    logo: ImageCredit | null;
 }
 
 export interface Statement {

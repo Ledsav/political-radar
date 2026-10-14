@@ -23,6 +23,8 @@ export const loadMeta = () => fetchJson<Meta>('meta.json');
 export const loadStatements = (politicianId: string) =>
     fetchJson<Statement[]>(`statements/${encodeURIComponent(politicianId)}.json`);
 
+export const assetUrl = (path: string) => `${import.meta.env.BASE_URL}${path}`;
+
 export function clearCache() {
     cache.clear();
 }

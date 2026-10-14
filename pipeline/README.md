@@ -18,6 +18,7 @@ python -m radar all        # all three; skips classify when no key is set
 | `normalize.py` | Cleans HTML, links each statement to its politician, builds the fact-check URL. |
 | `verdicts.py` | Maps each statement onto the 5-point scale (see below). |
 | `scoring.py` | Per-politician and per-party scores with shrinkage toward the global mean. |
+| `logos.py` | Downloads curated party logos from Wikimedia Commons with their licence credits. |
 | `export.py` | Writes `politicians.json`, `parties.json`, `statements/<slug>.json`, `meta.json`. |
 
 ## How verdicts are rated

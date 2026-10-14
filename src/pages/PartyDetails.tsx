@@ -1,6 +1,6 @@
 import React from 'react';
 import {useParams} from 'react-router-dom';
-import {Box, Grid, Typography} from '@mui/material';
+import {Box, Grid, Link, Typography} from '@mui/material';
 import Layout from '../components/shared/Layout';
 import DetailHeader from '../components/shared/DetailHeader';
 import ScoreBox from '../components/shared/ScoreBox';
@@ -8,7 +8,7 @@ import VerdictBar from '../components/shared/VerdictBar';
 import PaginatedGridList from '../components/shared/PaginatedGridList';
 import PoliticianCard from '../components/politicians/PoliticianCard';
 import {ErrorMessage, Loading, NotFoundMessage} from '../components/shared/Status';
-import {loadMeta, loadParties, loadPoliticians} from '../data/api';
+import {assetUrl, loadMeta, loadParties, loadPoliticians} from '../data/api';
 import {useData} from '../data/useData';
 import {formatDate} from '../data/ratings';
 
@@ -31,7 +31,12 @@ const PartyDetailPage: React.FC = () => {
         const {party, members, meta} = data;
         content = (
             <>
-                <DetailHeader name={party.name} subtitle={`${party.politicians} ${party.politicians === 1 ? 'esponente verificato' : 'esponenti verificati'}`}/>
+                <DetailHeader
+                    name={party.name}
+                    subtitle={`${party.politicians} ${party.politicians === 1 ? 'esponente verificato' : 'esponenti verificati'}`}
+                    image={party.logo ? assetUrl(party.logo.path) : null}
+                    imageFit="contain"
+                />
                 <Grid container spacing={4}>
                     <Grid item xs={12} md={5}>
                         <ScoreBox score={party.score} low={party.score_low} high={party.score_high} rated={party.rated} reliable={party.reliable} minStatements={meta.method.minStatements}/>
@@ -46,6 +51,12 @@ const PartyDetailPage: React.FC = () => {
                             Il punteggio somma le verifiche di chi oggi fa parte del partito, comprese quelle
                             di dichiarazioni fatte quando militava altrove. Pesa di più chi viene verificato più spesso.
                         </Typography>
+                        {party.logo && (
+                            <Typography variant="caption" component="p" sx={{mt: 2, color: '#555'}}>
+                                Logo: {party.logo.author}, {party.logo.license}, via{' '}
+                                <Link href={party.logo.source} target="_blank" rel="noopener" color="inherit">Wikimedia Commons</Link>.
+                            </Typography>
+                        )}
                     </Grid>
                 </Grid>
                 <Box sx={{mt: 6}}>

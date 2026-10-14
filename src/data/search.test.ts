@@ -8,7 +8,7 @@ const politicians: Politician[] = [
     {...stats, id: 'matteo-salvini', name: 'Matteo Salvini', party: 'Lega', partySlug: 'lega', image: null},
     {...stats, id: 'matteo-renzi', name: 'Matteo Renzi', party: 'Italia Viva', partySlug: 'italia-viva', image: null},
 ];
-const parties: Party[] = [{...stats, id: 'piu-europa', name: 'Più Europa', politicians: 3}];
+const parties: Party[] = [{...stats, id: 'piu-europa', name: 'Più Europa', politicians: 3, logo: null}];
 
 test('fold strips accents and case', () => {
     expect(fold('  Più Europa ')).toBe('piu europa');

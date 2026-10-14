@@ -17,6 +17,10 @@ EVALUATION_FILE = PIPELINE_ROOT / "data" / "evaluation.json"
 # Where the frontend reads its data from.
 EXPORT_DIR = REPO_ROOT / "public" / "data"
 
+# Party logos (downloaded once from Wikimedia Commons) and their licence credits.
+LOGO_DIR = REPO_ROOT / "public" / "logos"
+LOGO_CREDITS_FILE = PIPELINE_ROOT / "data" / "party_logos.json"
+
 API_BASE = "https://backend.pagellapolitica.it/wp-json/wp/v2"
 SITE_BASE = "https://pagellapolitica.it"
 USER_AGENT = "political-radar/1.0 (+https://github.com/Ledsav/political-radar)"

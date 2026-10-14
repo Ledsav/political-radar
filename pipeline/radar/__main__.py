@@ -5,6 +5,7 @@
     python -m radar build      write public/data/*.json from the raw dump and labels
     python -m radar all        fetch, classify (when a key is available), build
     python -m radar evaluate   re-rate a sample of labelled statements and record agreement
+    python -m radar logos      download party logos from Wikimedia Commons (only missing ones)
 """
 
 import argparse
@@ -13,7 +14,7 @@ import logging
 import os
 import sys
 
-from . import config, evaluate, export, fetch, verdicts
+from . import config, evaluate, export, fetch, logos, verdicts
 from .normalize import normalize
 
 log = logging.getLogger("radar")
@@ -52,13 +53,15 @@ def _build(statements, politicians) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(prog="radar")
-    parser.add_argument("command", choices=["fetch", "classify", "build", "all", "evaluate"])
+    parser.add_argument("command", choices=["fetch", "classify", "build", "all", "evaluate", "logos"])
     args = parser.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
     _load_dotenv()
 
+    if args.command in ("logos", "all"):
+        logos.run()
     raw = fetch.run() if args.command in ("fetch", "all") else None
-    if args.command == "fetch":
+    if args.command in ("fetch", "logos"):
         return
 
     statements, politicians = normalize(raw if raw is not None else _load_raw())

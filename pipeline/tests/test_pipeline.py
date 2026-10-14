@@ -167,3 +167,9 @@ def test_agreement_counts_exact_and_adjacent_matches():
     assert result["exact"] == 0.25
     assert result["withinOneStep"] == 0.5
     assert result["topDisagreements"]["vero->quasi"] == 1
+
+
+def test_logo_credit_cleanup():
+    from radar.logos import _clean
+    assert _clean('Cesare Priori <sup>[1]</sup>[2]; Vectorization: <a href="x">Actam</a>') == "Cesare Priori ; Vectorization: Actam"
+    assert _clean(None) == ""

@@ -61,6 +61,8 @@ const StyledCard: React.FC<StyledCardProps> = ({
                             objectPosition: objectFit === 'cover' ? objectPosition : 'center',
                             width: '100%',
                             height: '280px',
+                            boxSizing: 'border-box',
+                            p: objectFit === 'contain' ? 3 : 0,
                             backgroundColor: theme.palette.secondary.main
                         }}
                     />

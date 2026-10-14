@@ -66,6 +66,15 @@ Every statement is mapped onto Pagella Politica's own 5-point scale:
 
 Parties add up the statements of their *current* members.
 
+### Party logos
+
+`logos.py` downloads 12 party logos from **Wikimedia Commons** (public domain or CC BY-SA only), saves them to
+`public/logos/` and records author and licence in `pipeline/data/party_logos.json`. Party pages show that credit.
+The list in `PARTY_LOGOS` is curated by hand, because automatic name matching kept picking the wrong party.
+Fratelli d'Italia, Italia Viva, Impegno Civico, Alleanza Verdi e Sinistra, Partito Liberaldemocratico and
+Futuro Nazionale have no free logo on Commons and get a typographic card instead. Run
+`python -m radar logos` after editing the list.
+
 ### 5. Export
 
 `export.py` writes `public/data/politicians.json`, `parties.json`, `statements/<politician>.json` and

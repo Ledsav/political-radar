@@ -5,7 +5,7 @@ import shutil
 from datetime import datetime, timezone
 from pathlib import Path
 
-from . import config, evaluate
+from . import config, evaluate, logos
 from .normalize import Politician, Statement
 from .scoring import NON_PARTIES, Rated, by_party, by_politician, global_mean, global_variance, slugify
 from .verdicts import SCALE, resolve
@@ -47,7 +47,11 @@ def build(statements: list[Statement], politicians: dict[int, Politician], label
     politician_rows.sort(key=lambda r: (-r["rated"], r["name"]))
     _write(out / "politicians.json", politician_rows)
 
-    party_rows = [{"id": slugify(name), "name": name, **stats} for name, stats in party_stats.items()]
+    logo_credits = logos.load_credits()
+    party_rows = [
+        {"id": slugify(name), "name": name, "logo": logo_credits.get(name), **stats}
+        for name, stats in party_stats.items()
+    ]
     party_rows.sort(key=lambda r: (-r["rated"], r["name"]))
     _write(out / "parties.json", party_rows)
 

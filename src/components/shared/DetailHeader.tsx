@@ -5,9 +5,10 @@ interface DetailHeaderProps {
     name: string;
     subtitle: React.ReactNode;
     image?: string | null;
+    imageFit?: 'cover' | 'contain';
 }
 
-const DetailHeader: React.FC<DetailHeaderProps> = ({name, subtitle, image}) => (
+const DetailHeader: React.FC<DetailHeaderProps> = ({name, subtitle, image, imageFit = 'cover'}) => (
     <Box sx={{
         bgcolor: 'primary.main',
         border: '1px solid black',
@@ -28,8 +29,10 @@ const DetailHeader: React.FC<DetailHeaderProps> = ({name, subtitle, image}) => (
         {image && (
             <Box component="img" src={image} alt={name} sx={{
                 width: {xs: 110, sm: 220},
-                objectFit: 'cover',
-                objectPosition: '50% 20%',
+                objectFit: imageFit,
+                objectPosition: imageFit === 'cover' ? '50% 20%' : 'center',
+                boxSizing: 'border-box',
+                p: imageFit === 'contain' ? 1.5 : 0,
                 borderLeft: '1px solid black',
                 bgcolor: 'white',
                 flexShrink: 0,
