@@ -182,11 +182,28 @@ A normal week has only a handful of new statements.
 - **`.github/workflows/update-data.yml`** runs every Monday at 05:00 UTC (or manually). It fetches, classifies
   and rebuilds, then commits `public/data` and the label cache only if something besides the timestamp changed.
 
-## Deploying
+## Deploying (GitHub Pages)
 
-`npm run build` writes a static site to `build/`. Any static host works (Netlify, Vercel, GitHub Pages,
-Cloudflare Pages, …). Routes like `/politicians/matteo-salvini` are client-side, so configure the host to
-serve `index.html` for unknown paths.
+The site is published at **https://ledsav.github.io/political-radar/** by `.github/workflows/pages.yml`:
+
+- It runs on every push to `main`, after every successful **Update data** run (bot pushes don't trigger
+  `push` workflows by themselves), or manually from the Actions tab.
+- It builds with `BASE_PATH=/political-radar/`. `vite.config.ts` uses that as the base URL and the router uses it
+  as its basename. Without `BASE_PATH` the app builds for the domain root, which is what `npm run dev` uses.
+- It copies `index.html` to `404.html`. Pages has no URL rewriting, so this makes direct links such as
+  `/political-radar/politicians/matteo-salvini` load the app, which then shows the right page.
+
+One-time setup: repo → **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+
+To preview the Pages build locally:
+
+```sh
+BASE_PATH=/political-radar/ npm run build && BASE_PATH=/political-radar/ npm run preview
+# open http://localhost:4173/political-radar/   (Git Bash on Windows: prefix with MSYS_NO_PATHCONV=1)
+```
+
+Any other static host works too: build without `BASE_PATH` and configure it to serve `index.html` for
+unknown paths.
 
 ## License and attribution
 

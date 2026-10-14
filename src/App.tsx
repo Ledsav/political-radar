@@ -31,7 +31,7 @@ export const AppRoutes: React.FC = () => (
 const App: React.FC = () => (
     <ThemeProvider theme={theme}>
         <CssBaseline/>
-        <Router>
+        <Router basename={import.meta.env.BASE_URL}>
             <AppRoutes/>
         </Router>
     </ThemeProvider>
