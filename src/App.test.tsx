@@ -1,4 +1,4 @@
-import {render, screen} from '@testing-library/react';
+import {fireEvent, render, screen} from '@testing-library/react';
 import {MemoryRouter} from 'react-router-dom';
 import {ThemeProvider} from '@mui/material/styles';
 import {AppRoutes} from './App';
@@ -96,4 +96,23 @@ test('the methodology page reports the counts from meta.json', async () => {
 test('the home page lists politicians', async () => {
     renderAt('/');
     expect(await screen.findByText('Matteo Salvini')).toBeInTheDocument();
+});
+
+test('the search dropdown lists matches and opens the chosen page', async () => {
+    renderAt('/');
+    await screen.findAllByText('Matteo Salvini'); // data loaded
+    const input = screen.getByRole('combobox', {name: 'Cerca un politico o un partito'});
+    fireEvent.change(input, {target: {value: 'salv'}});
+    expect(await screen.findByText('POLITICI', {selector: 'div'})).toBeInTheDocument();
+    expect(screen.getByRole('option')).toHaveTextContent('Matteo SalviniLega68/1006 verifiche');
+    fireEvent.keyDown(input, {key: 'Enter'});
+    expect(await screen.findByText('MATTEO SALVINI')).toBeInTheDocument();
+});
+
+test('the search dropdown says when nothing matches', async () => {
+    renderAt('/');
+    await screen.findAllByText('Matteo Salvini');
+    const input = screen.getByRole('combobox', {name: 'Cerca un politico o un partito'});
+    fireEvent.change(input, {target: {value: 'zzz'}});
+    expect(await screen.findByText('Nessun politico o partito trovato per «zzz»')).toBeInTheDocument();
 });

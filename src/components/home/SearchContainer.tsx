@@ -1,11 +1,11 @@
-import React, {useCallback, useState} from 'react';
+import React, {useCallback, useMemo} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {Box, Typography, useMediaQuery, useTheme} from '@mui/material';
 import SearchBar from '../shared/SearchBar';
 import emoji from '../../assets/images/emoji.png';
 import {loadParties, loadPoliticians} from '../../data/api';
 import {useData} from '../../data/useData';
-import {resultPath, search, SearchResult} from '../../data/search';
+import {resultPath, SearchResult, toCandidates} from '../../data/search';
 
 const loadAll = () => Promise.all([loadPoliticians(), loadParties()]);
 
@@ -13,14 +13,9 @@ const SearchContainer: React.FC = () => {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const navigate = useNavigate();
-    const {data} = useData(loadAll);
-    const [results, setResults] = useState<SearchResult[]>([]);
-
-    const onSearch = useCallback(
-        (query: string) => setResults(data ? search(query, data[0], data[1]) : []),
-        [data],
-    );
-    const onResultClick = useCallback((result: SearchResult) => navigate(resultPath(result)), [navigate]);
+    const {data, loading} = useData(loadAll);
+    const candidates = useMemo(() => (data ? toCandidates(data[0], data[1]) : []), [data]);
+    const onSelect = useCallback((result: SearchResult) => navigate(resultPath(result)), [navigate]);
 
     return (
         <Box
@@ -48,7 +43,7 @@ const SearchContainer: React.FC = () => {
                         FIDARTI
                     </span>
                 </Typography>
-                <SearchBar onSearch={onSearch} results={results} onResultClick={onResultClick}/>
+                <SearchBar candidates={candidates} loading={loading} onSelect={onSelect}/>
             </Box>
             {!isMobile && (
                 <Box
