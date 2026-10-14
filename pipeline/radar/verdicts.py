@@ -9,6 +9,8 @@ of the text they were derived from, so each statement is classified once.
 import hashlib
 import json
 import logging
+import os
+import time
 import unicodedata
 from dataclasses import dataclass
 
@@ -104,11 +106,13 @@ When there is no verdict sentence and the summary describes an article that chec
 
 Conventions: "non dice la verità", "scorretta", "ha torto", "parecchio esagerato" are pinocchio; "dice una cosa falsa" is panzana; "esagera", "omette un dettaglio importante", "ha ragione solo se..." are ni; "ha ragione, ma..." and "il numero corretto è un po' più alto" are quasi."""
 
-BATCH_SIZE = 20
-MODEL = "claude-opus-5-5"
+VALID_RATINGS = {*RATINGS, UNRATED}
 
 
-def _schema(ids: list[int]) -> dict:
+def _schema(ids: list[int] | None = None) -> dict:
+    # Restricting ids to the batch is a nicety some providers' strict modes
+    # reject; ids are validated against the batch below either way.
+    id_schema = {"type": "integer", "enum": ids} if ids else {"type": "integer"}
     return {
         "type": "object",
         "properties": {
@@ -117,8 +121,8 @@ def _schema(ids: list[int]) -> dict:
                 "items": {
                     "type": "object",
                     "properties": {
-                        "id": {"type": "integer", "enum": ids},
-                        "rating": {"type": "string", "enum": [*RATINGS, UNRATED]},
+                        "id": id_schema,
+                        "rating": {"type": "string", "enum": sorted(VALID_RATINGS)},
                     },
                     "required": ["id", "rating"],
                     "additionalProperties": False,
@@ -138,21 +142,50 @@ def _prompt(batch: list[Statement]) -> str:
     return "Rate each fact-check. Return exactly one rating per id.\n\n" + json.dumps(items, ensure_ascii=False, indent=1)
 
 
-def classify_with_llm(statements: list[Statement], labels: dict[str, dict]) -> int:
-    """Classify statements that have no cached label. Returns how many were added."""
-    import anthropic
+class GroqRater:
+    """Free-tier friendly: small batches, waits out 429s."""
 
-    todo = [s for s in statements if needs_llm(s) and resolve(s, labels)[1] == "missing"]
-    if not todo:
-        return 0
-    log.info("classifying %d statements with %s", len(todo), MODEL)
+    URL = "https://api.groq.com/openai/v1/chat/completions"
+    batch_size = 8  # keeps each request well under the free tier's per-minute token limit
 
-    client = anthropic.Anthropic()
-    added = 0
-    for start in range(0, len(todo), BATCH_SIZE):
-        batch = todo[start : start + BATCH_SIZE]
-        response = client.messages.create(
-            model=MODEL,
+    def __init__(self, api_key: str, model: str | None = None, session=None):
+        import requests
+
+        self.model = model or os.environ.get("GROQ_MODEL", "openai/gpt-oss-120b")
+        self.session = session or requests.Session()
+        self.session.headers["Authorization"] = f"Bearer {api_key}"
+
+    def rate(self, batch: list[Statement]) -> list[dict] | None:
+        body = {
+            "model": self.model,
+            "messages": [{"role": "system", "content": SYSTEM_PROMPT}, {"role": "user", "content": _prompt(batch)}],
+            "response_format": {"type": "json_schema", "json_schema": {"name": "ratings", "strict": True, "schema": _schema()}},
+        }
+        for attempt in range(5):
+            resp = self.session.post(self.URL, json=body, timeout=120)
+            if resp.status_code == 429:
+                wait = float(resp.headers.get("retry-after", 2 ** attempt * 5))
+                log.info("rate limited; waiting %.0fs", wait)
+                time.sleep(wait)
+                continue
+            resp.raise_for_status()
+            return json.loads(resp.json()["choices"][0]["message"]["content"])["ratings"]
+        log.warning("still rate limited after retries; skipping batch")
+        return None
+
+
+class ClaudeRater:
+    batch_size = 20
+
+    def __init__(self):
+        import anthropic
+
+        self.model = "claude-opus-5-5"
+        self.client = anthropic.Anthropic()
+
+    def rate(self, batch: list[Statement]) -> list[dict] | None:
+        response = self.client.messages.create(
+            model=self.model,
             max_tokens=4096,
             system=SYSTEM_PROMPT,
             messages=[{"role": "user", "content": _prompt(batch)}],
@@ -162,14 +195,42 @@ def classify_with_llm(statements: list[Statement], labels: dict[str, dict]) -> i
             extra_body={"fallbacks": "default"},
         )
         if response.stop_reason != "end_turn":
-            log.warning("batch starting at %d stopped with %s; skipping", start, response.stop_reason)
+            log.warning("batch stopped with %s; skipping", response.stop_reason)
+            return None
+        return json.loads(next(b.text for b in response.content if b.type == "text"))["ratings"]
+
+
+def make_rater():
+    """Groq if GROQ_API_KEY is set (free tier), else Claude if ANTHROPIC_API_KEY is set, else None."""
+    if os.environ.get("GROQ_API_KEY"):
+        return GroqRater(os.environ["GROQ_API_KEY"])
+    if os.environ.get("ANTHROPIC_API_KEY"):
+        return ClaudeRater()
+    return None
+
+
+def classify_with_llm(statements: list[Statement], labels: dict[str, dict], rater=None) -> int:
+    """Classify statements that have no cached label. Returns how many were added."""
+    todo = [s for s in statements if needs_llm(s) and resolve(s, labels)[1] == "missing"]
+    if not todo:
+        return 0
+    rater = rater or make_rater()
+    if rater is None:
+        log.warning("no GROQ_API_KEY or ANTHROPIC_API_KEY; %d statements left unclassified", len(todo))
+        return 0
+    log.info("classifying %d statements with %s", len(todo), rater.model)
+
+    added = 0
+    for start in range(0, len(todo), rater.batch_size):
+        batch = todo[start : start + rater.batch_size]
+        ratings = rater.rate(batch)
+        if ratings is None:
             continue
-        text = next(b.text for b in response.content if b.type == "text")
         by_id = {s.id: s for s in batch}
-        for item in json.loads(text)["ratings"]:
-            statement = by_id.get(item["id"])
-            if statement:
-                labels[str(statement.id)] = {"rating": item["rating"], "hash": text_hash(statement), "by": response.model}
+        for item in ratings:
+            statement = by_id.get(item.get("id"))
+            if statement and item.get("rating") in VALID_RATINGS:
+                labels[str(statement.id)] = {"rating": item["rating"], "hash": text_hash(statement), "by": rater.model}
                 added += 1
         save_labels(labels)  # persist progress so an interrupted run is not wasted
     return added

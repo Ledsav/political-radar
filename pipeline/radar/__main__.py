@@ -1,7 +1,7 @@
 """Political Radar data pipeline.
 
     python -m radar fetch      download statements from the Pagella Politica API
-    python -m radar classify   rate verdict sentences with Claude (needs ANTHROPIC_API_KEY)
+    python -m radar classify   rate new verdict sentences (needs GROQ_API_KEY or ANTHROPIC_API_KEY)
     python -m radar build      write public/data/*.json from the raw dump and labels
     python -m radar all        fetch, classify (when a key is available), build
 """
@@ -9,7 +9,6 @@
 import argparse
 import json
 import logging
-import os
 import sys
 
 from . import config, export, fetch, verdicts
@@ -49,10 +48,8 @@ def main() -> None:
         return
 
     statements, politicians = normalize(raw if raw is not None else _load_raw())
-    if args.command == "classify" or (args.command == "all" and os.environ.get("ANTHROPIC_API_KEY")):
+    if args.command in ("classify", "all"):
         _classify(statements)
-    elif args.command == "all":
-        log.warning("ANTHROPIC_API_KEY not set; skipping classification of new verdicts")
     if args.command in ("build", "all"):
         _build(statements, politicians)
 

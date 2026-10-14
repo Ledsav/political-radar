@@ -95,3 +95,59 @@ def test_parties_exclude_non_parties_and_count_members():
 def test_slugify():
     assert scoring.slugify("Fratelli d'Italia") == "fratelli-d-italia"
     assert scoring.slugify("Più Europa") == "piu-europa"
+
+
+class FakeResponse:
+    def __init__(self, status, payload=None, headers=None):
+        self.status_code, self._payload, self.headers = status, payload, headers or {}
+
+    def json(self):
+        return self._payload
+
+    def raise_for_status(self):
+        if self.status_code >= 400:
+            raise RuntimeError(self.status_code)
+
+
+class FakeSession:
+    def __init__(self, responses):
+        self.responses, self.headers, self.bodies = list(responses), {}, []
+
+    def post(self, url, json, timeout):
+        self.bodies.append(json)
+        return self.responses.pop(0)
+
+
+def test_groq_rater_waits_out_rate_limits(monkeypatch):
+    monkeypatch.setattr(verdicts.time, "sleep", lambda s: None)
+    content = '{"ratings": [{"id": 1, "rating": "ni"}]}'
+    session = FakeSession([
+        FakeResponse(429, headers={"retry-after": "1"}),
+        FakeResponse(200, {"choices": [{"message": {"content": content}}]}),
+    ])
+    rater = verdicts.GroqRater("key", model="test-model", session=session)
+    assert rater.rate([statement(1, verdict="esagera")]) == [{"id": 1, "rating": "ni"}]
+    assert session.headers["Authorization"] == "Bearer key"
+    assert session.bodies[0]["response_format"]["json_schema"]["strict"] is True
+
+
+def test_classify_keeps_only_valid_ratings_for_requested_ids(monkeypatch, tmp_path):
+    monkeypatch.setattr(config, "LABELS_FILE", tmp_path / "labels.json")
+
+    class Rater:
+        model, batch_size = "fake", 10
+
+        def rate(self, batch):
+            return [{"id": 1, "rating": "vero"}, {"id": 2, "rating": "maybe"}, {"id": 99, "rating": "vero"}]
+
+    labels = {}
+    added = verdicts.classify_with_llm([statement(1, verdict="ha ragione"), statement(2, verdict="boh")], labels, Rater())
+    assert added == 1
+    assert labels["1"]["rating"] == "vero" and labels["1"]["by"] == "fake"
+    assert "2" not in labels and "99" not in labels
+
+
+def test_classify_without_any_key_does_nothing(monkeypatch):
+    monkeypatch.delenv("GROQ_API_KEY", raising=False)
+    monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
+    assert verdicts.classify_with_llm([statement(1, verdict="sbaglia")], {}) == 0

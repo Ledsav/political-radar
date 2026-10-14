@@ -28,11 +28,11 @@ jobs:
       - run: pip install -r requirements-dev.txt
       - run: python -m pytest -q
 
-      # Classifies new verdict sentences only when the ANTHROPIC_API_KEY secret
-      # is set; otherwise they are left out of the scores until a later run.
+      # New verdict sentences are classified with Groq's free tier when the
+      # GROQ_API_KEY secret is set; otherwise they stay unscored until a later run.
       - name: Fetch, classify and export
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
         run: python -m radar all
 
       - name: Commit if the data changed

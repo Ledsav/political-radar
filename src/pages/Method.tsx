@@ -54,7 +54,7 @@ const Method: React.FC = () => {
                             Fino al 2021 Pagella Politica assegnava direttamente una di queste etichette
                             ({meta.counts.ratedByLabel.toLocaleString('it-IT')} dichiarazioni). Da allora pubblica un verdetto
                             a parole, ad esempio «Il ministro esagera». Per {meta.counts.ratedByModel.toLocaleString('it-IT')} dichiarazioni
-                            un modello linguistico (Claude) ha ricondotto quel verdetto alla stessa scala; ogni classificazione è
+                            un modello linguistico ha ricondotto quel verdetto alla stessa scala; ogni classificazione è
                             salvata e consultabile nel repository. {meta.counts.unrated} dichiarazioni non contengono un verdetto
                             utilizzabile e non sono conteggiate.
                         </P>

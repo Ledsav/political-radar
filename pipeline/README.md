@@ -5,7 +5,7 @@ Builds `public/data/` from Pagella Politica's public WordPress REST API
 
 ```sh
 python -m radar fetch      # download all statements to data/raw/ (gitignored)
-python -m radar classify   # rate new verdict sentences with Claude (needs ANTHROPIC_API_KEY)
+python -m radar classify   # rate new verdict sentences (needs GROQ_API_KEY or ANTHROPIC_API_KEY)
 python -m radar build      # write ../public/data/*.json
 python -m radar all        # all three; skips classify when no key is set
 ```
@@ -27,7 +27,9 @@ Pagella Politica's scale: **Vero** (1.0), **C'eri quasi** (0.75), **Nì** (0.5),
 
 - Until 2021 each statement carries one of those labels, which is used as-is.
 - Since then the site publishes a verdict sentence ("Il ministro esagera."), or for the newest statements only
-  an article. These are rated by Claude with the prompt in `verdicts.py`. A statement can also be
+  an article. These are rated by an LLM with the prompt in `verdicts.py`: Groq's free tier
+  (`openai/gpt-oss-120b`, override with `GROQ_MODEL`) when `GROQ_API_KEY` is set, otherwise Claude when
+  `ANTHROPIC_API_KEY` is set and `pip install anthropic` has been run. A statement can also be
   `non_valutabile`, for example when its only text is a round-up article covering several claims.
 - Ratings are cached in `data/verdict_labels.json`, keyed by statement id and a hash of the text they were
   derived from. A statement is reclassified only when that text changes. To redo one, delete its entry and run
@@ -35,7 +37,7 @@ Pagella Politica's scale: **Vero** (1.0), **C'eri quasi** (0.75), **Nì** (0.5),
 
 The initial 569 entries marked `"by": "claude-code-session"` were rated interactively in a Claude Code session
 using the same scale and conventions as the prompt, because no API key was available at the time. Entries
-written by the API carry the model name instead.
+written by a provider carry the model name instead.
 
 ## Known gaps
 

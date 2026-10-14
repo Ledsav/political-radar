@@ -9,7 +9,7 @@ verdict back to the original article.
 ```
 Pagella Politica WordPress API ──► pipeline/ (Python) ──► public/data/*.json ──► React app (Vite)
                                        │
-                                       └─ pipeline/data/verdict_labels.json  (cached Claude ratings)
+                                       └─ pipeline/data/verdict_labels.json  (cached LLM ratings)
 ```
 
 - **`pipeline/`** downloads every statement from the public API, maps each verdict onto Pagella Politica's
@@ -33,7 +33,7 @@ To refresh the data locally:
 ```sh
 cd pipeline
 python -m venv .venv && .venv/Scripts/pip install -r requirements-dev.txt   # .venv/bin/pip on macOS/Linux
-.venv/Scripts/python -m radar all     # set ANTHROPIC_API_KEY to classify new verdict sentences
+.venv/Scripts/python -m radar all     # set GROQ_API_KEY to classify new verdict sentences
 .venv/Scripts/python -m pytest
 ```
 
@@ -43,8 +43,8 @@ python -m venv .venv && .venv/Scripts/pip install -r requirements-dev.txt   # .v
 `/politicians/matteo-salvini` are client-side, configure the host to serve `index.html` for unknown paths
 (Firebase Hosting `rewrites`, Netlify `_redirects`, Vercel `rewrites`, …).
 
-For the weekly data update, add an `ANTHROPIC_API_KEY` repository secret. Without it the workflow still
-runs, but newly published verdict sentences stay unscored until a key is available.
+For the weekly data update, add a `GROQ_API_KEY` repository secret (free at console.groq.com). Without it the
+workflow still runs, but newly published verdict sentences stay unscored until a key is available.
 
 ## License
 
