@@ -11,6 +11,9 @@ RAW_STATEMENTS = RAW_DIR / "dichiarazioni.json"
 # never re-classifies a statement whose verdict text has not changed.
 LABELS_FILE = PIPELINE_ROOT / "data" / "verdict_labels.json"
 
+# Output of `python -m radar evaluate` (label agreement on a sample).
+EVALUATION_FILE = PIPELINE_ROOT / "data" / "evaluation.json"
+
 # Where the frontend reads its data from.
 EXPORT_DIR = REPO_ROOT / "public" / "data"
 

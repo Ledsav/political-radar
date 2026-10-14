@@ -56,16 +56,16 @@ const theme = createTheme({
             color: '#333',
         },
         button: {
-            fontFamily: '"Antonio","Bebas Neue", "Roboto", "Helvetica", "Arial", sans-serif',
+            fontFamily: '"Antonio", "Roboto", "Helvetica", "Arial", sans-serif',
             textTransform: 'none',
         },
         h1: {
-            fontFamily: '"Antonio","Bebas Neue", "Roboto", "Helvetica", "Arial", sans-serif',
+            fontFamily: '"Antonio", "Roboto", "Helvetica", "Arial", sans-serif',
             fontWeight: 400,
             fontSize: '2.5rem',
         },
         h2: {
-            fontFamily: '"Antonio","Bebas Neue", "Roboto", "Helvetica", "Arial", sans-serif',
+            fontFamily: '"Antonio", "Roboto", "Helvetica", "Arial", sans-serif',
             fontWeight: 400,
             fontSize: '2rem',
         },

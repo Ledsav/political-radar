@@ -34,7 +34,7 @@ const PartyDetailPage: React.FC = () => {
                 <DetailHeader name={party.name} subtitle={`${party.politicians} ${party.politicians === 1 ? 'esponente verificato' : 'esponenti verificati'}`}/>
                 <Grid container spacing={4}>
                     <Grid item xs={12} md={5}>
-                        <ScoreBox score={party.score} rated={party.rated} reliable={party.reliable} minStatements={meta.method.minStatements}/>
+                        <ScoreBox score={party.score} low={party.score_low} high={party.score_high} rated={party.rated} reliable={party.reliable} minStatements={meta.method.minStatements}/>
                     </Grid>
                     <Grid item xs={12} md={7}>
                         <Typography variant="h5" component="h2" sx={{fontWeight: 'bold', mb: 1}}>Come si dividono i verdetti</Typography>

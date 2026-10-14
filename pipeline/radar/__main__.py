@@ -4,17 +4,30 @@
     python -m radar classify   rate new verdict sentences (needs GROQ_API_KEY or ANTHROPIC_API_KEY)
     python -m radar build      write public/data/*.json from the raw dump and labels
     python -m radar all        fetch, classify (when a key is available), build
+    python -m radar evaluate   re-rate a sample of labelled statements and record agreement
 """
 
 import argparse
 import json
 import logging
+import os
 import sys
 
-from . import config, export, fetch, verdicts
+from . import config, evaluate, export, fetch, verdicts
 from .normalize import normalize
 
 log = logging.getLogger("radar")
+
+
+def _load_dotenv() -> None:
+    """Read KEY=value lines from pipeline/.env (gitignored) without overriding real env vars."""
+    path = config.PIPELINE_ROOT / ".env"
+    if not path.exists():
+        return
+    for line in path.read_text(encoding="utf-8").splitlines():
+        key, sep, value = line.partition("=")
+        if sep and key.strip() and not key.lstrip().startswith("#"):
+            os.environ.setdefault(key.strip(), value.strip().strip('"').strip("'"))
 
 
 def _load_raw() -> list[dict]:
@@ -39,9 +52,10 @@ def _build(statements, politicians) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(prog="radar")
-    parser.add_argument("command", choices=["fetch", "classify", "build", "all"])
+    parser.add_argument("command", choices=["fetch", "classify", "build", "all", "evaluate"])
     args = parser.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
+    _load_dotenv()
 
     raw = fetch.run() if args.command in ("fetch", "all") else None
     if args.command == "fetch":
@@ -50,7 +64,9 @@ def main() -> None:
     statements, politicians = normalize(raw if raw is not None else _load_raw())
     if args.command in ("classify", "all"):
         _classify(statements)
-    if args.command in ("build", "all"):
+    if args.command == "evaluate":
+        evaluate.run(statements)
+    if args.command in ("build", "all", "evaluate"):
         _build(statements, politicians)
 
 

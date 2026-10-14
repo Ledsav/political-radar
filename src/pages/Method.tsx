@@ -71,6 +71,51 @@ const Method: React.FC = () => {
                             «dati insufficienti» insieme ai singoli verdetti.
                         </P>
 
+                        <H>QUANTO È ACCURATO?</H>
+                        <P>
+                            Meno di quanto un numero da 0 a 100 lasci pensare. Ci sono tre fonti di errore, dalla più grande alla
+                            più piccola.
+                        </P>
+                        <P>
+                            <strong>1. Quali dichiarazioni vengono verificate.</strong> Pagella Politica sceglie cosa verificare e
+                            avverte che i suoi dati{' '}
+                            <Link href="https://pagellapolitica.it/progetto" target="_blank" rel="noopener" color="inherit" underline="always">
+                                «non consentono, allo stato attuale, di paragonare i politici»
+                            </Link>
+                            . Nessun calcolo può correggere questo limite: il punteggio descrive le dichiarazioni verificate, non la
+                            persona.
+                        </P>
+                        <P>
+                            <strong>2. Quante dichiarazioni ci sono.</strong> Anche prendendo per buona la selezione, con poche
+                            verifiche il punteggio oscilla molto. Per questo accanto a ogni punteggio mostriamo un margine
+                            (intervallo approssimato al 90%).
+                            {meta.accuracy.medianIntervalWidth !== null && (
+                                <> Per i politici con dati sufficienti il margine è di solito ampio circa{' '}
+                                    {meta.accuracy.medianIntervalWidth} punti: due politici i cui margini si sovrappongono non sono
+                                    distinguibili, anche se uno compare più in alto in classifica.</>
+                            )}
+                        </P>
+                        <P>
+                            <strong>3. Come vengono letti i verdetti.</strong>{' '}
+                            {Math.round((100 * meta.counts.ratedByLabel) / meta.counts.rated)}% delle valutazioni usa
+                            l'etichetta assegnata da Pagella Politica e non introduce errori. Il restante{' '}
+                            {Math.round((100 * meta.counts.ratedByModel) / meta.counts.rated)}% è stato ricondotto alla scala da un
+                            modello linguistico, che può sbagliare, soprattutto di un gradino (ad esempio «Nì» invece di
+                            «C'eri quasi»).{' '}
+                            {meta.accuracy.labelAgreement ? (
+                                <>
+                                    Su un campione di {meta.accuracy.labelAgreement.sample} di queste dichiarazioni, una seconda
+                                    classificazione indipendente ({meta.accuracy.labelAgreement.candidate}) dà lo stesso verdetto
+                                    nel {Math.round(100 * meta.accuracy.labelAgreement.exact)}% dei casi e uno al massimo a un
+                                    gradino di distanza nel {Math.round(100 * meta.accuracy.labelAgreement.withinOneStep)}%.
+                                </>
+                            ) : (
+                                <>La coerenza di queste classificazioni non è ancora stata misurata.</>
+                            )}{' '}
+                            Ogni dichiarazione riporta il verdetto originale e il link all'articolo, così è sempre possibile
+                            controllare.
+                        </P>
+
                         <H>COSA NON DICE</H>
                         <P>
                             Il punteggio misura come sono andate le dichiarazioni che Pagella Politica ha scelto di verificare, non

@@ -1,0 +1,88 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "App: start dev server",
+      "detail": "Vite on http://localhost:5173, reads public/data/*.json",
+      "type": "npm",
+      "script": "dev",
+      "isBackground": true,
+      "problemMatcher": {
+        "owner": "vite",
+        "pattern": {"regexp": "^x^"},
+        "background": {"activesBegin": "VITE", "beginsPattern": "VITE", "endsPattern": "Local:"}
+      },
+      "group": {"kind": "build", "isDefault": true}
+    },
+    {
+      "label": "App: test",
+      "type": "npm",
+      "script": "test",
+      "problemMatcher": [],
+      "group": "test"
+    },
+    {
+      "label": "App: production build + preview",
+      "type": "shell",
+      "command": "npm run build && npm run preview",
+      "problemMatcher": []
+    },
+    {
+      "label": "Pipeline: set up Python environment",
+      "detail": "Creates pipeline/.venv and installs requirements (run once)",
+      "type": "shell",
+      "options": {"cwd": "${workspaceFolder}/pipeline"},
+      "windows": {"command": "python -m venv .venv; .venv/Scripts/pip install -r requirements-dev.txt"},
+      "linux": {"command": "python3 -m venv .venv && .venv/bin/pip install -r requirements-dev.txt"},
+      "osx": {"command": "python3 -m venv .venv && .venv/bin/pip install -r requirements-dev.txt"},
+      "problemMatcher": []
+    },
+    {
+      "label": "Pipeline: update data",
+      "detail": "Fetch from Pagella Politica, classify new verdicts with Groq (pipeline/.env), rebuild public/data",
+      "type": "shell",
+      "options": {"cwd": "${workspaceFolder}/pipeline", "env": {"PYTHONIOENCODING": "utf-8"}},
+      "windows": {"command": ".venv/Scripts/python -m radar all"},
+      "linux": {"command": ".venv/bin/python -m radar all"},
+      "osx": {"command": ".venv/bin/python -m radar all"},
+      "problemMatcher": []
+    },
+    {
+      "label": "Pipeline: rebuild data from cache (offline)",
+      "detail": "Re-export public/data from the last download and the saved labels; no network",
+      "type": "shell",
+      "options": {"cwd": "${workspaceFolder}/pipeline", "env": {"PYTHONIOENCODING": "utf-8"}},
+      "windows": {"command": ".venv/Scripts/python -m radar build"},
+      "linux": {"command": ".venv/bin/python -m radar build"},
+      "osx": {"command": ".venv/bin/python -m radar build"},
+      "problemMatcher": []
+    },
+    {
+      "label": "Pipeline: measure label agreement",
+      "detail": "Re-rates a sample with Groq and publishes the agreement on /metodo",
+      "type": "shell",
+      "options": {"cwd": "${workspaceFolder}/pipeline", "env": {"PYTHONIOENCODING": "utf-8"}},
+      "windows": {"command": ".venv/Scripts/python -m radar evaluate"},
+      "linux": {"command": ".venv/bin/python -m radar evaluate"},
+      "osx": {"command": ".venv/bin/python -m radar evaluate"},
+      "problemMatcher": []
+    },
+    {
+      "label": "Pipeline: test",
+      "type": "shell",
+      "options": {"cwd": "${workspaceFolder}/pipeline"},
+      "windows": {"command": ".venv/Scripts/python -m pytest -q"},
+      "linux": {"command": ".venv/bin/python -m pytest -q"},
+      "osx": {"command": ".venv/bin/python -m pytest -q"},
+      "problemMatcher": [],
+      "group": "test"
+    },
+    {
+      "label": "Test everything",
+      "dependsOn": ["App: test", "Pipeline: test"],
+      "dependsOrder": "sequence",
+      "problemMatcher": [],
+      "group": {"kind": "test", "isDefault": true}
+    }
+  ]
+}

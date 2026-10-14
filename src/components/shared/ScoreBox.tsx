@@ -4,6 +4,8 @@ import {Link as RouterLink} from 'react-router-dom';
 
 interface ScoreBoxProps {
     score: number;
+    low: number;
+    high: number;
     rated: number;
     reliable: boolean;
     minStatements: number;
@@ -11,7 +13,7 @@ interface ScoreBoxProps {
 
 // The headline credibility number, or an explicit "not enough data" state when
 // the sample is too small for the number to mean much.
-const ScoreBox: React.FC<ScoreBoxProps> = ({score, rated, reliable, minStatements}) => (
+const ScoreBox: React.FC<ScoreBoxProps> = ({score, low, high, rated, reliable, minStatements}) => (
     <Box sx={{display: 'flex', alignItems: 'stretch', maxWidth: 420, bgcolor: 'black', color: 'white'}}>
         <Box sx={{width: 40, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
             <Typography sx={{transform: 'rotate(-90deg)', whiteSpace: 'nowrap', fontSize: '1rem'}}>
@@ -29,7 +31,12 @@ const ScoreBox: React.FC<ScoreBoxProps> = ({score, rated, reliable, minStatement
                     DATI INSUFFICIENTI
                 </Typography>
             )}
-            <Typography variant="body2" sx={{mt: 1}}>
+            {reliable && (
+                <Typography variant="body2" sx={{mt: 1}}>
+                    margine: tra {low} e {high}
+                </Typography>
+            )}
+            <Typography variant="body2" sx={{mt: 0.5}}>
                 {reliable
                     ? `su ${rated} dichiarazioni verificate`
                     : `solo ${rated} ${rated === 1 ? 'dichiarazione verificata' : 'dichiarazioni verificate'} (minimo ${minStatements})`}

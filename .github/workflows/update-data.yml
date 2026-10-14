@@ -4,6 +4,11 @@ on:
   schedule:
     - cron: "0 5 * * 1" # Mondays 05:00 UTC
   workflow_dispatch:
+    inputs:
+      evaluate:
+        description: "Also measure label agreement on a sample (shown on /metodo)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -35,6 +40,12 @@ jobs:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
         run: python -m radar all
 
+      - name: Measure label agreement
+        if: ${{ inputs.evaluate }}
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+        run: python -m radar evaluate
+
       - name: Commit if the data changed
         working-directory: .
         run: |
@@ -45,6 +56,6 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public/data pipeline/data/verdict_labels.json
+          git add public/data pipeline/data
           git commit -m "data: weekly update from Pagella Politica"
           git push

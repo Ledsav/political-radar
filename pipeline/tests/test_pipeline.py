@@ -68,7 +68,7 @@ def test_resolve_marks_unrateable_and_empty_statements():
 
 def test_single_statement_is_shrunk_toward_global_mean():
     one_false = [scoring.Rated(1, 1, "2024-01-01", "panzana")]
-    summary = scoring.summarize(one_false, prior=0.6)
+    summary = scoring.summarize(one_false, prior=0.6, prior_var=0.1)
     # (0 + 5 * 0.6) / (1 + 5) = 0.5, not 0
     assert summary["score"] == 50
     assert summary["raw_mean"] == 0
@@ -78,7 +78,7 @@ def test_single_statement_is_shrunk_toward_global_mean():
 
 def test_many_statements_dominate_the_prior():
     rated = [scoring.Rated(i, 1, f"2024-01-{i:02d}", "vero") for i in range(1, 31)]
-    summary = scoring.summarize(rated, prior=0.5)
+    summary = scoring.summarize(rated, prior=0.5, prior_var=0.1)
     assert summary["score"] == round(100 * (30 + 2.5) / 35)
     assert summary["reliable"] is True
     assert (summary["first_date"], summary["last_date"]) == ("2024-01-01", "2024-01-30")
@@ -87,7 +87,7 @@ def test_many_statements_dominate_the_prior():
 def test_parties_exclude_non_parties_and_count_members():
     rated = [scoring.Rated(1, 10, "2024-01-01", "vero"), scoring.Rated(2, 11, "2024-01-01", "ni"),
              scoring.Rated(3, 12, "2024-01-01", "ni")]
-    parties = scoring.by_party(rated, {10: "Lega", 11: "Lega", 12: "Tecnico"}, prior=0.5)
+    parties = scoring.by_party(rated, {10: "Lega", 11: "Lega", 12: "Tecnico"}, prior=0.5, prior_var=0.1)
     assert set(parties) == {"Lega"}
     assert parties["Lega"]["politicians"] == 2 and parties["Lega"]["rated"] == 2
 
@@ -151,3 +151,19 @@ def test_classify_without_any_key_does_nothing(monkeypatch):
     monkeypatch.delenv("GROQ_API_KEY", raising=False)
     monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
     assert verdicts.classify_with_llm([statement(1, verdict="sbaglia")], {}) == 0
+
+
+def test_interval_narrows_with_more_statements():
+    few = scoring.summarize([scoring.Rated(i, 1, "2024-01-01", "ni") for i in range(5)], prior=0.5, prior_var=0.1)
+    many = scoring.summarize([scoring.Rated(i, 1, "2024-01-01", "ni") for i in range(200)], prior=0.5, prior_var=0.1)
+    assert few["score_low"] <= few["score"] <= few["score_high"]
+    assert (many["score_high"] - many["score_low"]) < (few["score_high"] - few["score_low"])
+
+
+def test_agreement_counts_exact_and_adjacent_matches():
+    from radar.evaluate import agreement
+    result = agreement([("vero", "vero"), ("vero", "quasi"), ("vero", "panzana"), ("ni", "non_valutabile")])
+    assert result["sample"] == 4
+    assert result["exact"] == 0.25
+    assert result["withinOneStep"] == 0.5
+    assert result["topDisagreements"]["vero->quasi"] == 1

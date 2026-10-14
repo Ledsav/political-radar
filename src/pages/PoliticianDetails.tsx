@@ -39,7 +39,7 @@ const PoliticianDetailPage: React.FC = () => {
                 />
                 <Grid container spacing={4}>
                     <Grid item xs={12} md={5}>
-                        <ScoreBox score={p.score} rated={p.rated} reliable={p.reliable} minStatements={meta.method.minStatements}/>
+                        <ScoreBox score={p.score} low={p.score_low} high={p.score_high} rated={p.rated} reliable={p.reliable} minStatements={meta.method.minStatements}/>
                         <Box sx={{mt: 3}}>
                             <Typography variant="h5" component="h2" sx={{fontWeight: 'bold', mb: 1}}>Come si dividono i verdetti</Typography>
                             <VerdictBar breakdown={p.breakdown}/>

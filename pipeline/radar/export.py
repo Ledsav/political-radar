@@ -5,9 +5,9 @@ import shutil
 from datetime import datetime, timezone
 from pathlib import Path
 
-from . import config
+from . import config, evaluate
 from .normalize import Politician, Statement
-from .scoring import NON_PARTIES, Rated, by_party, by_politician, global_mean, slugify
+from .scoring import NON_PARTIES, Rated, by_party, by_politician, global_mean, global_variance, slugify
 from .verdicts import SCALE, resolve
 
 
@@ -28,9 +28,10 @@ def build(statements: list[Statement], politicians: dict[int, Politician], label
             rated.append(Rated(s.id, s.politician_id, s.published, rating))
 
     prior = global_mean(rated)
-    pol_stats = by_politician(rated, prior)
+    prior_var = global_variance(rated, prior)
+    pol_stats = by_politician(rated, prior, prior_var)
     party_of = {pid: p.party for pid, p in politicians.items()}
-    party_stats = by_party(rated, party_of, prior)
+    party_stats = by_party(rated, party_of, prior, prior_var)
 
     out = config.EXPORT_DIR
     if out.exists():
@@ -65,6 +66,7 @@ def build(statements: list[Statement], politicians: dict[int, Politician], label
         _write(out / "statements" / f"{politicians[pid].slug}.json", rows)
 
     attributed = [s for s in statements if s.politician_id is not None]
+    reliable_widths = sorted(r["score_high"] - r["score_low"] for r in politician_rows if r["reliable"])
     meta = {
         "generatedAt": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "source": {"name": "Pagella Politica", "url": config.SITE_BASE},
@@ -81,6 +83,10 @@ def build(statements: list[Statement], politicians: dict[int, Politician], label
             "awaitingClassification": sum(1 for _, how in resolved.values() if how == "missing"),
             "politicians": len(politician_rows),
             "parties": len(party_rows),
+        },
+        "accuracy": {
+            "medianIntervalWidth": reliable_widths[len(reliable_widths) // 2] if reliable_widths else None,
+            "labelAgreement": evaluate.load(),
         },
     }
     _write(out / "meta.json", meta)

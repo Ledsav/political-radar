@@ -10,11 +10,11 @@ const breakdown = {vero: 3, quasi: 1, ni: 1, pinocchio: 1, panzana: 0};
 const base = {raw_mean: 0.75, first_date: '2021-03-01', last_date: '2024-05-01'};
 const politicians: Politician[] = [
     {...base, id: 'matteo-salvini', name: 'Matteo Salvini', party: 'Lega', partySlug: 'lega', image: null,
-        rated: 6, breakdown, score: 68, reliable: true},
+        rated: 6, breakdown, score: 68, score_low: 60, score_high: 75, reliable: true},
     {...base, id: 'mario-rossi', name: 'Mario Rossi', party: 'Lega', partySlug: 'lega', image: null,
-        rated: 1, breakdown: {vero: 0, quasi: 0, ni: 0, pinocchio: 0, panzana: 1}, score: 47, reliable: false},
+        rated: 1, breakdown: {vero: 0, quasi: 0, ni: 0, pinocchio: 0, panzana: 1}, score: 47, score_low: 30, score_high: 64, reliable: false},
 ];
-const parties: Party[] = [{...base, id: 'lega', name: 'Lega', politicians: 2, rated: 7, breakdown, score: 62, reliable: true}];
+const parties: Party[] = [{...base, id: 'lega', name: 'Lega', politicians: 2, rated: 7, breakdown, score: 62, score_low: 55, score_high: 69, reliable: true}];
 const statements: Statement[] = [
     {id: 1, published: '2024-05-01', claim: 'Il PIL è cresciuto del 2%', claimDate: '1 maggio', claimSource: null,
         factCheck: 'https://pagellapolitica.it/articoli/pil', verdict: 'Il leader della Lega esagera.', rating: 'ni', ratedBy: 'llm'},
@@ -24,6 +24,7 @@ const meta = {
     scale: [], method: {globalMean: 0.57, shrinkage: 5, minStatements: 5, nonParties: ['Tecnico']},
     counts: {statements: 10, attributed: 8, rated: 7, ratedByLabel: 5, ratedByModel: 2, unrated: 1,
         awaitingClassification: 0, politicians: 2, parties: 1},
+    accuracy: {medianIntervalWidth: 23, labelAgreement: null},
 } as Meta;
 
 const files: Record<string, unknown> = {
@@ -59,6 +60,7 @@ test('a politician page works on a direct visit with nothing cached', async () =
     renderAt('/politicians/matteo-salvini');
     expect(await screen.findByText('MATTEO SALVINI')).toBeInTheDocument();
     expect(screen.getByText('68')).toBeInTheDocument();
+    expect(screen.getByText('margine: tra 60 e 75')).toBeInTheDocument();
     expect(await screen.findByText('«Il PIL è cresciuto del 2%»')).toBeInTheDocument();
     expect(screen.getByText('Leggi la verifica su Pagella Politica')).toHaveAttribute('href', 'https://pagellapolitica.it/articoli/pil');
 });
@@ -84,6 +86,8 @@ test('a party page lists its members', async () => {
 test('the methodology page reports the counts from meta.json', async () => {
     renderAt('/metodo');
     expect(await screen.findByText(/Su 10 dichiarazioni pubblicate, 8 sono collegate/)).toBeInTheDocument();
+    expect(screen.getByText(/il margine è di solito ampio circa 23 punti/)).toBeInTheDocument();
+    expect(screen.getByText(/non è ancora stata misurata/)).toBeInTheDocument();
 });
 
 test('the home page lists politicians', async () => {

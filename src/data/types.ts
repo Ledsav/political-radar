@@ -9,6 +9,8 @@ export interface Stats {
     breakdown: Breakdown;
     raw_mean: number | null;
     score: number;
+    score_low: number; // approximate 90% interval
+    score_high: number;
     reliable: boolean;
     first_date: string | null;
     last_date: string | null;
@@ -56,4 +58,18 @@ export interface Meta {
         politicians: number;
         parties: number;
     };
+    accuracy: {
+        medianIntervalWidth: number | null;
+        labelAgreement: LabelAgreement | null;
+    };
+}
+
+export interface LabelAgreement {
+    evaluatedAt: string;
+    candidate: string;
+    reference: Record<string, number>;
+    sample: number;
+    exact: number;
+    withinOneStep: number;
+    topDisagreements: Record<string, number>;
 }

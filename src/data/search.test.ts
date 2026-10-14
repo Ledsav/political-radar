@@ -1,7 +1,7 @@
 import {fold, resultPath, search} from './search';
 import {Party, Politician} from './types';
 
-const stats = {rated: 10, breakdown: {vero: 2, quasi: 2, ni: 2, pinocchio: 2, panzana: 2}, raw_mean: 0.5, score: 50,
+const stats = {rated: 10, breakdown: {vero: 2, quasi: 2, ni: 2, pinocchio: 2, panzana: 2}, raw_mean: 0.5, score: 50, score_low: 40, score_high: 60,
     reliable: true, first_date: '2020-01-01', last_date: '2024-01-01'};
 const politicians: Politician[] = [
     {...stats, id: 'nicola-fratoianni', name: 'Nicola Fratoianni', party: 'Sinistra italiana', partySlug: 'sinistra-italiana', image: null},

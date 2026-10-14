@@ -19,7 +19,7 @@ const ChartTooltip: React.FC<TooltipProps<number, string> & {byName: Map<string,
     return (
         <Box sx={{bgcolor: 'white', border: '1px solid black', p: 1.5}}>
             <Typography variant="subtitle2" sx={{fontWeight: 'bold'}}>{item.name}</Typography>
-            <Typography variant="body2" sx={{mb: 0.5}}>Attendibilità {item.score}/100 · {item.rated} verifiche</Typography>
+            <Typography variant="body2" sx={{mb: 0.5}}>Attendibilità {item.score}/100 (margine {item.score_low}–{item.score_high}) · {item.rated} verifiche</Typography>
             {RATINGS.map((r) => (
                 <Typography key={r.key} variant="body2">
                     <Box component="span" sx={{display: 'inline-block', width: 10, height: 10, bgcolor: r.color, border: '1px solid black', mr: 0.75}}/>
@@ -49,7 +49,8 @@ const RankingChart: React.FC<RankingChartProps> = ({items, title}) => {
         <Box>
             <Typography variant="h2" component="h2" sx={{mb: 1}}>{title}</Typography>
             <Typography variant="body2" sx={{mb: 2}}>
-                Solo chi ha almeno il numero minimo di verifiche. Ordinati per punteggio di attendibilità.
+                Solo chi ha almeno il numero minimo di verifiche, ordinati per punteggio. Chi ha punteggi vicini non è
+                distinguibile: i margini di errore si sovrappongono (passa il mouse su una barra per vederli).
             </Typography>
             <ResponsiveContainer width="100%" height={ranked.length * ROW_HEIGHT + 80}>
                 <BarChart layout="vertical" data={rows} margin={{top: 0, right: 16, bottom: 0, left: 0}} barCategoryGap={4}>
