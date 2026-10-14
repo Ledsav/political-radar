@@ -1,0 +1,97 @@
+import pytest
+
+from radar import config, scoring, verdicts
+from radar.normalize import Statement, normalize
+
+
+def raw_record(id=1, verdict="Vero", politico=True, articolo=None, slug="una-dichiarazione"):
+    acf = {"sentenza": "Il PIL &egrave; cresciuto del <b>2%</b>", "verdetto": {"testo": verdict, "in_breve": False},
+           "data_della_dichiarazione": "7 ottobre", "link": "https://example.org/fonte"}
+    if politico:
+        acf["politico"] = {"ID": 135, "post_title": "Matteo Salvini", "post_name": "matteo-salvini",
+                           "partito": "Lega", "image": {"url": "https://cdn.example/salvini.jpg"}}
+    if articolo:
+        acf["articolo"] = articolo
+    return {"id": id, "date": "2026-10-08T14:07:01", "slug": slug, "title": {"rendered": "titolo"}, "acf": acf}
+
+
+def statement(id=1, verdict="", context="", politician_id=135):
+    return Statement(id=id, published="2024-01-01", claim="claim", claim_date="", claim_source_url=None,
+                     fact_check_url="", politician_id=politician_id, verdict_text=verdict, context=context)
+
+
+@pytest.mark.parametrize("text, key", [
+    ("Vero", "vero"), ("Nì", "ni"), ("Ni", "ni"), ("C'eri quasi", "quasi"), ("C’eri quasi", "quasi"),
+    ("Pinocchio andante", "pinocchio"), ("panzana pazzesca.", "panzana"),
+    ("Il ministro ha ragione.", None), ("", None),
+])
+def test_label_from_text(text, key):
+    assert verdicts.label_from_text(text) == key
+
+
+def test_normalize_cleans_html_and_builds_urls():
+    statements, politicians = normalize([
+        raw_record(1),
+        raw_record(2, articolo={"post_name": "salvini-monopattini", "post_title": "T", "post_content": "<p>lede</p>"}),
+        raw_record(3, politico=False),
+    ])
+    assert statements[0].claim == "Il PIL è cresciuto del 2%"
+    assert statements[0].fact_check_url == f"{config.SITE_BASE}/dichiarazioni/una-dichiarazione"
+    assert statements[1].fact_check_url == f"{config.SITE_BASE}/articoli/salvini-monopattini"
+    assert statements[1].context == "T lede"
+    assert statements[2].politician_id is None
+    assert politicians[135].party == "Lega" and politicians[135].slug == "matteo-salvini"
+
+
+def test_resolve_prefers_fixed_label_then_cache_with_matching_hash():
+    labelled = statement(1, verdict="Panzana pazzesca")
+    sentence = statement(2, verdict="Il ministro sbaglia.")
+    assert verdicts.resolve(labelled, {}) == ("panzana", "label")
+    assert verdicts.resolve(sentence, {}) == (None, "missing")
+
+    cache = {"2": {"rating": "pinocchio", "hash": verdicts.text_hash(sentence), "by": "test"}}
+    assert verdicts.resolve(sentence, cache) == ("pinocchio", "test")
+
+    # If the source text changes, the cached label no longer applies.
+    edited = statement(2, verdict="Il ministro ha ragione.")
+    assert verdicts.resolve(edited, cache) == (None, "missing")
+
+
+def test_resolve_marks_unrateable_and_empty_statements():
+    s = statement(3, verdict="Facebook")
+    cache = {"3": {"rating": verdicts.UNRATED, "hash": verdicts.text_hash(s), "by": "test"}}
+    assert verdicts.resolve(s, cache) == (None, "test")
+    assert verdicts.resolve(statement(4), {}) == (None, "no_verdict")
+    assert not verdicts.needs_llm(statement(4))
+    assert not verdicts.needs_llm(statement(5, verdict="sbaglia", politician_id=None))
+
+
+def test_single_statement_is_shrunk_toward_global_mean():
+    one_false = [scoring.Rated(1, 1, "2024-01-01", "panzana")]
+    summary = scoring.summarize(one_false, prior=0.6)
+    # (0 + 5 * 0.6) / (1 + 5) = 0.5, not 0
+    assert summary["score"] == 50
+    assert summary["raw_mean"] == 0
+    assert summary["reliable"] is False
+    assert summary["breakdown"]["panzana"] == 1
+
+
+def test_many_statements_dominate_the_prior():
+    rated = [scoring.Rated(i, 1, f"2024-01-{i:02d}", "vero") for i in range(1, 31)]
+    summary = scoring.summarize(rated, prior=0.5)
+    assert summary["score"] == round(100 * (30 + 2.5) / 35)
+    assert summary["reliable"] is True
+    assert (summary["first_date"], summary["last_date"]) == ("2024-01-01", "2024-01-30")
+
+
+def test_parties_exclude_non_parties_and_count_members():
+    rated = [scoring.Rated(1, 10, "2024-01-01", "vero"), scoring.Rated(2, 11, "2024-01-01", "ni"),
+             scoring.Rated(3, 12, "2024-01-01", "ni")]
+    parties = scoring.by_party(rated, {10: "Lega", 11: "Lega", 12: "Tecnico"}, prior=0.5)
+    assert set(parties) == {"Lega"}
+    assert parties["Lega"]["politicians"] == 2 and parties["Lega"]["rated"] == 2
+
+
+def test_slugify():
+    assert scoring.slugify("Fratelli d'Italia") == "fratelli-d-italia"
+    assert scoring.slugify("Più Europa") == "piu-europa"

@@ -1,0 +1,2847 @@
+{
+ "3020": {
+  "rating": "pinocchio",
+  "hash": "c92a11295212ed43",
+  "by": "claude-code-session"
+ },
+ "4860": {
+  "rating": "non_valutabile",
+  "hash": "b82b91c3e41bc41c",
+  "by": "claude-code-session"
+ },
+ "7787": {
+  "rating": "panzana",
+  "hash": "69f985842549fe4e",
+  "by": "claude-code-session"
+ },
+ "7793": {
+  "rating": "quasi",
+  "hash": "d3d5db012cdf03d0",
+  "by": "claude-code-session"
+ },
+ "7801": {
+  "rating": "vero",
+  "hash": "066bb47b064e6264",
+  "by": "claude-code-session"
+ },
+ "7806": {
+  "rating": "panzana",
+  "hash": "496574a7736e7486",
+  "by": "claude-code-session"
+ },
+ "7808": {
+  "rating": "vero",
+  "hash": "3f06c9bfee95cbc3",
+  "by": "claude-code-session"
+ },
+ "7813": {
+  "rating": "pinocchio",
+  "hash": "db827816d8031e9c",
+  "by": "claude-code-session"
+ },
+ "7816": {
+  "rating": "vero",
+  "hash": "3fd5449fb89878ec",
+  "by": "claude-code-session"
+ },
+ "9171": {
+  "rating": "pinocchio",
+  "hash": "424ed39b72cae296",
+  "by": "claude-code-session"
+ },
+ "12219": {
+  "rating": "pinocchio",
+  "hash": "9f691672879e9880",
+  "by": "claude-code-session"
+ },
+ "12335": {
+  "rating": "vero",
+  "hash": "b0465f588c09120a",
+  "by": "claude-code-session"
+ },
+ "12337": {
+  "rating": "pinocchio",
+  "hash": "ccde7105558bc853",
+  "by": "claude-code-session"
+ },
+ "12339": {
+  "rating": "ni",
+  "hash": "849ba23eda527bea",
+  "by": "claude-code-session"
+ },
+ "12341": {
+  "rating": "pinocchio",
+  "hash": "7e3702e19853bc08",
+  "by": "claude-code-session"
+ },
+ "15610": {
+  "rating": "vero",
+  "hash": "2d659f6f14700606",
+  "by": "claude-code-session"
+ },
+ "15623": {
+  "rating": "ni",
+  "hash": "155bf8090e311e7d",
+  "by": "claude-code-session"
+ },
+ "15631": {
+  "rating": "quasi",
+  "hash": "fd1d21196896531e",
+  "by": "claude-code-session"
+ },
+ "15636": {
+  "rating": "ni",
+  "hash": "e24fac5fd0182769",
+  "by": "claude-code-session"
+ },
+ "15719": {
+  "rating": "ni",
+  "hash": "a92dcd4297812ac2",
+  "by": "claude-code-session"
+ },
+ "15751": {
+  "rating": "vero",
+  "hash": "9ed7bfc707618f94",
+  "by": "claude-code-session"
+ },
+ "15813": {
+  "rating": "ni",
+  "hash": "6c14897b1f19a751",
+  "by": "claude-code-session"
+ },
+ "15828": {
+  "rating": "pinocchio",
+  "hash": "65873fa1729e67e1",
+  "by": "claude-code-session"
+ },
+ "15838": {
+  "rating": "vero",
+  "hash": "d722047f38a4c6b4",
+  "by": "claude-code-session"
+ },
+ "15862": {
+  "rating": "ni",
+  "hash": "64126c8163085a41",
+  "by": "claude-code-session"
+ },
+ "15911": {
+  "rating": "vero",
+  "hash": "026c93791319d5a2",
+  "by": "claude-code-session"
+ },
+ "15914": {
+  "rating": "quasi",
+  "hash": "03f6bc861390b1c7",
+  "by": "claude-code-session"
+ },
+ "15916": {
+  "rating": "ni",
+  "hash": "840ab5b1e8f6297c",
+  "by": "claude-code-session"
+ },
+ "16004": {
+  "rating": "vero",
+  "hash": "d0a39c678b094427",
+  "by": "claude-code-session"
+ },
+ "16011": {
+  "rating": "quasi",
+  "hash": "818c762b9c92f86f",
+  "by": "claude-code-session"
+ },
+ "16039": {
+  "rating": "quasi",
+  "hash": "29dd0226b1119050",
+  "by": "claude-code-session"
+ },
+ "16089": {
+  "rating": "quasi",
+  "hash": "89e2d357f2cec36f",
+  "by": "claude-code-session"
+ },
+ "16133": {
+  "rating": "vero",
+  "hash": "3c0a7a7d4b6a8e23",
+  "by": "claude-code-session"
+ },
+ "16141": {
+  "rating": "ni",
+  "hash": "24e078858f65d83e",
+  "by": "claude-code-session"
+ },
+ "16183": {
+  "rating": "ni",
+  "hash": "0405c768b9307551",
+  "by": "claude-code-session"
+ },
+ "16187": {
+  "rating": "quasi",
+  "hash": "acb74efa5450bea4",
+  "by": "claude-code-session"
+ },
+ "16191": {
+  "rating": "quasi",
+  "hash": "af4121837ede1dfa",
+  "by": "claude-code-session"
+ },
+ "16220": {
+  "rating": "pinocchio",
+  "hash": "df5a6b5af17d2869",
+  "by": "claude-code-session"
+ },
+ "16223": {
+  "rating": "pinocchio",
+  "hash": "81c007f3c081e935",
+  "by": "claude-code-session"
+ },
+ "16246": {
+  "rating": "ni",
+  "hash": "6013c8a865446385",
+  "by": "claude-code-session"
+ },
+ "16280": {
+  "rating": "quasi",
+  "hash": "83c20fc783e6a2b2",
+  "by": "claude-code-session"
+ },
+ "16392": {
+  "rating": "quasi",
+  "hash": "4f9190e056662ffd",
+  "by": "claude-code-session"
+ },
+ "16404": {
+  "rating": "ni",
+  "hash": "ffb92c41f1ab0773",
+  "by": "claude-code-session"
+ },
+ "16417": {
+  "rating": "ni",
+  "hash": "f62c0ca9ad7d3b96",
+  "by": "claude-code-session"
+ },
+ "16469": {
+  "rating": "quasi",
+  "hash": "7802e04539f20b7d",
+  "by": "claude-code-session"
+ },
+ "16486": {
+  "rating": "pinocchio",
+  "hash": "5f60def9274cdc38",
+  "by": "claude-code-session"
+ },
+ "16508": {
+  "rating": "ni",
+  "hash": "52f255fbff01f114",
+  "by": "claude-code-session"
+ },
+ "16526": {
+  "rating": "vero",
+  "hash": "47d8ac1f56590fc5",
+  "by": "claude-code-session"
+ },
+ "16544": {
+  "rating": "quasi",
+  "hash": "d1a6d5058381a890",
+  "by": "claude-code-session"
+ },
+ "16547": {
+  "rating": "quasi",
+  "hash": "b321598d5dede7b6",
+  "by": "claude-code-session"
+ },
+ "16549": {
+  "rating": "ni",
+  "hash": "1ef638c6e1938042",
+  "by": "claude-code-session"
+ },
+ "16565": {
+  "rating": "ni",
+  "hash": "2465e690babb94a6",
+  "by": "claude-code-session"
+ },
+ "16577": {
+  "rating": "ni",
+  "hash": "f119cbca2c3d49fb",
+  "by": "claude-code-session"
+ },
+ "16632": {
+  "rating": "quasi",
+  "hash": "3a751de4c9cc567f",
+  "by": "claude-code-session"
+ },
+ "16707": {
+  "rating": "pinocchio",
+  "hash": "6b40a10400424e51",
+  "by": "claude-code-session"
+ },
+ "16712": {
+  "rating": "pinocchio",
+  "hash": "c0e3d5d63e84c0ff",
+  "by": "claude-code-session"
+ },
+ "16718": {
+  "rating": "ni",
+  "hash": "657f5dc5d51088f8",
+  "by": "claude-code-session"
+ },
+ "16768": {
+  "rating": "quasi",
+  "hash": "da2faad8c7826c9a",
+  "by": "claude-code-session"
+ },
+ "16776": {
+  "rating": "quasi",
+  "hash": "fa720411cb03c0ac",
+  "by": "claude-code-session"
+ },
+ "16801": {
+  "rating": "pinocchio",
+  "hash": "abc6069ece27e53f",
+  "by": "claude-code-session"
+ },
+ "16817": {
+  "rating": "ni",
+  "hash": "b344378459a8218f",
+  "by": "claude-code-session"
+ },
+ "16874": {
+  "rating": "ni",
+  "hash": "a25758ff3eacb096",
+  "by": "claude-code-session"
+ },
+ "16937": {
+  "rating": "vero",
+  "hash": "e3b9cbd7b6f967dc",
+  "by": "claude-code-session"
+ },
+ "16962": {
+  "rating": "ni",
+  "hash": "320ee4e99a7f8aef",
+  "by": "claude-code-session"
+ },
+ "16975": {
+  "rating": "ni",
+  "hash": "834db0e0667e1c56",
+  "by": "claude-code-session"
+ },
+ "16977": {
+  "rating": "ni",
+  "hash": "242f8349a2947bc0",
+  "by": "claude-code-session"
+ },
+ "16980": {
+  "rating": "ni",
+  "hash": "8b4eb4b4a2e6ae6f",
+  "by": "claude-code-session"
+ },
+ "17000": {
+  "rating": "vero",
+  "hash": "6ae2782eb55ea2cc",
+  "by": "claude-code-session"
+ },
+ "17168": {
+  "rating": "pinocchio",
+  "hash": "141bbd22e1b2e325",
+  "by": "claude-code-session"
+ },
+ "17200": {
+  "rating": "vero",
+  "hash": "dfad85af5fc26824",
+  "by": "claude-code-session"
+ },
+ "17212": {
+  "rating": "pinocchio",
+  "hash": "88bb7aba8cb47a60",
+  "by": "claude-code-session"
+ },
+ "17282": {
+  "rating": "pinocchio",
+  "hash": "09d93e78467c7d71",
+  "by": "claude-code-session"
+ },
+ "17285": {
+  "rating": "ni",
+  "hash": "b25c6b7afab413bb",
+  "by": "claude-code-session"
+ },
+ "17303": {
+  "rating": "pinocchio",
+  "hash": "689e488823c33c3a",
+  "by": "claude-code-session"
+ },
+ "17320": {
+  "rating": "vero",
+  "hash": "e549789294b75bb1",
+  "by": "claude-code-session"
+ },
+ "17324": {
+  "rating": "ni",
+  "hash": "1e06d229f57d2568",
+  "by": "claude-code-session"
+ },
+ "17358": {
+  "rating": "quasi",
+  "hash": "ec3e167dd5cf7d96",
+  "by": "claude-code-session"
+ },
+ "17395": {
+  "rating": "ni",
+  "hash": "8445965a60d4a482",
+  "by": "claude-code-session"
+ },
+ "17528": {
+  "rating": "ni",
+  "hash": "9781cc05fef2f98a",
+  "by": "claude-code-session"
+ },
+ "17631": {
+  "rating": "quasi",
+  "hash": "65084cafe4ddc4a1",
+  "by": "claude-code-session"
+ },
+ "17703": {
+  "rating": "ni",
+  "hash": "eec389af98c602c2",
+  "by": "claude-code-session"
+ },
+ "17770": {
+  "rating": "vero",
+  "hash": "b2f2b64878d617dc",
+  "by": "claude-code-session"
+ },
+ "17787": {
+  "rating": "ni",
+  "hash": "eedd0f8c45c194ef",
+  "by": "claude-code-session"
+ },
+ "17789": {
+  "rating": "vero",
+  "hash": "0036d30af3c143b2",
+  "by": "claude-code-session"
+ },
+ "17806": {
+  "rating": "ni",
+  "hash": "b6793072f7b6d625",
+  "by": "claude-code-session"
+ },
+ "17811": {
+  "rating": "vero",
+  "hash": "7eae15c2445f8a01",
+  "by": "claude-code-session"
+ },
+ "17822": {
+  "rating": "vero",
+  "hash": "dc4b38f9878e54d4",
+  "by": "claude-code-session"
+ },
+ "17825": {
+  "rating": "pinocchio",
+  "hash": "d22b2d76ebad2ef8",
+  "by": "claude-code-session"
+ },
+ "17894": {
+  "rating": "ni",
+  "hash": "8db22e55a873d6cf",
+  "by": "claude-code-session"
+ },
+ "17909": {
+  "rating": "pinocchio",
+  "hash": "16cd51dee8b5a7f9",
+  "by": "claude-code-session"
+ },
+ "17920": {
+  "rating": "ni",
+  "hash": "9b63bf957819ef8d",
+  "by": "claude-code-session"
+ },
+ "17923": {
+  "rating": "vero",
+  "hash": "e614c49a565aa136",
+  "by": "claude-code-session"
+ },
+ "17926": {
+  "rating": "quasi",
+  "hash": "c51bc1ecab8ce99a",
+  "by": "claude-code-session"
+ },
+ "17930": {
+  "rating": "pinocchio",
+  "hash": "96e0ca8cc5932d77",
+  "by": "claude-code-session"
+ },
+ "17932": {
+  "rating": "pinocchio",
+  "hash": "f9e363fe2623ee59",
+  "by": "claude-code-session"
+ },
+ "17935": {
+  "rating": "pinocchio",
+  "hash": "39955e44cc26f33a",
+  "by": "claude-code-session"
+ },
+ "17944": {
+  "rating": "ni",
+  "hash": "c4731d3c9a0f7dca",
+  "by": "claude-code-session"
+ },
+ "17954": {
+  "rating": "ni",
+  "hash": "75f8ed8d1ef3a374",
+  "by": "claude-code-session"
+ },
+ "17956": {
+  "rating": "pinocchio",
+  "hash": "b3cb5d53096d1ed0",
+  "by": "claude-code-session"
+ },
+ "17958": {
+  "rating": "quasi",
+  "hash": "4ee7de9ad8863491",
+  "by": "claude-code-session"
+ },
+ "18006": {
+  "rating": "vero",
+  "hash": "9905e51d0788cec0",
+  "by": "claude-code-session"
+ },
+ "18008": {
+  "rating": "ni",
+  "hash": "92c577402e343b74",
+  "by": "claude-code-session"
+ },
+ "18028": {
+  "rating": "quasi",
+  "hash": "581e3e106571cafd",
+  "by": "claude-code-session"
+ },
+ "18047": {
+  "rating": "ni",
+  "hash": "8988d12ca8096a1e",
+  "by": "claude-code-session"
+ },
+ "18059": {
+  "rating": "quasi",
+  "hash": "e58c57d2f2c4fd67",
+  "by": "claude-code-session"
+ },
+ "18062": {
+  "rating": "ni",
+  "hash": "cc44a12d9309e54f",
+  "by": "claude-code-session"
+ },
+ "18095": {
+  "rating": "pinocchio",
+  "hash": "63bf9a8469b29f77",
+  "by": "claude-code-session"
+ },
+ "18099": {
+  "rating": "ni",
+  "hash": "00bb4fa090512855",
+  "by": "claude-code-session"
+ },
+ "18101": {
+  "rating": "quasi",
+  "hash": "4de63ea01b8d1a14",
+  "by": "claude-code-session"
+ },
+ "18119": {
+  "rating": "ni",
+  "hash": "20a1cf5cd6b7964f",
+  "by": "claude-code-session"
+ },
+ "18121": {
+  "rating": "vero",
+  "hash": "e31a6c60253042bb",
+  "by": "claude-code-session"
+ },
+ "18135": {
+  "rating": "ni",
+  "hash": "30c6075284603003",
+  "by": "claude-code-session"
+ },
+ "18139": {
+  "rating": "vero",
+  "hash": "f292dff606eaffe1",
+  "by": "claude-code-session"
+ },
+ "18161": {
+  "rating": "pinocchio",
+  "hash": "bf35f3ebf5c9790f",
+  "by": "claude-code-session"
+ },
+ "18176": {
+  "rating": "ni",
+  "hash": "fdfccae032d1981a",
+  "by": "claude-code-session"
+ },
+ "18179": {
+  "rating": "pinocchio",
+  "hash": "f292237ec2a465d9",
+  "by": "claude-code-session"
+ },
+ "18195": {
+  "rating": "pinocchio",
+  "hash": "95f57158e2ec90e2",
+  "by": "claude-code-session"
+ },
+ "18198": {
+  "rating": "vero",
+  "hash": "2563a0c5d6d5f3a9",
+  "by": "claude-code-session"
+ },
+ "18207": {
+  "rating": "pinocchio",
+  "hash": "eff4550dca5d80b3",
+  "by": "claude-code-session"
+ },
+ "18213": {
+  "rating": "vero",
+  "hash": "7d8b85a2e07da46b",
+  "by": "claude-code-session"
+ },
+ "18218": {
+  "rating": "pinocchio",
+  "hash": "c145889c2b376148",
+  "by": "claude-code-session"
+ },
+ "18221": {
+  "rating": "ni",
+  "hash": "bfc790828f166640",
+  "by": "claude-code-session"
+ },
+ "18262": {
+  "rating": "vero",
+  "hash": "8c6c037d77a2d212",
+  "by": "claude-code-session"
+ },
+ "18264": {
+  "rating": "pinocchio",
+  "hash": "41fa6ba4aa2ad2c9",
+  "by": "claude-code-session"
+ },
+ "18268": {
+  "rating": "vero",
+  "hash": "76c2e4bcab237332",
+  "by": "claude-code-session"
+ },
+ "18304": {
+  "rating": "vero",
+  "hash": "5d50dd8c40ce8494",
+  "by": "claude-code-session"
+ },
+ "18308": {
+  "rating": "ni",
+  "hash": "402bac5067f109a0",
+  "by": "claude-code-session"
+ },
+ "18321": {
+  "rating": "ni",
+  "hash": "39ceff18acc65ac4",
+  "by": "claude-code-session"
+ },
+ "18323": {
+  "rating": "vero",
+  "hash": "96cc462711d06457",
+  "by": "claude-code-session"
+ },
+ "18341": {
+  "rating": "ni",
+  "hash": "b5adcd10d6388477",
+  "by": "claude-code-session"
+ },
+ "18353": {
+  "rating": "quasi",
+  "hash": "74dcf957f4786489",
+  "by": "claude-code-session"
+ },
+ "18355": {
+  "rating": "pinocchio",
+  "hash": "94af0e61916e9f12",
+  "by": "claude-code-session"
+ },
+ "18379": {
+  "rating": "pinocchio",
+  "hash": "01f05f41f298fbb7",
+  "by": "claude-code-session"
+ },
+ "18382": {
+  "rating": "ni",
+  "hash": "a0e38da13c9a337b",
+  "by": "claude-code-session"
+ },
+ "18399": {
+  "rating": "quasi",
+  "hash": "a8b573e72337e812",
+  "by": "claude-code-session"
+ },
+ "18402": {
+  "rating": "ni",
+  "hash": "95923c705090e6ec",
+  "by": "claude-code-session"
+ },
+ "18405": {
+  "rating": "ni",
+  "hash": "cd22270acae86918",
+  "by": "claude-code-session"
+ },
+ "18408": {
+  "rating": "quasi",
+  "hash": "9a8cbe17b36aae08",
+  "by": "claude-code-session"
+ },
+ "18411": {
+  "rating": "vero",
+  "hash": "f06b9c4f75e9bec9",
+  "by": "claude-code-session"
+ },
+ "18425": {
+  "rating": "pinocchio",
+  "hash": "29fd4ca3b918aee6",
+  "by": "claude-code-session"
+ },
+ "18434": {
+  "rating": "ni",
+  "hash": "a472c73e166ffef7",
+  "by": "claude-code-session"
+ },
+ "18441": {
+  "rating": "vero",
+  "hash": "a713e20fd13fb9ba",
+  "by": "claude-code-session"
+ },
+ "18445": {
+  "rating": "quasi",
+  "hash": "07ba2d1940116017",
+  "by": "claude-code-session"
+ },
+ "18447": {
+  "rating": "quasi",
+  "hash": "6e3f1d6dddc393c2",
+  "by": "claude-code-session"
+ },
+ "18579": {
+  "rating": "ni",
+  "hash": "e1368a2fc293f9eb",
+  "by": "claude-code-session"
+ },
+ "18618": {
+  "rating": "pinocchio",
+  "hash": "fd0ea35629a2707b",
+  "by": "claude-code-session"
+ },
+ "18646": {
+  "rating": "pinocchio",
+  "hash": "e4f0337140d1d6f9",
+  "by": "claude-code-session"
+ },
+ "18660": {
+  "rating": "ni",
+  "hash": "8f2b5fc318c9b212",
+  "by": "claude-code-session"
+ },
+ "18664": {
+  "rating": "quasi",
+  "hash": "67bc15d063922f1c",
+  "by": "claude-code-session"
+ },
+ "18675": {
+  "rating": "ni",
+  "hash": "a264423b1e1b9538",
+  "by": "claude-code-session"
+ },
+ "18703": {
+  "rating": "vero",
+  "hash": "e50766a715b71e6f",
+  "by": "claude-code-session"
+ },
+ "18709": {
+  "rating": "ni",
+  "hash": "b28cc7f74dd8da37",
+  "by": "claude-code-session"
+ },
+ "18740": {
+  "rating": "pinocchio",
+  "hash": "035ddd9ceb963366",
+  "by": "claude-code-session"
+ },
+ "18742": {
+  "rating": "ni",
+  "hash": "3a6b43713a55e76c",
+  "by": "claude-code-session"
+ },
+ "18746": {
+  "rating": "ni",
+  "hash": "dada8269da398e8b",
+  "by": "claude-code-session"
+ },
+ "18757": {
+  "rating": "ni",
+  "hash": "4918af3ed10b87bf",
+  "by": "claude-code-session"
+ },
+ "18761": {
+  "rating": "pinocchio",
+  "hash": "a15a9f3d2a13433f",
+  "by": "claude-code-session"
+ },
+ "18763": {
+  "rating": "vero",
+  "hash": "1d1830f0e3c33b82",
+  "by": "claude-code-session"
+ },
+ "18775": {
+  "rating": "vero",
+  "hash": "f97a0f0a2ef70247",
+  "by": "claude-code-session"
+ },
+ "18810": {
+  "rating": "pinocchio",
+  "hash": "6de341da174269bc",
+  "by": "claude-code-session"
+ },
+ "18845": {
+  "rating": "vero",
+  "hash": "74932e587161bdad",
+  "by": "claude-code-session"
+ },
+ "18856": {
+  "rating": "pinocchio",
+  "hash": "15abfc3155e1185d",
+  "by": "claude-code-session"
+ },
+ "18893": {
+  "rating": "quasi",
+  "hash": "7e4100dcde461f76",
+  "by": "claude-code-session"
+ },
+ "18928": {
+  "rating": "pinocchio",
+  "hash": "3e77d45fb954a893",
+  "by": "claude-code-session"
+ },
+ "18933": {
+  "rating": "vero",
+  "hash": "f895ab4fd7f95f08",
+  "by": "claude-code-session"
+ },
+ "18982": {
+  "rating": "vero",
+  "hash": "89dcd1f63ec9c391",
+  "by": "claude-code-session"
+ },
+ "18999": {
+  "rating": "pinocchio",
+  "hash": "abe1275e086593ca",
+  "by": "claude-code-session"
+ },
+ "19008": {
+  "rating": "quasi",
+  "hash": "ebd6642c12630998",
+  "by": "claude-code-session"
+ },
+ "19020": {
+  "rating": "pinocchio",
+  "hash": "506b99892db271aa",
+  "by": "claude-code-session"
+ },
+ "19023": {
+  "rating": "pinocchio",
+  "hash": "05d3d19c9720caa2",
+  "by": "claude-code-session"
+ },
+ "19036": {
+  "rating": "pinocchio",
+  "hash": "157e489b15a9ffa4",
+  "by": "claude-code-session"
+ },
+ "19060": {
+  "rating": "quasi",
+  "hash": "aab3c7f5846fa01b",
+  "by": "claude-code-session"
+ },
+ "19110": {
+  "rating": "quasi",
+  "hash": "e018b8b436cfac2c",
+  "by": "claude-code-session"
+ },
+ "19121": {
+  "rating": "vero",
+  "hash": "4f2a6a820cdfa9a4",
+  "by": "claude-code-session"
+ },
+ "19189": {
+  "rating": "vero",
+  "hash": "0f70a49ed7ac64e3",
+  "by": "claude-code-session"
+ },
+ "19205": {
+  "rating": "vero",
+  "hash": "a3265c5d2a887a6a",
+  "by": "claude-code-session"
+ },
+ "19212": {
+  "rating": "ni",
+  "hash": "b2b67e7abc653a00",
+  "by": "claude-code-session"
+ },
+ "19275": {
+  "rating": "quasi",
+  "hash": "5a395a6e75c728a6",
+  "by": "claude-code-session"
+ },
+ "19339": {
+  "rating": "pinocchio",
+  "hash": "06dcebcd63400dcb",
+  "by": "claude-code-session"
+ },
+ "19357": {
+  "rating": "ni",
+  "hash": "40b4f841be6cd3a2",
+  "by": "claude-code-session"
+ },
+ "19388": {
+  "rating": "vero",
+  "hash": "85ef329acef16885",
+  "by": "claude-code-session"
+ },
+ "19417": {
+  "rating": "ni",
+  "hash": "c3a6e823472cb83e",
+  "by": "claude-code-session"
+ },
+ "19540": {
+  "rating": "pinocchio",
+  "hash": "0f8cbb40ec035982",
+  "by": "claude-code-session"
+ },
+ "19543": {
+  "rating": "quasi",
+  "hash": "6ba3aa58018ac9db",
+  "by": "claude-code-session"
+ },
+ "19661": {
+  "rating": "vero",
+  "hash": "976eabb077bb1232",
+  "by": "claude-code-session"
+ },
+ "19771": {
+  "rating": "quasi",
+  "hash": "32b5151dc80343be",
+  "by": "claude-code-session"
+ },
+ "19774": {
+  "rating": "ni",
+  "hash": "2ea75db9a5dddfad",
+  "by": "claude-code-session"
+ },
+ "19776": {
+  "rating": "vero",
+  "hash": "1784043a3be1f126",
+  "by": "claude-code-session"
+ },
+ "19813": {
+  "rating": "vero",
+  "hash": "517f3c5df563ff69",
+  "by": "claude-code-session"
+ },
+ "19815": {
+  "rating": "vero",
+  "hash": "ab90df6860a3d38f",
+  "by": "claude-code-session"
+ },
+ "19824": {
+  "rating": "ni",
+  "hash": "e6e0f2d5ae73909d",
+  "by": "claude-code-session"
+ },
+ "19828": {
+  "rating": "ni",
+  "hash": "467e9586bae792da",
+  "by": "claude-code-session"
+ },
+ "19833": {
+  "rating": "pinocchio",
+  "hash": "b622bd66103d5335",
+  "by": "claude-code-session"
+ },
+ "19878": {
+  "rating": "pinocchio",
+  "hash": "e6859590f9cc681e",
+  "by": "claude-code-session"
+ },
+ "19924": {
+  "rating": "vero",
+  "hash": "b4a847db26199bf1",
+  "by": "claude-code-session"
+ },
+ "19967": {
+  "rating": "pinocchio",
+  "hash": "38327fed595e8981",
+  "by": "claude-code-session"
+ },
+ "19971": {
+  "rating": "ni",
+  "hash": "767c96ff9df5277b",
+  "by": "claude-code-session"
+ },
+ "19994": {
+  "rating": "ni",
+  "hash": "e03bf7682dad5774",
+  "by": "claude-code-session"
+ },
+ "20000": {
+  "rating": "ni",
+  "hash": "1b13f3ccc3504444",
+  "by": "claude-code-session"
+ },
+ "20010": {
+  "rating": "pinocchio",
+  "hash": "26be89a94084f25c",
+  "by": "claude-code-session"
+ },
+ "20020": {
+  "rating": "quasi",
+  "hash": "bc4dccf248cd4694",
+  "by": "claude-code-session"
+ },
+ "20033": {
+  "rating": "vero",
+  "hash": "005d5c0e89189b97",
+  "by": "claude-code-session"
+ },
+ "20074": {
+  "rating": "ni",
+  "hash": "3953aefba5d49d53",
+  "by": "claude-code-session"
+ },
+ "20085": {
+  "rating": "quasi",
+  "hash": "41cd8058c201dbf2",
+  "by": "claude-code-session"
+ },
+ "20106": {
+  "rating": "vero",
+  "hash": "3134f4ad535c7aac",
+  "by": "claude-code-session"
+ },
+ "20140": {
+  "rating": "vero",
+  "hash": "5e63db4624f5dca3",
+  "by": "claude-code-session"
+ },
+ "20144": {
+  "rating": "ni",
+  "hash": "fc27c24615e47ba7",
+  "by": "claude-code-session"
+ },
+ "20192": {
+  "rating": "pinocchio",
+  "hash": "443142d09d569067",
+  "by": "claude-code-session"
+ },
+ "20195": {
+  "rating": "ni",
+  "hash": "eef7ace54194c950",
+  "by": "claude-code-session"
+ },
+ "20205": {
+  "rating": "vero",
+  "hash": "6c6314e373ff5338",
+  "by": "claude-code-session"
+ },
+ "20230": {
+  "rating": "quasi",
+  "hash": "fd18e08d3fab067a",
+  "by": "claude-code-session"
+ },
+ "20299": {
+  "rating": "vero",
+  "hash": "ccb057e026b99d1f",
+  "by": "claude-code-session"
+ },
+ "20347": {
+  "rating": "quasi",
+  "hash": "c277c41b61703528",
+  "by": "claude-code-session"
+ },
+ "20378": {
+  "rating": "vero",
+  "hash": "c6cc23711de92c89",
+  "by": "claude-code-session"
+ },
+ "20391": {
+  "rating": "pinocchio",
+  "hash": "ffcdf41bc9a8ba88",
+  "by": "claude-code-session"
+ },
+ "20394": {
+  "rating": "pinocchio",
+  "hash": "d0767bc3b041ef6a",
+  "by": "claude-code-session"
+ },
+ "20434": {
+  "rating": "vero",
+  "hash": "089097a8f9814906",
+  "by": "claude-code-session"
+ },
+ "20510": {
+  "rating": "vero",
+  "hash": "b80b71ffe37ac86b",
+  "by": "claude-code-session"
+ },
+ "20528": {
+  "rating": "ni",
+  "hash": "b55ee469169eae57",
+  "by": "claude-code-session"
+ },
+ "20552": {
+  "rating": "pinocchio",
+  "hash": "70f927c21b9eacfb",
+  "by": "claude-code-session"
+ },
+ "20577": {
+  "rating": "ni",
+  "hash": "9d9d477d4279d558",
+  "by": "claude-code-session"
+ },
+ "20591": {
+  "rating": "ni",
+  "hash": "f3504ae2a7e0246a",
+  "by": "claude-code-session"
+ },
+ "20599": {
+  "rating": "pinocchio",
+  "hash": "e2abf06c22a09fc8",
+  "by": "claude-code-session"
+ },
+ "20609": {
+  "rating": "quasi",
+  "hash": "4fbe4bdaa5471c36",
+  "by": "claude-code-session"
+ },
+ "20673": {
+  "rating": "ni",
+  "hash": "61da57a12df9f283",
+  "by": "claude-code-session"
+ },
+ "20676": {
+  "rating": "ni",
+  "hash": "8e330093124a1c7a",
+  "by": "claude-code-session"
+ },
+ "20682": {
+  "rating": "ni",
+  "hash": "26deec43679db99f",
+  "by": "claude-code-session"
+ },
+ "20685": {
+  "rating": "ni",
+  "hash": "2b5884e7e4e5ac8a",
+  "by": "claude-code-session"
+ },
+ "20697": {
+  "rating": "ni",
+  "hash": "3591dd4e144c66a3",
+  "by": "claude-code-session"
+ },
+ "20724": {
+  "rating": "pinocchio",
+  "hash": "152433957219f5b3",
+  "by": "claude-code-session"
+ },
+ "20750": {
+  "rating": "pinocchio",
+  "hash": "f83087657453f90f",
+  "by": "claude-code-session"
+ },
+ "20759": {
+  "rating": "ni",
+  "hash": "8a0893e3fd1e79c0",
+  "by": "claude-code-session"
+ },
+ "20770": {
+  "rating": "ni",
+  "hash": "b175f8e47dfb31f8",
+  "by": "claude-code-session"
+ },
+ "20787": {
+  "rating": "vero",
+  "hash": "f00f2d1be9e74bc5",
+  "by": "claude-code-session"
+ },
+ "20789": {
+  "rating": "pinocchio",
+  "hash": "ef63175ce55a151e",
+  "by": "claude-code-session"
+ },
+ "20854": {
+  "rating": "vero",
+  "hash": "cf8db3dfd8b78172",
+  "by": "claude-code-session"
+ },
+ "20914": {
+  "rating": "vero",
+  "hash": "95b6a598b2a29424",
+  "by": "claude-code-session"
+ },
+ "20933": {
+  "rating": "vero",
+  "hash": "77749f0aeb9c452a",
+  "by": "claude-code-session"
+ },
+ "20951": {
+  "rating": "quasi",
+  "hash": "1472880b8e4b9066",
+  "by": "claude-code-session"
+ },
+ "20974": {
+  "rating": "ni",
+  "hash": "c5f60daa96b7362d",
+  "by": "claude-code-session"
+ },
+ "20984": {
+  "rating": "quasi",
+  "hash": "eecee0bcf916896c",
+  "by": "claude-code-session"
+ },
+ "21011": {
+  "rating": "pinocchio",
+  "hash": "51bf5cb7a1aeff86",
+  "by": "claude-code-session"
+ },
+ "21017": {
+  "rating": "pinocchio",
+  "hash": "aafe6ca56f9a6028",
+  "by": "claude-code-session"
+ },
+ "21081": {
+  "rating": "quasi",
+  "hash": "994b4d6cd642deca",
+  "by": "claude-code-session"
+ },
+ "21103": {
+  "rating": "ni",
+  "hash": "dadef4a126f371d9",
+  "by": "claude-code-session"
+ },
+ "21107": {
+  "rating": "pinocchio",
+  "hash": "609b7f63f58b4298",
+  "by": "claude-code-session"
+ },
+ "21114": {
+  "rating": "pinocchio",
+  "hash": "b99384f439db3718",
+  "by": "claude-code-session"
+ },
+ "21149": {
+  "rating": "ni",
+  "hash": "690950010130d93e",
+  "by": "claude-code-session"
+ },
+ "21182": {
+  "rating": "panzana",
+  "hash": "f8bf56125d2a32f3",
+  "by": "claude-code-session"
+ },
+ "21201": {
+  "rating": "ni",
+  "hash": "fb75153686595e0b",
+  "by": "claude-code-session"
+ },
+ "21224": {
+  "rating": "ni",
+  "hash": "14cf517f101f16ac",
+  "by": "claude-code-session"
+ },
+ "21230": {
+  "rating": "vero",
+  "hash": "8a6d52980b9c0ba1",
+  "by": "claude-code-session"
+ },
+ "21264": {
+  "rating": "ni",
+  "hash": "4d7f709ce39ead07",
+  "by": "claude-code-session"
+ },
+ "21268": {
+  "rating": "vero",
+  "hash": "1080a8a8b77bc454",
+  "by": "claude-code-session"
+ },
+ "21290": {
+  "rating": "pinocchio",
+  "hash": "63bb51254726f85c",
+  "by": "claude-code-session"
+ },
+ "21364": {
+  "rating": "quasi",
+  "hash": "5a454ec062a088ff",
+  "by": "claude-code-session"
+ },
+ "21533": {
+  "rating": "ni",
+  "hash": "39aa80a334e2e97a",
+  "by": "claude-code-session"
+ },
+ "21555": {
+  "rating": "pinocchio",
+  "hash": "07b678a919dd6b9b",
+  "by": "claude-code-session"
+ },
+ "21604": {
+  "rating": "vero",
+  "hash": "6289a5fa15524dec",
+  "by": "claude-code-session"
+ },
+ "21618": {
+  "rating": "pinocchio",
+  "hash": "1aad474e732242d7",
+  "by": "claude-code-session"
+ },
+ "21658": {
+  "rating": "vero",
+  "hash": "d31a64a94acdc012",
+  "by": "claude-code-session"
+ },
+ "21663": {
+  "rating": "pinocchio",
+  "hash": "02f9b150f9dd2413",
+  "by": "claude-code-session"
+ },
+ "21768": {
+  "rating": "pinocchio",
+  "hash": "3ba4f067bd1ad2d9",
+  "by": "claude-code-session"
+ },
+ "21808": {
+  "rating": "pinocchio",
+  "hash": "eade7ecf9fb5d1a9",
+  "by": "claude-code-session"
+ },
+ "21830": {
+  "rating": "ni",
+  "hash": "1550c0b43d545051",
+  "by": "claude-code-session"
+ },
+ "21838": {
+  "rating": "vero",
+  "hash": "ef2f05998a095ddc",
+  "by": "claude-code-session"
+ },
+ "21842": {
+  "rating": "pinocchio",
+  "hash": "add6abaa84e65c6d",
+  "by": "claude-code-session"
+ },
+ "21893": {
+  "rating": "vero",
+  "hash": "4f8961d646cf40d2",
+  "by": "claude-code-session"
+ },
+ "21948": {
+  "rating": "vero",
+  "hash": "5c5fafad83171fd5",
+  "by": "claude-code-session"
+ },
+ "21983": {
+  "rating": "ni",
+  "hash": "60557c3989551307",
+  "by": "claude-code-session"
+ },
+ "22075": {
+  "rating": "quasi",
+  "hash": "5fe3c9b0444a041d",
+  "by": "claude-code-session"
+ },
+ "22159": {
+  "rating": "ni",
+  "hash": "a74e64841f7cc795",
+  "by": "claude-code-session"
+ },
+ "22170": {
+  "rating": "pinocchio",
+  "hash": "cbea9d8941a39af2",
+  "by": "claude-code-session"
+ },
+ "22225": {
+  "rating": "ni",
+  "hash": "9b3bb4e9d31cb3c8",
+  "by": "claude-code-session"
+ },
+ "22300": {
+  "rating": "vero",
+  "hash": "2fa9320b3fd7b074",
+  "by": "claude-code-session"
+ },
+ "22314": {
+  "rating": "ni",
+  "hash": "70928488209b2197",
+  "by": "claude-code-session"
+ },
+ "22318": {
+  "rating": "ni",
+  "hash": "e1bcca65c3d980a7",
+  "by": "claude-code-session"
+ },
+ "22323": {
+  "rating": "ni",
+  "hash": "0d5b2f2732665887",
+  "by": "claude-code-session"
+ },
+ "22334": {
+  "rating": "ni",
+  "hash": "ab688e161d0d2102",
+  "by": "claude-code-session"
+ },
+ "22338": {
+  "rating": "ni",
+  "hash": "6e735ccf6bbc1be1",
+  "by": "claude-code-session"
+ },
+ "22404": {
+  "rating": "vero",
+  "hash": "05b56948eb3304d7",
+  "by": "claude-code-session"
+ },
+ "22437": {
+  "rating": "ni",
+  "hash": "a387280e22f32729",
+  "by": "claude-code-session"
+ },
+ "22473": {
+  "rating": "ni",
+  "hash": "704f442382b2424c",
+  "by": "claude-code-session"
+ },
+ "22515": {
+  "rating": "quasi",
+  "hash": "c82587ce4d008e97",
+  "by": "claude-code-session"
+ },
+ "22532": {
+  "rating": "pinocchio",
+  "hash": "6375905b2ea6ce99",
+  "by": "claude-code-session"
+ },
+ "22536": {
+  "rating": "pinocchio",
+  "hash": "36e53f9aa463a190",
+  "by": "claude-code-session"
+ },
+ "22563": {
+  "rating": "pinocchio",
+  "hash": "221851aa874079af",
+  "by": "claude-code-session"
+ },
+ "22626": {
+  "rating": "vero",
+  "hash": "e6526c016d750cb7",
+  "by": "claude-code-session"
+ },
+ "22641": {
+  "rating": "pinocchio",
+  "hash": "a21946cbbffae9d7",
+  "by": "claude-code-session"
+ },
+ "22678": {
+  "rating": "ni",
+  "hash": "b1eca546aa13ac32",
+  "by": "claude-code-session"
+ },
+ "22692": {
+  "rating": "pinocchio",
+  "hash": "00512815b147b776",
+  "by": "claude-code-session"
+ },
+ "22756": {
+  "rating": "vero",
+  "hash": "14372571142a078c",
+  "by": "claude-code-session"
+ },
+ "22769": {
+  "rating": "pinocchio",
+  "hash": "d0b64341c3e79926",
+  "by": "claude-code-session"
+ },
+ "22788": {
+  "rating": "vero",
+  "hash": "6a4921961b83320c",
+  "by": "claude-code-session"
+ },
+ "22792": {
+  "rating": "ni",
+  "hash": "0a63ca547666c984",
+  "by": "claude-code-session"
+ },
+ "22802": {
+  "rating": "pinocchio",
+  "hash": "196ecdd1c14e42d2",
+  "by": "claude-code-session"
+ },
+ "22832": {
+  "rating": "pinocchio",
+  "hash": "d9d64f374c7d2e37",
+  "by": "claude-code-session"
+ },
+ "22934": {
+  "rating": "quasi",
+  "hash": "5603ba851b01ab98",
+  "by": "claude-code-session"
+ },
+ "23000": {
+  "rating": "pinocchio",
+  "hash": "631d2dc29ffa7a0a",
+  "by": "claude-code-session"
+ },
+ "23058": {
+  "rating": "vero",
+  "hash": "010f5f0929a25dc7",
+  "by": "claude-code-session"
+ },
+ "23069": {
+  "rating": "pinocchio",
+  "hash": "40229ee520b00e7c",
+  "by": "claude-code-session"
+ },
+ "23072": {
+  "rating": "pinocchio",
+  "hash": "53878720d1f4ff3f",
+  "by": "claude-code-session"
+ },
+ "23089": {
+  "rating": "ni",
+  "hash": "47f8a3006c27baa7",
+  "by": "claude-code-session"
+ },
+ "23183": {
+  "rating": "ni",
+  "hash": "401609b9f939eaf5",
+  "by": "claude-code-session"
+ },
+ "23197": {
+  "rating": "ni",
+  "hash": "5b2ca4aabb97e1e9",
+  "by": "claude-code-session"
+ },
+ "23232": {
+  "rating": "pinocchio",
+  "hash": "f185c1315ecfb154",
+  "by": "claude-code-session"
+ },
+ "23254": {
+  "rating": "pinocchio",
+  "hash": "1219f50148469054",
+  "by": "claude-code-session"
+ },
+ "23265": {
+  "rating": "ni",
+  "hash": "d853299735d1b754",
+  "by": "claude-code-session"
+ },
+ "23279": {
+  "rating": "pinocchio",
+  "hash": "aa11df58a4c3631a",
+  "by": "claude-code-session"
+ },
+ "23329": {
+  "rating": "ni",
+  "hash": "4f9aa25ba97f58c1",
+  "by": "claude-code-session"
+ },
+ "23397": {
+  "rating": "ni",
+  "hash": "163e1a01f1329966",
+  "by": "claude-code-session"
+ },
+ "23416": {
+  "rating": "ni",
+  "hash": "3ecca6bcde9a99d3",
+  "by": "claude-code-session"
+ },
+ "23426": {
+  "rating": "vero",
+  "hash": "0ddbc5c56e460904",
+  "by": "claude-code-session"
+ },
+ "23439": {
+  "rating": "pinocchio",
+  "hash": "7226cca743c88847",
+  "by": "claude-code-session"
+ },
+ "23449": {
+  "rating": "vero",
+  "hash": "294ed3254c199af1",
+  "by": "claude-code-session"
+ },
+ "23465": {
+  "rating": "ni",
+  "hash": "b725c854d5418e0c",
+  "by": "claude-code-session"
+ },
+ "23487": {
+  "rating": "ni",
+  "hash": "ecd7822a47b4cfa9",
+  "by": "claude-code-session"
+ },
+ "23496": {
+  "rating": "ni",
+  "hash": "17889ad40fad05b7",
+  "by": "claude-code-session"
+ },
+ "23580": {
+  "rating": "pinocchio",
+  "hash": "10304d865f3d41c9",
+  "by": "claude-code-session"
+ },
+ "23681": {
+  "rating": "ni",
+  "hash": "e8edaeb7c1d9a957",
+  "by": "claude-code-session"
+ },
+ "23729": {
+  "rating": "pinocchio",
+  "hash": "b47d07917816fea2",
+  "by": "claude-code-session"
+ },
+ "23830": {
+  "rating": "ni",
+  "hash": "d49e9913aec0eeda",
+  "by": "claude-code-session"
+ },
+ "23850": {
+  "rating": "vero",
+  "hash": "b72f4660e044323d",
+  "by": "claude-code-session"
+ },
+ "23872": {
+  "rating": "vero",
+  "hash": "c97574ee63e617d9",
+  "by": "claude-code-session"
+ },
+ "23925": {
+  "rating": "pinocchio",
+  "hash": "9bed7f89b0007d6d",
+  "by": "claude-code-session"
+ },
+ "24007": {
+  "rating": "vero",
+  "hash": "221d34a7d05f144c",
+  "by": "claude-code-session"
+ },
+ "24068": {
+  "rating": "pinocchio",
+  "hash": "8f5915242944863b",
+  "by": "claude-code-session"
+ },
+ "24110": {
+  "rating": "pinocchio",
+  "hash": "6b79a328c82338a5",
+  "by": "claude-code-session"
+ },
+ "24172": {
+  "rating": "quasi",
+  "hash": "baea8b452c0ec35f",
+  "by": "claude-code-session"
+ },
+ "24216": {
+  "rating": "ni",
+  "hash": "eb01c507fff56e0f",
+  "by": "claude-code-session"
+ },
+ "24229": {
+  "rating": "vero",
+  "hash": "1e0c0ee904d57123",
+  "by": "claude-code-session"
+ },
+ "24265": {
+  "rating": "ni",
+  "hash": "04dd26dfeeb0e20f",
+  "by": "claude-code-session"
+ },
+ "24270": {
+  "rating": "quasi",
+  "hash": "e72729e0cebe8d41",
+  "by": "claude-code-session"
+ },
+ "24280": {
+  "rating": "pinocchio",
+  "hash": "8bcb4433b5909e30",
+  "by": "claude-code-session"
+ },
+ "24321": {
+  "rating": "vero",
+  "hash": "77562c295aee0553",
+  "by": "claude-code-session"
+ },
+ "24330": {
+  "rating": "ni",
+  "hash": "1796048da208739c",
+  "by": "claude-code-session"
+ },
+ "24357": {
+  "rating": "quasi",
+  "hash": "b171027b06fc75b8",
+  "by": "claude-code-session"
+ },
+ "24403": {
+  "rating": "quasi",
+  "hash": "62126dd0609867af",
+  "by": "claude-code-session"
+ },
+ "24439": {
+  "rating": "vero",
+  "hash": "c1dda1522e0ef557",
+  "by": "claude-code-session"
+ },
+ "24476": {
+  "rating": "pinocchio",
+  "hash": "cd6ac3c02a9e2743",
+  "by": "claude-code-session"
+ },
+ "24481": {
+  "rating": "quasi",
+  "hash": "ffea30f5d7a0fe82",
+  "by": "claude-code-session"
+ },
+ "24499": {
+  "rating": "vero",
+  "hash": "4e8ac8500de45fc1",
+  "by": "claude-code-session"
+ },
+ "24538": {
+  "rating": "ni",
+  "hash": "1cf198e64d5f72ae",
+  "by": "claude-code-session"
+ },
+ "24597": {
+  "rating": "ni",
+  "hash": "d2ea42848662cfe9",
+  "by": "claude-code-session"
+ },
+ "24615": {
+  "rating": "quasi",
+  "hash": "8c49d944b6b4029c",
+  "by": "claude-code-session"
+ },
+ "24660": {
+  "rating": "pinocchio",
+  "hash": "67a28c2a3f92599a",
+  "by": "claude-code-session"
+ },
+ "24694": {
+  "rating": "vero",
+  "hash": "404b20f801edc771",
+  "by": "claude-code-session"
+ },
+ "24723": {
+  "rating": "pinocchio",
+  "hash": "23690372cb3f2e95",
+  "by": "claude-code-session"
+ },
+ "24744": {
+  "rating": "quasi",
+  "hash": "aebca5de50b33a0e",
+  "by": "claude-code-session"
+ },
+ "24761": {
+  "rating": "ni",
+  "hash": "cc2ce5f509941c94",
+  "by": "claude-code-session"
+ },
+ "24844": {
+  "rating": "vero",
+  "hash": "7ad0ceb6df92e0a3",
+  "by": "claude-code-session"
+ },
+ "24862": {
+  "rating": "pinocchio",
+  "hash": "be6f59cc08267830",
+  "by": "claude-code-session"
+ },
+ "24902": {
+  "rating": "pinocchio",
+  "hash": "7387a68110d99424",
+  "by": "claude-code-session"
+ },
+ "24921": {
+  "rating": "ni",
+  "hash": "92491a40cfe3bbe9",
+  "by": "claude-code-session"
+ },
+ "24932": {
+  "rating": "ni",
+  "hash": "d28349d29b443d75",
+  "by": "claude-code-session"
+ },
+ "24938": {
+  "rating": "quasi",
+  "hash": "a7b18ccea2291b2e",
+  "by": "claude-code-session"
+ },
+ "25036": {
+  "rating": "pinocchio",
+  "hash": "a522be95fb5f3ab6",
+  "by": "claude-code-session"
+ },
+ "25050": {
+  "rating": "vero",
+  "hash": "adfdd41bbb8b8334",
+  "by": "claude-code-session"
+ },
+ "25055": {
+  "rating": "ni",
+  "hash": "ab802541adfc9c74",
+  "by": "claude-code-session"
+ },
+ "25082": {
+  "rating": "vero",
+  "hash": "e01322bccc585eab",
+  "by": "claude-code-session"
+ },
+ "25085": {
+  "rating": "pinocchio",
+  "hash": "4941902ca8b3d6df",
+  "by": "claude-code-session"
+ },
+ "25109": {
+  "rating": "ni",
+  "hash": "a96f2cf18a0d6df2",
+  "by": "claude-code-session"
+ },
+ "25119": {
+  "rating": "vero",
+  "hash": "b2e39be506ecb4e8",
+  "by": "claude-code-session"
+ },
+ "25159": {
+  "rating": "pinocchio",
+  "hash": "67c4d45ddd7a77c7",
+  "by": "claude-code-session"
+ },
+ "25196": {
+  "rating": "pinocchio",
+  "hash": "78513c95e223a19c",
+  "by": "claude-code-session"
+ },
+ "25199": {
+  "rating": "pinocchio",
+  "hash": "d5afcad19c79ef01",
+  "by": "claude-code-session"
+ },
+ "25238": {
+  "rating": "ni",
+  "hash": "fcea0bfa011d11b0",
+  "by": "claude-code-session"
+ },
+ "25257": {
+  "rating": "pinocchio",
+  "hash": "ce310f38a2f5154a",
+  "by": "claude-code-session"
+ },
+ "25277": {
+  "rating": "pinocchio",
+  "hash": "a4afa6d66a43a05b",
+  "by": "claude-code-session"
+ },
+ "25300": {
+  "rating": "ni",
+  "hash": "36521a5a74578e2a",
+  "by": "claude-code-session"
+ },
+ "25347": {
+  "rating": "pinocchio",
+  "hash": "26470f85fa72d6bc",
+  "by": "claude-code-session"
+ },
+ "25418": {
+  "rating": "pinocchio",
+  "hash": "819706c55fc421b0",
+  "by": "claude-code-session"
+ },
+ "25461": {
+  "rating": "ni",
+  "hash": "5a55306e41773711",
+  "by": "claude-code-session"
+ },
+ "25464": {
+  "rating": "ni",
+  "hash": "b9c236b8e4f3f019",
+  "by": "claude-code-session"
+ },
+ "25511": {
+  "rating": "pinocchio",
+  "hash": "cb815c31f167b00d",
+  "by": "claude-code-session"
+ },
+ "25515": {
+  "rating": "ni",
+  "hash": "02b710d88951a02f",
+  "by": "claude-code-session"
+ },
+ "25568": {
+  "rating": "ni",
+  "hash": "99497d7451eeecb6",
+  "by": "claude-code-session"
+ },
+ "25611": {
+  "rating": "quasi",
+  "hash": "d91c9cc252bbd961",
+  "by": "claude-code-session"
+ },
+ "25614": {
+  "rating": "vero",
+  "hash": "6efb541553230e53",
+  "by": "claude-code-session"
+ },
+ "25618": {
+  "rating": "vero",
+  "hash": "4ce1052f206ac942",
+  "by": "claude-code-session"
+ },
+ "25855": {
+  "rating": "ni",
+  "hash": "5b575af65fc284a7",
+  "by": "claude-code-session"
+ },
+ "25869": {
+  "rating": "pinocchio",
+  "hash": "c166197653fde0c6",
+  "by": "claude-code-session"
+ },
+ "25942": {
+  "rating": "vero",
+  "hash": "330e1d67279e01e9",
+  "by": "claude-code-session"
+ },
+ "25989": {
+  "rating": "pinocchio",
+  "hash": "95a17c4df98a3df2",
+  "by": "claude-code-session"
+ },
+ "25993": {
+  "rating": "pinocchio",
+  "hash": "7cb806c2d7bd79ad",
+  "by": "claude-code-session"
+ },
+ "26041": {
+  "rating": "ni",
+  "hash": "e13517c318c81f1c",
+  "by": "claude-code-session"
+ },
+ "26047": {
+  "rating": "ni",
+  "hash": "7a5c42c7c9d7dd05",
+  "by": "claude-code-session"
+ },
+ "26050": {
+  "rating": "ni",
+  "hash": "35023a3add8c2241",
+  "by": "claude-code-session"
+ },
+ "26054": {
+  "rating": "vero",
+  "hash": "7ffc042705b034b6",
+  "by": "claude-code-session"
+ },
+ "26100": {
+  "rating": "quasi",
+  "hash": "90240f037545aa09",
+  "by": "claude-code-session"
+ },
+ "26124": {
+  "rating": "panzana",
+  "hash": "50f5bebfc8e14d86",
+  "by": "claude-code-session"
+ },
+ "26144": {
+  "rating": "quasi",
+  "hash": "cfe86142499c24dc",
+  "by": "claude-code-session"
+ },
+ "26286": {
+  "rating": "quasi",
+  "hash": "71ba2a12948fa4a3",
+  "by": "claude-code-session"
+ },
+ "26305": {
+  "rating": "pinocchio",
+  "hash": "4dfc7ace6937af22",
+  "by": "claude-code-session"
+ },
+ "26349": {
+  "rating": "ni",
+  "hash": "91eb02270c2a98a6",
+  "by": "claude-code-session"
+ },
+ "26382": {
+  "rating": "pinocchio",
+  "hash": "c96f91857005bcb8",
+  "by": "claude-code-session"
+ },
+ "26398": {
+  "rating": "pinocchio",
+  "hash": "68e5bd97fe511f1b",
+  "by": "claude-code-session"
+ },
+ "26568": {
+  "rating": "quasi",
+  "hash": "0ce576dfcc35f225",
+  "by": "claude-code-session"
+ },
+ "26571": {
+  "rating": "quasi",
+  "hash": "741675502b938c64",
+  "by": "claude-code-session"
+ },
+ "26579": {
+  "rating": "ni",
+  "hash": "b4e433cac63bb8a6",
+  "by": "claude-code-session"
+ },
+ "26603": {
+  "rating": "pinocchio",
+  "hash": "6473ea23b5ad0b1a",
+  "by": "claude-code-session"
+ },
+ "26618": {
+  "rating": "quasi",
+  "hash": "8e4b62d28781cf67",
+  "by": "claude-code-session"
+ },
+ "26627": {
+  "rating": "vero",
+  "hash": "f066e2fd09f54663",
+  "by": "claude-code-session"
+ },
+ "26698": {
+  "rating": "vero",
+  "hash": "2f7c9957f73488a5",
+  "by": "claude-code-session"
+ },
+ "26703": {
+  "rating": "ni",
+  "hash": "a6939bf626801aaf",
+  "by": "claude-code-session"
+ },
+ "26706": {
+  "rating": "panzana",
+  "hash": "8ca53a950fb74085",
+  "by": "claude-code-session"
+ },
+ "26709": {
+  "rating": "pinocchio",
+  "hash": "9fba6633b5d8f7a9",
+  "by": "claude-code-session"
+ },
+ "26734": {
+  "rating": "pinocchio",
+  "hash": "246e0cd203e31307",
+  "by": "claude-code-session"
+ },
+ "26744": {
+  "rating": "ni",
+  "hash": "951b5f4e17c3d82c",
+  "by": "claude-code-session"
+ },
+ "26851": {
+  "rating": "ni",
+  "hash": "2cb5c474a8fc4833",
+  "by": "claude-code-session"
+ },
+ "26966": {
+  "rating": "vero",
+  "hash": "04d78f5efbd062fe",
+  "by": "claude-code-session"
+ },
+ "26982": {
+  "rating": "quasi",
+  "hash": "51105beddd9010dc",
+  "by": "claude-code-session"
+ },
+ "26987": {
+  "rating": "vero",
+  "hash": "67d578fef287a49c",
+  "by": "claude-code-session"
+ },
+ "27042": {
+  "rating": "pinocchio",
+  "hash": "92b7b4c26e4703e1",
+  "by": "claude-code-session"
+ },
+ "27103": {
+  "rating": "pinocchio",
+  "hash": "5569ac4d1842397d",
+  "by": "claude-code-session"
+ },
+ "27136": {
+  "rating": "pinocchio",
+  "hash": "9058bec53317aa61",
+  "by": "claude-code-session"
+ },
+ "27147": {
+  "rating": "pinocchio",
+  "hash": "21799db7576b9528",
+  "by": "claude-code-session"
+ },
+ "27239": {
+  "rating": "panzana",
+  "hash": "f1dde82cfc2512a6",
+  "by": "claude-code-session"
+ },
+ "27243": {
+  "rating": "ni",
+  "hash": "70cebeda5d954beb",
+  "by": "claude-code-session"
+ },
+ "27248": {
+  "rating": "pinocchio",
+  "hash": "426aea7d00e53878",
+  "by": "claude-code-session"
+ },
+ "27254": {
+  "rating": "ni",
+  "hash": "ee56134323b53de4",
+  "by": "claude-code-session"
+ },
+ "27387": {
+  "rating": "quasi",
+  "hash": "5ad6498bc01f0187",
+  "by": "claude-code-session"
+ },
+ "27432": {
+  "rating": "vero",
+  "hash": "578718f88a40827f",
+  "by": "claude-code-session"
+ },
+ "27439": {
+  "rating": "ni",
+  "hash": "67c8b0b81d3755cd",
+  "by": "claude-code-session"
+ },
+ "27452": {
+  "rating": "non_valutabile",
+  "hash": "1319ad80a2cfb2cd",
+  "by": "claude-code-session"
+ },
+ "27497": {
+  "rating": "quasi",
+  "hash": "2965f53116488cf9",
+  "by": "claude-code-session"
+ },
+ "27520": {
+  "rating": "pinocchio",
+  "hash": "13f4a310249d6c4e",
+  "by": "claude-code-session"
+ },
+ "27533": {
+  "rating": "pinocchio",
+  "hash": "93a7be18bcc0cb95",
+  "by": "claude-code-session"
+ },
+ "27554": {
+  "rating": "ni",
+  "hash": "d5dc80d45a4478e4",
+  "by": "claude-code-session"
+ },
+ "27557": {
+  "rating": "vero",
+  "hash": "b3699157b147beb4",
+  "by": "claude-code-session"
+ },
+ "27615": {
+  "rating": "ni",
+  "hash": "62e7356ebb285254",
+  "by": "claude-code-session"
+ },
+ "27640": {
+  "rating": "vero",
+  "hash": "52ca0bfc1831acbd",
+  "by": "claude-code-session"
+ },
+ "27823": {
+  "rating": "vero",
+  "hash": "a907ff410969eab9",
+  "by": "claude-code-session"
+ },
+ "27831": {
+  "rating": "ni",
+  "hash": "6827076bbf03dccd",
+  "by": "claude-code-session"
+ },
+ "27845": {
+  "rating": "pinocchio",
+  "hash": "011f1ecd709ae3b9",
+  "by": "claude-code-session"
+ },
+ "27850": {
+  "rating": "pinocchio",
+  "hash": "2f4e35469959be0e",
+  "by": "claude-code-session"
+ },
+ "27972": {
+  "rating": "pinocchio",
+  "hash": "1ac9cca74463b466",
+  "by": "claude-code-session"
+ },
+ "27976": {
+  "rating": "pinocchio",
+  "hash": "d40718055d8cc9ff",
+  "by": "claude-code-session"
+ },
+ "28090": {
+  "rating": "vero",
+  "hash": "83cac58e09c0c136",
+  "by": "claude-code-session"
+ },
+ "28113": {
+  "rating": "panzana",
+  "hash": "c01891624396e205",
+  "by": "claude-code-session"
+ },
+ "28325": {
+  "rating": "vero",
+  "hash": "45437ed66e913e41",
+  "by": "claude-code-session"
+ },
+ "28350": {
+  "rating": "pinocchio",
+  "hash": "ff0b0501652ce321",
+  "by": "claude-code-session"
+ },
+ "28441": {
+  "rating": "vero",
+  "hash": "b3b9f5a79650de8e",
+  "by": "claude-code-session"
+ },
+ "28521": {
+  "rating": "pinocchio",
+  "hash": "5703fb2f54316a51",
+  "by": "claude-code-session"
+ },
+ "28592": {
+  "rating": "ni",
+  "hash": "e7c85f5f5fe804fb",
+  "by": "claude-code-session"
+ },
+ "28772": {
+  "rating": "pinocchio",
+  "hash": "eedd682a1180281c",
+  "by": "claude-code-session"
+ },
+ "28781": {
+  "rating": "ni",
+  "hash": "e650dd0824b6bd45",
+  "by": "claude-code-session"
+ },
+ "28828": {
+  "rating": "ni",
+  "hash": "49d49f0ac3eabf09",
+  "by": "claude-code-session"
+ },
+ "28831": {
+  "rating": "ni",
+  "hash": "a71303407b15696d",
+  "by": "claude-code-session"
+ },
+ "28902": {
+  "rating": "ni",
+  "hash": "6df9747dd43a5bb5",
+  "by": "claude-code-session"
+ },
+ "28907": {
+  "rating": "vero",
+  "hash": "977c2e45d7934ee0",
+  "by": "claude-code-session"
+ },
+ "28916": {
+  "rating": "pinocchio",
+  "hash": "2e9a906e2ecfc6ef",
+  "by": "claude-code-session"
+ },
+ "28919": {
+  "rating": "vero",
+  "hash": "4ac31be197a5211a",
+  "by": "claude-code-session"
+ },
+ "28935": {
+  "rating": "pinocchio",
+  "hash": "efd67ca1f982dc74",
+  "by": "claude-code-session"
+ },
+ "28990": {
+  "rating": "vero",
+  "hash": "893daf349a488e6c",
+  "by": "claude-code-session"
+ },
+ "28995": {
+  "rating": "quasi",
+  "hash": "829a0ecefb1e9cde",
+  "by": "claude-code-session"
+ },
+ "29033": {
+  "rating": "vero",
+  "hash": "27cc0b4168e1c123",
+  "by": "claude-code-session"
+ },
+ "29036": {
+  "rating": "pinocchio",
+  "hash": "153eb8692889c303",
+  "by": "claude-code-session"
+ },
+ "29044": {
+  "rating": "ni",
+  "hash": "992bb30d6b13281a",
+  "by": "claude-code-session"
+ },
+ "29046": {
+  "rating": "ni",
+  "hash": "0ad6668f98fc74fc",
+  "by": "claude-code-session"
+ },
+ "29097": {
+  "rating": "ni",
+  "hash": "82871859435f6b1d",
+  "by": "claude-code-session"
+ },
+ "29161": {
+  "rating": "quasi",
+  "hash": "359aed8f900be2f6",
+  "by": "claude-code-session"
+ },
+ "29175": {
+  "rating": "ni",
+  "hash": "eba53076597ca7ed",
+  "by": "claude-code-session"
+ },
+ "29297": {
+  "rating": "vero",
+  "hash": "ed14d2a4ae5d8a87",
+  "by": "claude-code-session"
+ },
+ "29307": {
+  "rating": "vero",
+  "hash": "dc331a32c4030905",
+  "by": "claude-code-session"
+ },
+ "29352": {
+  "rating": "quasi",
+  "hash": "796591a2276855e7",
+  "by": "claude-code-session"
+ },
+ "29354": {
+  "rating": "quasi",
+  "hash": "5a3d31918c7d714f",
+  "by": "claude-code-session"
+ },
+ "29404": {
+  "rating": "pinocchio",
+  "hash": "eda6c2d7bab9bc3a",
+  "by": "claude-code-session"
+ },
+ "29530": {
+  "rating": "pinocchio",
+  "hash": "fa278da5cfb574f0",
+  "by": "claude-code-session"
+ },
+ "29551": {
+  "rating": "pinocchio",
+  "hash": "41e0211188f6f7a1",
+  "by": "claude-code-session"
+ },
+ "29615": {
+  "rating": "panzana",
+  "hash": "928284c99b83fd7b",
+  "by": "claude-code-session"
+ },
+ "29632": {
+  "rating": "ni",
+  "hash": "7672937cf5c1dde6",
+  "by": "claude-code-session"
+ },
+ "29745": {
+  "rating": "vero",
+  "hash": "bbba000c49378899",
+  "by": "claude-code-session"
+ },
+ "29903": {
+  "rating": "vero",
+  "hash": "098ce68acfa90fbe",
+  "by": "claude-code-session"
+ },
+ "29906": {
+  "rating": "ni",
+  "hash": "24aadc639d1e6667",
+  "by": "claude-code-session"
+ },
+ "30110": {
+  "rating": "ni",
+  "hash": "eeafbbc1469dd76c",
+  "by": "claude-code-session"
+ },
+ "30196": {
+  "rating": "quasi",
+  "hash": "74957518c7d364d4",
+  "by": "claude-code-session"
+ },
+ "30248": {
+  "rating": "pinocchio",
+  "hash": "57b0254e944f446c",
+  "by": "claude-code-session"
+ },
+ "30634": {
+  "rating": "vero",
+  "hash": "cb98007b7f43ed5a",
+  "by": "claude-code-session"
+ },
+ "30786": {
+  "rating": "pinocchio",
+  "hash": "8f9d1b215c95ad8b",
+  "by": "claude-code-session"
+ },
+ "30983": {
+  "rating": "pinocchio",
+  "hash": "e068e7cc59685f75",
+  "by": "claude-code-session"
+ },
+ "31125": {
+  "rating": "pinocchio",
+  "hash": "8ca3537b3af884de",
+  "by": "claude-code-session"
+ },
+ "31128": {
+  "rating": "quasi",
+  "hash": "90a0a5bfec70f860",
+  "by": "claude-code-session"
+ },
+ "31277": {
+  "rating": "quasi",
+  "hash": "9b5e39371d381fe8",
+  "by": "claude-code-session"
+ },
+ "31383": {
+  "rating": "vero",
+  "hash": "7b5e32c91d78240b",
+  "by": "claude-code-session"
+ },
+ "31432": {
+  "rating": "ni",
+  "hash": "303aff6214600537",
+  "by": "claude-code-session"
+ },
+ "31538": {
+  "rating": "ni",
+  "hash": "458aa9012237067b",
+  "by": "claude-code-session"
+ },
+ "31564": {
+  "rating": "quasi",
+  "hash": "b0dfdbcbfdbc5d01",
+  "by": "claude-code-session"
+ },
+ "31715": {
+  "rating": "vero",
+  "hash": "3ffe4b13d5ef9560",
+  "by": "claude-code-session"
+ },
+ "31858": {
+  "rating": "pinocchio",
+  "hash": "1a07ce487ed4c170",
+  "by": "claude-code-session"
+ },
+ "32070": {
+  "rating": "ni",
+  "hash": "2a17cab4958a596f",
+  "by": "claude-code-session"
+ },
+ "32116": {
+  "rating": "pinocchio",
+  "hash": "5c79555485d6ac69",
+  "by": "claude-code-session"
+ },
+ "32256": {
+  "rating": "vero",
+  "hash": "184ab200ec08f0fc",
+  "by": "claude-code-session"
+ },
+ "32428": {
+  "rating": "pinocchio",
+  "hash": "65bfc418b05511de",
+  "by": "claude-code-session"
+ },
+ "32614": {
+  "rating": "quasi",
+  "hash": "3c5f3091aff38d19",
+  "by": "claude-code-session"
+ },
+ "32851": {
+  "rating": "pinocchio",
+  "hash": "8b7b15eb30665bfb",
+  "by": "claude-code-session"
+ },
+ "33018": {
+  "rating": "vero",
+  "hash": "11db349f55b6bc9f",
+  "by": "claude-code-session"
+ },
+ "33616": {
+  "rating": "pinocchio",
+  "hash": "729671b28d92b9eb",
+  "by": "claude-code-session"
+ },
+ "34894": {
+  "rating": "pinocchio",
+  "hash": "8d707cd3d2c58c65",
+  "by": "claude-code-session"
+ },
+ "34936": {
+  "rating": "pinocchio",
+  "hash": "c748c5fd1c7dd44d",
+  "by": "claude-code-session"
+ },
+ "36636": {
+  "rating": "non_valutabile",
+  "hash": "90c431abdd285799",
+  "by": "claude-code-session"
+ },
+ "36649": {
+  "rating": "pinocchio",
+  "hash": "54d6bb9e8e4ca3eb",
+  "by": "claude-code-session"
+ },
+ "36695": {
+  "rating": "pinocchio",
+  "hash": "6ddcc6aea4d5c75f",
+  "by": "claude-code-session"
+ },
+ "36701": {
+  "rating": "ni",
+  "hash": "9b63c787090c6311",
+  "by": "claude-code-session"
+ },
+ "36758": {
+  "rating": "non_valutabile",
+  "hash": "c950aa72a3b0d38e",
+  "by": "claude-code-session"
+ },
+ "36759": {
+  "rating": "non_valutabile",
+  "hash": "ecb7f3f30f5bb1b3",
+  "by": "claude-code-session"
+ },
+ "36762": {
+  "rating": "non_valutabile",
+  "hash": "dd006335f7abab5d",
+  "by": "claude-code-session"
+ },
+ "36763": {
+  "rating": "non_valutabile",
+  "hash": "6117ed8353f36cae",
+  "by": "claude-code-session"
+ },
+ "36861": {
+  "rating": "non_valutabile",
+  "hash": "9d6232ce8d9d7844",
+  "by": "claude-code-session"
+ },
+ "36862": {
+  "rating": "non_valutabile",
+  "hash": "9d1911c8ae5f4037",
+  "by": "claude-code-session"
+ },
+ "36864": {
+  "rating": "pinocchio",
+  "hash": "430a99f63a9d9fd4",
+  "by": "claude-code-session"
+ },
+ "36883": {
+  "rating": "pinocchio",
+  "hash": "c3052cb97bd98f15",
+  "by": "claude-code-session"
+ },
+ "36884": {
+  "rating": "pinocchio",
+  "hash": "bf2ef0bcf3da69e9",
+  "by": "claude-code-session"
+ },
+ "36905": {
+  "rating": "non_valutabile",
+  "hash": "8694e7e163a3882c",
+  "by": "claude-code-session"
+ },
+ "36906": {
+  "rating": "non_valutabile",
+  "hash": "724fd40442ed00e3",
+  "by": "claude-code-session"
+ },
+ "37012": {
+  "rating": "ni",
+  "hash": "3accd91644a218b5",
+  "by": "claude-code-session"
+ },
+ "37134": {
+  "rating": "pinocchio",
+  "hash": "66f791f1c998d30b",
+  "by": "claude-code-session"
+ },
+ "37241": {
+  "rating": "quasi",
+  "hash": "ead6003420553a28",
+  "by": "claude-code-session"
+ },
+ "37285": {
+  "rating": "non_valutabile",
+  "hash": "853a600613997748",
+  "by": "claude-code-session"
+ },
+ "37286": {
+  "rating": "non_valutabile",
+  "hash": "cf956422ffabf212",
+  "by": "claude-code-session"
+ },
+ "37287": {
+  "rating": "non_valutabile",
+  "hash": "4126a3cce1620ef6",
+  "by": "claude-code-session"
+ },
+ "37482": {
+  "rating": "non_valutabile",
+  "hash": "bd14e418f41a55ff",
+  "by": "claude-code-session"
+ },
+ "37483": {
+  "rating": "non_valutabile",
+  "hash": "5aa8e3a48e1ee2fd",
+  "by": "claude-code-session"
+ },
+ "37484": {
+  "rating": "non_valutabile",
+  "hash": "161ceae551c8b899",
+  "by": "claude-code-session"
+ },
+ "37485": {
+  "rating": "non_valutabile",
+  "hash": "fdcf42a3708dbe52",
+  "by": "claude-code-session"
+ },
+ "37556": {
+  "rating": "non_valutabile",
+  "hash": "0c6beedef64c3e2c",
+  "by": "claude-code-session"
+ },
+ "37557": {
+  "rating": "non_valutabile",
+  "hash": "7a9b5903aa550e63",
+  "by": "claude-code-session"
+ },
+ "37558": {
+  "rating": "non_valutabile",
+  "hash": "8f385ec5131e020b",
+  "by": "claude-code-session"
+ },
+ "37560": {
+  "rating": "ni",
+  "hash": "8d47a0c0b2906762",
+  "by": "claude-code-session"
+ },
+ "37786": {
+  "rating": "ni",
+  "hash": "0015e40afb109362",
+  "by": "claude-code-session"
+ },
+ "37926": {
+  "rating": "pinocchio",
+  "hash": "028eea22ecd4939c",
+  "by": "claude-code-session"
+ },
+ "38069": {
+  "rating": "non_valutabile",
+  "hash": "a96a859bdab9a24e",
+  "by": "claude-code-session"
+ },
+ "38070": {
+  "rating": "non_valutabile",
+  "hash": "c9f2066a927cf042",
+  "by": "claude-code-session"
+ },
+ "38404": {
+  "rating": "non_valutabile",
+  "hash": "94e3d2cf60b3cc27",
+  "by": "claude-code-session"
+ },
+ "38405": {
+  "rating": "non_valutabile",
+  "hash": "44c8c7f26d796555",
+  "by": "claude-code-session"
+ },
+ "38407": {
+  "rating": "non_valutabile",
+  "hash": "a7d06ef9ad22a7e8",
+  "by": "claude-code-session"
+ },
+ "38408": {
+  "rating": "non_valutabile",
+  "hash": "2f2414371816facb",
+  "by": "claude-code-session"
+ },
+ "38409": {
+  "rating": "non_valutabile",
+  "hash": "66bf737b3ada6621",
+  "by": "claude-code-session"
+ },
+ "38411": {
+  "rating": "non_valutabile",
+  "hash": "d201526eede8b71a",
+  "by": "claude-code-session"
+ },
+ "38715": {
+  "rating": "ni",
+  "hash": "5f58141ec935cf61",
+  "by": "claude-code-session"
+ },
+ "38717": {
+  "rating": "non_valutabile",
+  "hash": "5b800953afc1fb4b",
+  "by": "claude-code-session"
+ },
+ "38718": {
+  "rating": "non_valutabile",
+  "hash": "f0a3617710f24aa6",
+  "by": "claude-code-session"
+ },
+ "38720": {
+  "rating": "pinocchio",
+  "hash": "5174632040ab8ba6",
+  "by": "claude-code-session"
+ },
+ "39013": {
+  "rating": "non_valutabile",
+  "hash": "68049cf6cc1312bb",
+  "by": "claude-code-session"
+ },
+ "39014": {
+  "rating": "non_valutabile",
+  "hash": "6d6d051d712d4af7",
+  "by": "claude-code-session"
+ },
+ "39015": {
+  "rating": "non_valutabile",
+  "hash": "a10a020a70f634f1",
+  "by": "claude-code-session"
+ },
+ "39016": {
+  "rating": "non_valutabile",
+  "hash": "10901e0190fb65c9",
+  "by": "claude-code-session"
+ },
+ "39354": {
+  "rating": "pinocchio",
+  "hash": "6ed9fc3bd8e37fb4",
+  "by": "claude-code-session"
+ },
+ "39358": {
+  "rating": "ni",
+  "hash": "5c18702a4eb43da4",
+  "by": "claude-code-session"
+ },
+ "39511": {
+  "rating": "non_valutabile",
+  "hash": "c013a9cccfb2575d",
+  "by": "claude-code-session"
+ },
+ "39512": {
+  "rating": "non_valutabile",
+  "hash": "1c7b2d01a23b44ac",
+  "by": "claude-code-session"
+ },
+ "39517": {
+  "rating": "non_valutabile",
+  "hash": "cff78ad0f821e7e3",
+  "by": "claude-code-session"
+ },
+ "39518": {
+  "rating": "non_valutabile",
+  "hash": "d50afdb87de15d42",
+  "by": "claude-code-session"
+ },
+ "39992": {
+  "rating": "pinocchio",
+  "hash": "bb161ab256bc951b",
+  "by": "claude-code-session"
+ },
+ "39998": {
+  "rating": "ni",
+  "hash": "40f0664003ccc1f0",
+  "by": "claude-code-session"
+ },
+ "40000": {
+  "rating": "pinocchio",
+  "hash": "448f8821f9cd81a7",
+  "by": "claude-code-session"
+ },
+ "40028": {
+  "rating": "pinocchio",
+  "hash": "c0a456caaa61eac3",
+  "by": "claude-code-session"
+ },
+ "40057": {
+  "rating": "pinocchio",
+  "hash": "c9c796880436dd76",
+  "by": "claude-code-session"
+ },
+ "40222": {
+  "rating": "non_valutabile",
+  "hash": "b7812451403d4c68",
+  "by": "claude-code-session"
+ },
+ "40223": {
+  "rating": "non_valutabile",
+  "hash": "8855e7210b014c35",
+  "by": "claude-code-session"
+ },
+ "40270": {
+  "rating": "non_valutabile",
+  "hash": "54d632c6395ed056",
+  "by": "claude-code-session"
+ },
+ "40271": {
+  "rating": "non_valutabile",
+  "hash": "fd043db7ec534772",
+  "by": "claude-code-session"
+ },
+ "40272": {
+  "rating": "non_valutabile",
+  "hash": "2ea5d7c906ce9daa",
+  "by": "claude-code-session"
+ },
+ "40274": {
+  "rating": "ni",
+  "hash": "dec7bd3828219e93",
+  "by": "claude-code-session"
+ },
+ "40515": {
+  "rating": "pinocchio",
+  "hash": "f2b09bdf6a4f2976",
+  "by": "claude-code-session"
+ },
+ "40517": {
+  "rating": "non_valutabile",
+  "hash": "f4eb159fe975d547",
+  "by": "claude-code-session"
+ },
+ "40518": {
+  "rating": "non_valutabile",
+  "hash": "76bb2cc9ef84cf93",
+  "by": "claude-code-session"
+ },
+ "40520": {
+  "rating": "pinocchio",
+  "hash": "acb752da04b66ac3",
+  "by": "claude-code-session"
+ },
+ "40646": {
+  "rating": "pinocchio",
+  "hash": "b943abc0f48a7f59",
+  "by": "claude-code-session"
+ }
+}
