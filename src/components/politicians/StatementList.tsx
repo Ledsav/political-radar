@@ -9,7 +9,7 @@ const PAGE_SIZE = 10;
 export const unquote = (text: string) => text.replace(/^[\s«"“]+|[\s»"”]+$/g, '');
 
 const RatingBadge: React.FC<{rating: RatingKey | null}> = ({rating}) => {
-    if (!rating) return <Chip size="small" label="Non valutabile" variant="outlined" sx={{borderRadius: 0}}/>;
+    if (!rating) return <Chip size="small" label="Non valutabile" variant="outlined"/>;
     const r = RATING_BY_KEY[rating];
     const dark = rating === 'vero' || rating === 'panzana';
     return <Chip size="small" label={r.label} sx={{borderRadius: 0, bgcolor: r.color, color: dark ? 'white' : 'black', border: '1px solid black'}}/>;
@@ -34,12 +34,12 @@ const StatementList: React.FC<{statements: Statement[]}> = ({statements}) => {
         <Box>
             <Stack direction="row" spacing={1} useFlexGap flexWrap="wrap" sx={{mb: 2}}>
                 <Chip label={`Tutte (${statements.length})`} onClick={() => choose('all')}
-                      variant={filter === 'all' ? 'filled' : 'outlined'} sx={{borderRadius: 0}}/>
+                      variant={filter === 'all' ? 'filled' : 'outlined'}/>
                 {RATINGS.map((r) => {
                     const count = statements.filter((s) => s.rating === r.key).length;
                     return count > 0 && (
                         <Chip key={r.key} label={`${r.label} (${count})`} onClick={() => choose(r.key)}
-                              variant={filter === r.key ? 'filled' : 'outlined'} sx={{borderRadius: 0}}/>
+                              variant={filter === r.key ? 'filled' : 'outlined'}/>
                     );
                 })}
             </Stack>

@@ -1,5 +1,5 @@
 import React, {useMemo, useState} from 'react';
-import {Autocomplete, Avatar, Box, InputAdornment, Paper, TextField, Typography} from '@mui/material';
+import {Autocomplete, Avatar, Box, InputAdornment, TextField, Typography} from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import {highlight, rank, SearchResult} from '../../data/search';
 
@@ -71,9 +71,6 @@ const SearchBar: React.FC<SearchBarProps> = ({candidates, loading = false, onSel
             noOptionsText={`Nessun politico o partito trovato per «${input.trim()}»`}
             popupIcon={null}
             sx={{marginTop: '20px', maxWidth: {xs: '100%', sm: '700px'}}}
-            PaperComponent={(props) => (
-                <Paper {...props} square elevation={0} sx={{border: '1px solid black', borderTop: 'none', mt: 0}}/>
-            )}
             ListboxProps={{style: {maxHeight: 420}}}
             renderGroup={(params) => (
                 <li key={params.key}>
@@ -89,10 +86,7 @@ const SearchBar: React.FC<SearchBarProps> = ({candidates, loading = false, onSel
             renderOption={(props, option) => {
                 const {key, ...rest} = props as React.HTMLAttributes<HTMLLIElement> & {key: string};
                 return (
-                    <Box component="li" key={key} {...rest} sx={{
-                        borderBottom: '1px solid #e0e0e0',
-                        '&.Mui-focused': {bgcolor: 'rgba(171, 251, 115, 0.35) !important'},
-                    }}>
+                    <Box component="li" key={key} {...rest}>
                         <ResultRow result={option} query={input}/>
                     </Box>
                 );
@@ -105,13 +99,6 @@ const SearchBar: React.FC<SearchBarProps> = ({candidates, loading = false, onSel
                     InputProps={{
                         ...params.InputProps,
                         startAdornment: <InputAdornment position="start"><SearchIcon/></InputAdornment>,
-                        sx: {
-                            borderRadius: 0,
-                            bgcolor: 'white',
-                            '& fieldset': {borderColor: 'black'},
-                            '&:hover fieldset': {borderColor: 'black'},
-                            '&.Mui-focused fieldset': {borderColor: 'black', borderWidth: 2},
-                        },
                     }}
                 />
             )}

@@ -1,5 +1,8 @@
 import {createTheme} from '@mui/material/styles';
 
+const LIME = '#abfb73';
+const LIME_SOFT = 'rgba(171, 251, 115, 0.35)';
+
 const theme = createTheme({
     palette: {
         primary: {
@@ -40,8 +43,8 @@ const theme = createTheme({
         },
         text: {
             primary: '#000000',
-            secondary: '#ffffff',
-            disabled: '#bdbdbd'
+            secondary: '#555555', // used by MUI for input labels and secondary text
+            disabled: '#757575'
         },
         background: {
             default: '#ffffff', // Set the default background color to white
@@ -87,9 +90,96 @@ const theme = createTheme({
                 root: {
                     fontSize: '1rem', // Larger font size for buttons
                     fontWeight: 'bold', // Bold font weight for buttons
-                }
+                    borderRadius: 0,
+                },
+                outlined: {
+                    borderColor: '#000',
+                    color: '#000',
+                    '&:hover': {borderColor: '#000', backgroundColor: LIME},
+                },
             }
-        }
+        },
+
+        // Every input shares one look: square corners, 1px black border,
+        // 2px when focused, lime for the active/selected state.
+        MuiOutlinedInput: {
+            styleOverrides: {
+                root: {
+                    borderRadius: 0,
+                    backgroundColor: '#fff',
+                    '& .MuiOutlinedInput-notchedOutline': {borderColor: '#000'},
+                    '&:hover .MuiOutlinedInput-notchedOutline': {borderColor: '#000'},
+                    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {borderColor: '#000', borderWidth: 2},
+                },
+            },
+        },
+        MuiInputLabel: {
+            styleOverrides: {
+                root: {color: '#555', '&.Mui-focused': {color: '#000'}},
+            },
+        },
+        MuiPaper: {
+            styleOverrides: {
+                rounded: {borderRadius: 0},
+            },
+        },
+        MuiMenu: {
+            defaultProps: {elevation: 0},
+            styleOverrides: {
+                paper: {border: '1px solid #000', marginTop: 4},
+            },
+        },
+        MuiMenuItem: {
+            styleOverrides: {
+                root: {
+                    '&:hover, &.Mui-focusVisible': {backgroundColor: LIME_SOFT},
+                    '&.Mui-selected, &.Mui-selected:hover': {backgroundColor: LIME, fontWeight: 700},
+                },
+            },
+        },
+        MuiAutocomplete: {
+            styleOverrides: {
+                paper: {borderRadius: 0, border: '1px solid #000', borderTop: 'none', boxShadow: 'none'},
+                option: {
+                    borderBottom: '1px solid #e0e0e0',
+                    '&.Mui-focused, &[aria-selected="true"].Mui-focused': {backgroundColor: `${LIME_SOFT} !important`},
+                },
+                noOptions: {fontStyle: 'italic'},
+            },
+        },
+        MuiChip: {
+            styleOverrides: {
+                root: {borderRadius: 0, fontWeight: 500},
+                outlined: {borderColor: '#000', '&.MuiChip-clickable:hover': {backgroundColor: LIME_SOFT}},
+                filled: {backgroundColor: LIME, border: '1px solid #000', '&.MuiChip-clickable:hover': {backgroundColor: LIME}},
+            },
+        },
+        MuiSwitch: {
+            styleOverrides: {
+                switchBase: {
+                    '&.Mui-checked': {color: '#000'},
+                    '&.Mui-checked + .MuiSwitch-track': {backgroundColor: LIME, opacity: 1, border: '1px solid #000'},
+                },
+                track: {borderRadius: 0, backgroundColor: '#bdbdbd', opacity: 1},
+                thumb: {borderRadius: 0, boxShadow: 'none', border: '1px solid #000'},
+            },
+        },
+        MuiPaginationItem: {
+            styleOverrides: {
+                root: {
+                    borderRadius: 0,
+                    fontWeight: 700,
+                    '&.Mui-selected, &.Mui-selected:hover': {backgroundColor: LIME, border: '1px solid #000'},
+                    '&:hover': {backgroundColor: LIME_SOFT},
+                },
+            },
+        },
+        MuiTooltip: {
+            styleOverrides: {
+                tooltip: {borderRadius: 0, backgroundColor: '#000', fontSize: '0.8rem'},
+                arrow: {color: '#000'},
+            },
+        },
     }
 });
 

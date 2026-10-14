@@ -18,7 +18,7 @@ const Section: React.FC<{title: string; subtitle: string; to: string; children: 
                 <Typography variant="h1" component="h2" sx={{fontWeight: 'bold'}}>{title}</Typography>
                 <Typography variant="h6" component="p">{subtitle}</Typography>
             </Box>
-            <Button component={RouterLink} to={to} variant="outlined" color="inherit" sx={{borderRadius: 0}}>
+            <Button component={RouterLink} to={to} variant="outlined">
                 Vedi tutti
             </Button>
         </Box>
