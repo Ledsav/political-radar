@@ -1,52 +1,52 @@
-### Description
+# Radar Politico
 
-**Political Radar** is a React frontend application designed to work with a Python-based backend for fact-checking political statements. This project provides a user-friendly interface for displaying and searching fact-checking data, including average scores for politicians and parties. The application leverages IndexedDB for local caching, ensuring fast and efficient data retrieval.
+How reliable are Italian politicians' statements? Radar Politico summarises the fact-checks published by
+[Pagella Politica](https://pagellapolitica.it) into a per-politician and per-party view, and links every
+verdict back to the original article.
 
-## Features
+## How it fits together
 
-- Display average scores by politicians and parties.
-- Search functionality for fact-checking items by author and party.
-- Local caching using IndexedDB for improved performance.
-- Responsive and interactive user interface.
+```
+Pagella Politica WordPress API ──► pipeline/ (Python) ──► public/data/*.json ──► React app (Vite)
+                                       │
+                                       └─ pipeline/data/verdict_labels.json  (cached Claude ratings)
+```
 
-## Installation
+- **`pipeline/`** downloads every statement from the public API, maps each verdict onto Pagella Politica's
+  5-point scale, computes scores and writes static JSON. See [`pipeline/README.md`](pipeline/README.md).
+- **`src/`** is a static React + MUI site that reads those JSON files. There is no backend and no database.
+- **`.github/workflows/update-data.yml`** reruns the pipeline every Monday and commits the new data.
 
-1. **Clone the repository**:
-    ```sh
-    git clone https://github.com/your-username/political-radar.git
-    cd political-radar
-    ```
+The scoring method, its limits and the data coverage are explained in the app at `/metodo`.
 
-2. **Install dependencies**:
-    ```sh
-    npm install
-    ```
+## Development
 
-3. **Create a `.env` file** in the root directory and add your Firebase configuration:
-    ```plaintext
-    REACT_APP_FIREBASE_API_KEY=your-api-key
-    REACT_APP_FIREBASE_AUTH_DOMAIN=your-auth-domain
-    REACT_APP_FIREBASE_PROJECT_ID=your-project-id
-    REACT_APP_FIREBASE_STORAGE_BUCKET=your-storage-bucket
-    REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your-messaging-sender-id
-    REACT_APP_FIREBASE_APP_ID=your-app-id
-    REACT_APP_FIREBASE_MEASUREMENT_ID=your-measurement-id
-    ```
+```sh
+npm install
+npm run dev        # http://localhost:5173
+npm test           # Vitest
+npm run build      # type-check and build to build/
+```
 
-## Usage
+To refresh the data locally:
 
-1. **Start the development server**:
-    ```sh
-    npm start
-    ```
+```sh
+cd pipeline
+python -m venv .venv && .venv/Scripts/pip install -r requirements-dev.txt   # .venv/bin/pip on macOS/Linux
+.venv/Scripts/python -m radar all     # set ANTHROPIC_API_KEY to classify new verdict sentences
+.venv/Scripts/python -m pytest
+```
 
-2. **Open your browser** and navigate to `http://localhost:3000` to view the application.
+## Deploying
 
-## Contributing
+`npm run build` produces a static site in `build/`. Any static host works. Because routes such as
+`/politicians/matteo-salvini` are client-side, configure the host to serve `index.html` for unknown paths
+(Firebase Hosting `rewrites`, Netlify `_redirects`, Vercel `rewrites`, …).
 
-Contributions are welcome! Please feel free to submit a pull request.
+For the weekly data update, add an `ANTHROPIC_API_KEY` repository secret. Without it the workflow still
+runs, but newly published verdict sentences stay unscored until a key is available.
 
 ## License
 
-This project is licensed under the MIT License.
-
+MIT. Fact-check content belongs to Pagella Politica; this project only shows verdict labels and short
+claim excerpts, and links to their articles.
