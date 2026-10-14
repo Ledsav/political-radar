@@ -184,7 +184,9 @@ A normal week has only a handful of new statements.
 
 ## Deploying (GitHub Pages)
 
-The site is published at **https://ledsav.github.io/political-radar/** by `.github/workflows/pages.yml`:
+The site is published at **https://www.albertovaldesrey.com/political-radar/** by `.github/workflows/pages.yml`.
+(`ledsav.github.io/political-radar/` redirects there because the GitHub account has a custom domain.)
+
 
 - It runs on every push to `main`, after every successful **Update data** run (bot pushes don't trigger
   `push` workflows by themselves), or manually from the Actions tab.
