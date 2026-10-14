@@ -8,23 +8,21 @@ import {
     ListItemText,
     Paper,
     TextField,
-    useMediaQuery,
     useTheme
 } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
-import {isPolitician, SearchableItem} from "../../types/types";
+import {SearchResult} from "../../data/search";
 
 interface SearchBarProps {
     onSearch: (query: string) => void;
-    results: SearchableItem[];
-    onResultClick: (result: SearchableItem) => void;
+    results: SearchResult[];
+    onResultClick: (result: SearchResult) => void;
 }
 
 
 const SearchBar: React.FC<SearchBarProps> = ({onSearch, results, onResultClick}) => {
     const [query, setQuery] = useState('');
     const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
 
     const handleSearch = useCallback(() => {
         onSearch(query);
@@ -55,11 +53,13 @@ const SearchBar: React.FC<SearchBarProps> = ({onSearch, results, onResultClick})
     return (
         <Box style={{display: 'flex', alignItems: 'center', marginTop: '20px', position: 'relative', width: '100%'}}>
             <TextField
+                type="search"
                 variant="outlined"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 onKeyDown={handleKeyDown}
-                placeholder="Cerca"
+                placeholder="Cerca un politico o un partito"
+                inputProps={{'aria-label': 'Cerca un politico o un partito'}}
                 fullWidth
                 InputProps={{
                     startAdornment: (
@@ -112,7 +112,7 @@ const SearchBar: React.FC<SearchBarProps> = ({onSearch, results, onResultClick})
                         {results.map((result) => (
                             <ListItem
                                 component="div"
-                                key={result.id}
+                                key={`${result.kind}-${result.id}`}
                                 onClick={() => onResultClick(result)}
                                 sx={{
                                     cursor: 'pointer',
@@ -124,7 +124,8 @@ const SearchBar: React.FC<SearchBarProps> = ({onSearch, results, onResultClick})
                                 }}
                             >
                                 <ListItemText
-                                    primary={isPolitician(result) ? result.author : result.party}
+                                    primary={result.name}
+                                    secondary={result.kind === 'party' ? `Partito · ${result.detail}` : result.detail}
                                 />
                             </ListItem>
                         ))}

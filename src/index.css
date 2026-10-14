@@ -40,20 +40,3 @@ footer {
     text-align: center; /* Center the footer content */
     margin-top: 20px; /* Add space above the footer */
 }
-
-/* Additional styles for form elements and buttons */
-input[type="text"], button {
-
-}
-
-button {
-    background-color: #4CAF50; /* Green background color */
-    border: none;
-    color: white;
-    text-transform: uppercase; /* Uppercase text for buttons */
-    cursor: pointer; /* Pointer cursor on hover */
-}
-
-button:hover {
-    background-color: #45a049; /* Slightly darker green on hover */
-}

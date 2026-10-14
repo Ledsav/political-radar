@@ -1,29 +1,40 @@
-import React from 'react';
+import React, {lazy, Suspense} from 'react';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import {ThemeProvider} from '@mui/material/styles';
-import Home from './pages/Home';
-import Politicians from './pages/Politicians';
-import Parties from './pages/Parties';
-import PoliticianDetailPage from './pages/PoliticianDetails';
-import PartyDetailPage from './pages/PartyDetails';
-import theme from "./theme/theme";
 import {CssBaseline} from '@mui/material';
+import Home from './pages/Home';
+import {Loading} from './components/shared/Status';
+import theme from './theme/theme';
 
-const App: React.FC = () => {
-    return (
-        <ThemeProvider theme={theme}> {/* Wrap everything in ThemeProvider */}
-            <CssBaseline/> {/* Normalize CSS across browsers */}
-            <Router>
-                <Routes>
-                    <Route path="/" element={<Home/>}/>
-                    <Route path="/politicians" element={<Politicians/>}/>
-                    <Route path="/parties" element={<Parties/>}/>
-                    <Route path="/politicians/:id" element={<PoliticianDetailPage/>}/>
-                    <Route path="/parties/:id" element={<PartyDetailPage/>}/>
-                </Routes>
-            </Router>
-        </ThemeProvider>
-    );
-};
+// Pages with charts pull in recharts; keep them out of the first load.
+const Politicians = lazy(() => import('./pages/Politicians'));
+const Parties = lazy(() => import('./pages/Parties'));
+const PoliticianDetailPage = lazy(() => import('./pages/PoliticianDetails'));
+const PartyDetailPage = lazy(() => import('./pages/PartyDetails'));
+const Method = lazy(() => import('./pages/Method'));
+const NotFound = lazy(() => import('./pages/NotFound'));
+
+export const AppRoutes: React.FC = () => (
+    <Suspense fallback={<Loading/>}>
+    <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/politicians" element={<Politicians/>}/>
+        <Route path="/parties" element={<Parties/>}/>
+        <Route path="/politicians/:id" element={<PoliticianDetailPage/>}/>
+        <Route path="/parties/:id" element={<PartyDetailPage/>}/>
+        <Route path="/metodo" element={<Method/>}/>
+        <Route path="*" element={<NotFound/>}/>
+    </Routes>
+    </Suspense>
+);
+
+const App: React.FC = () => (
+    <ThemeProvider theme={theme}>
+        <CssBaseline/>
+        <Router>
+            <AppRoutes/>
+        </Router>
+    </ThemeProvider>
+);
 
 export default App;

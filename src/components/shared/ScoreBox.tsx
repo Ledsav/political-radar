@@ -1,104 +1,43 @@
 import React from 'react';
-import {Box, Tooltip, Typography, useMediaQuery} from '@mui/material';
-import InfoIcon from "@mui/icons-material/Info";
+import {Box, Typography} from '@mui/material';
+import {Link as RouterLink} from 'react-router-dom';
 
-interface CredibilityScoreProps {
+interface ScoreBoxProps {
     score: number;
-    label: string;
+    rated: number;
+    reliable: boolean;
+    minStatements: number;
 }
 
-const ScoreTooltip: React.FC<{ score: number; label: string; explanation: string }> = ({
-                                                                                           score,
-                                                                                           label,
-                                                                                           explanation
-                                                                                       }) => (
-    <Tooltip title={explanation} arrow>
-        <Box sx={{display: 'flex', alignItems: 'center', mb: 2}}>
-            <ScoreBox score={score} label={label}/>
-            <InfoIcon sx={{ml: 1, cursor: 'pointer'}}/>
+// The headline credibility number, or an explicit "not enough data" state when
+// the sample is too small for the number to mean much.
+const ScoreBox: React.FC<ScoreBoxProps> = ({score, rated, reliable, minStatements}) => (
+    <Box sx={{display: 'flex', alignItems: 'stretch', maxWidth: 420, bgcolor: 'black', color: 'white'}}>
+        <Box sx={{width: 40, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+            <Typography sx={{transform: 'rotate(-90deg)', whiteSpace: 'nowrap', fontSize: '1rem'}}>
+                attendibilità
+            </Typography>
         </Box>
-    </Tooltip>
+        <Box sx={{flex: 1, p: 2, textAlign: 'right'}}>
+            {reliable ? (
+                <Typography variant="h2" component="p" sx={{fontSize: {xs: '3.5rem', sm: '5.5rem'}, lineHeight: 1, fontWeight: 'bold'}}>
+                    {score}
+                    <Box component="span" sx={{fontSize: {xs: '1rem', sm: '2rem'}, ml: 0.5}}>/100</Box>
+                </Typography>
+            ) : (
+                <Typography variant="h2" component="p" sx={{fontSize: {xs: '2rem', sm: '2.75rem'}, lineHeight: 1.1}}>
+                    DATI INSUFFICIENTI
+                </Typography>
+            )}
+            <Typography variant="body2" sx={{mt: 1}}>
+                {reliable
+                    ? `su ${rated} dichiarazioni verificate`
+                    : `solo ${rated} ${rated === 1 ? 'dichiarazione verificata' : 'dichiarazioni verificate'} (minimo ${minStatements})`}
+                {' · '}
+                <RouterLink to="/metodo" style={{textDecoration: 'underline'}}>come si calcola</RouterLink>
+            </Typography>
+        </Box>
+    </Box>
 );
 
-const ScoreBox: React.FC<CredibilityScoreProps> = ({score, label}) => {
-    const isMobile = useMediaQuery('(max-width:600px)');
-
-    return (
-        <Box
-            sx={{
-                display: 'flex',
-                alignItems: 'stretch',
-                width: '100%',
-                maxWidth: isMobile ? '100%' : '400px',
-                height: isMobile ? '100px' : '150px',
-                position: 'relative',
-                margin: '10px',
-            }}
-        >
-            <Box
-                sx={{
-                    width: isMobile ? '15%' : '10%',
-                    backgroundColor: 'black',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    position: 'relative',
-                }}
-            >
-                <Typography
-                    sx={{
-                        color: 'white',
-                        transform: 'rotate(-90deg)',
-                        whiteSpace: 'nowrap',
-                        position: 'absolute',
-                        fontSize: isMobile ? '0.8rem' : '1.2rem',
-                        fontWeight: 'regular',
-                        left: isMobile ? '-20px' : '-10px',
-                        width: '100px',  // Fixed width for consistency
-                        textAlign: 'center',
-                    }}
-                >
-                    {label}
-                </Typography>
-            </Box>
-            <Box
-                sx={{
-                    flex: 1,
-                    backgroundColor: 'black',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'flex-end',
-                    paddingRight: isMobile ? '20px' : '50px',
-                }}
-            >
-                <Typography
-                    variant="h2"
-                    component="div"
-                    sx={{
-                        color: 'white',
-                        fontWeight: 'bold',
-                        fontSize: isMobile ? '3rem' : '6rem',
-                        lineHeight: 1,
-                        display: 'flex',
-                        alignItems: 'baseline',
-                    }}
-                >
-                    {score}
-                    <Typography
-                        variant="h2"
-                        component="span"
-                        sx={{
-                            fontSize: isMobile ? '1rem' : '2rem',
-                            fontWeight: 'regular',
-                            marginLeft: '5px',
-                        }}
-                    >
-                        /100
-                    </Typography>
-                </Typography>
-            </Box>
-        </Box>
-    );
-};
-
-export default ScoreTooltip;
+export default ScoreBox;

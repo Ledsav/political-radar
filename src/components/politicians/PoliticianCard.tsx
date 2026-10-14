@@ -1,27 +1,30 @@
 import React from 'react';
-import StyledCard from "../shared/StyledCard";
+import {Box, Typography} from '@mui/material';
+import StyledCard from '../shared/StyledCard';
+import VerdictBar from '../shared/VerdictBar';
+import {Party, Politician} from '../../data/types';
 
-interface PoliticianCardProps {
-    politician: {
-        id: string;  // Ensure this is a string
-        name: string;
-        party: string;
-        image: string;
-    };
-}
+export const CardScore: React.FC<{entity: Politician | Party}> = ({entity}) => (
+    <Box sx={{mt: 1}}>
+        <Typography variant="body2" sx={{mb: 0.5}}>
+            {entity.reliable ? <><strong>{entity.score}</strong>/100 · </> : 'Dati insufficienti · '}
+            {entity.rated} verifiche
+        </Typography>
+        <VerdictBar breakdown={entity.breakdown} height={12} showLegend={false}/>
+    </Box>
+);
 
-const PoliticianCard: React.FC<PoliticianCardProps> = ({politician}) => {
-    return (
-        <StyledCard
-            id={politician.id}
-            title={politician.name}
-            subtitle={politician.party}
-            linkTo={`/politicians/${politician.id}`}
-            image={politician.image}
-            objectFit={'cover'}
-            objectPosition={'50% 20%'}
-        />
-    );
-};
+const PoliticianCard: React.FC<{politician: Politician}> = ({politician}) => (
+    <StyledCard
+        title={politician.name}
+        subtitle={politician.party ?? 'Senza partito'}
+        linkTo={`/politicians/${politician.id}`}
+        image={politician.image}
+        objectFit="cover"
+        objectPosition="50% 20%"
+    >
+        <CardScore entity={politician}/>
+    </StyledCard>
+);
 
 export default PoliticianCard;

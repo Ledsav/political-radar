@@ -23,8 +23,8 @@ const Header: React.FC = () => {
         ? '/politicians'
         : currentPath.startsWith('/parties')
             ? '/parties'
-            : currentPath.startsWith('/map')
-                ? '/map'
+            : currentPath.startsWith('/metodo')
+                ? '/metodo'
                 : '/';
 
     const handleMenuClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -39,7 +39,7 @@ const Header: React.FC = () => {
         {label: 'HOME', path: '/'},
         {label: 'POLITICI', path: '/politicians'},
         {label: 'PARTITI', path: '/parties'},
-        {label: 'MAPPA', path: '/map'},
+        {label: 'METODO', path: '/metodo'},
     ];
 
     return (

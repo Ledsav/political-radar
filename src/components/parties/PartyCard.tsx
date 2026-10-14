@@ -1,25 +1,16 @@
 import React from 'react';
-import StyledCard from "../shared/StyledCard";
+import StyledCard from '../shared/StyledCard';
+import {CardScore} from '../politicians/PoliticianCard';
+import {Party} from '../../data/types';
 
-interface PartyCardProps {
-    party: {
-        id: string;
-        name: string;
-        orientation: string;
-        image: string;
-    };
-}
-
-const PartyCard: React.FC<PartyCardProps> = ({party}) => {
-    return (
-        <StyledCard
-            id={party.id}
-            title={party.name}
-            subtitle={`${party.orientation}`}
-            linkTo={`/parties/${party.id}`}
-            image={party.image}
-        />
-    );
-};
+const PartyCard: React.FC<{party: Party}> = ({party}) => (
+    <StyledCard
+        title={party.name}
+        subtitle={`${party.politicians} ${party.politicians === 1 ? 'politico' : 'politici'}`}
+        linkTo={`/parties/${party.id}`}
+    >
+        <CardScore entity={party}/>
+    </StyledCard>
+);
 
 export default PartyCard;

@@ -1,59 +1,50 @@
-import React from 'react';
+import React, {useCallback, useState} from 'react';
+import {useNavigate} from 'react-router-dom';
 import {Box, Typography, useMediaQuery, useTheme} from '@mui/material';
-import SearchBar from "../shared/SearchBar";
-import emoji from "../../assets/images/emoji.png"
-import {SearchableItem} from "../../types/types";
+import SearchBar from '../shared/SearchBar';
+import emoji from '../../assets/images/emoji.png';
+import {loadParties, loadPoliticians} from '../../data/api';
+import {useData} from '../../data/useData';
+import {resultPath, search, SearchResult} from '../../data/search';
 
-interface SearchContainerProps {
-    onSearch: (query: string) => void;
-    results: any[];
-    onResultClick: (result: SearchableItem) => void;
-}
+const loadAll = () => Promise.all([loadPoliticians(), loadParties()]);
 
-const SearchContainer: React.FC<SearchContainerProps> = ({onSearch, results, onResultClick}) => {
+const SearchContainer: React.FC = () => {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+    const navigate = useNavigate();
+    const {data} = useData(loadAll);
+    const [results, setResults] = useState<SearchResult[]>([]);
+
+    const onSearch = useCallback(
+        (query: string) => setResults(data ? search(query, data[0], data[1]) : []),
+        [data],
+    );
+    const onResultClick = useCallback((result: SearchResult) => navigate(resultPath(result)), [navigate]);
 
     return (
         <Box
             display="flex"
-            flexDirection={isMobile ? "column" : "row"}
-            alignItems={isMobile ? "flex-start" : "center"}
+            flexDirection={isMobile ? 'column' : 'row'}
+            alignItems={isMobile ? 'flex-start' : 'center'}
             justifyContent="space-between"
             sx={{padding: {xs: '20px', sm: '20px 0 20px 20px'}}}
         >
             <Box width={isMobile ? '100%' : '700px'}>
                 <Typography
                     variant="h3"
-                    component="div"
+                    component="h1"
                     sx={{
                         fontFamily: '"Antonio", "Roboto", "Helvetica", "Arial", sans-serif',
                         fontWeight: 'bold',
-                        fontSize: {xs: '3rem', sm: '4rem', md: '5rem'}
+                        fontSize: {xs: '3rem', sm: '4rem', md: '5rem'},
+                        lineHeight: 1.2,
                     }}
                 >
                     TROVA DI
-                </Typography>
-                <Typography
-                    variant="h3"
-                    component="div"
-                    sx={{
-                        fontFamily: '"Antonio", "Roboto", "Helvetica", "Arial", sans-serif',
-                        fontWeight: 'bold',
-                        display: 'inline-block',
-                        position: 'relative',
-                        paddingTop: '15px',
-                        fontSize: {xs: '3rem', sm: '4rem', md: '5rem'}
-                    }}
-                >
+                    <br/>
                     CHI{' '}
-                    <span
-                        style={{
-                            backgroundColor: theme.palette.primary.main,
-                            color: 'black',
-                            padding: '0 5px',
-                        }}
-                    >
+                    <span style={{backgroundColor: theme.palette.primary.main, color: 'black', padding: '0 5px'}}>
                         FIDARTI
                     </span>
                 </Typography>
@@ -68,8 +59,7 @@ const SearchContainer: React.FC<SearchContainerProps> = ({onSearch, results, onR
                         position: 'relative',
                     }}
                 >
-                    <img src={emoji} alt="Emoji"
-                         style={{width: '100%', height: '100%', position: 'absolute', right: '-130px'}}/>
+                    <img src={emoji} alt="" style={{width: '100%', height: '100%', position: 'absolute', right: '-130px'}}/>
                 </Box>
             )}
         </Box>

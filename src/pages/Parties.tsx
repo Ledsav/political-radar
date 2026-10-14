@@ -1,50 +1,36 @@
 import React from 'react';
-import Header from '../components/shared/Header';
-import Footer from '../components/shared/Footer';
 import {Box, Typography} from '@mui/material';
-import PartyGridList from "../components/parties/PartiesGridList";
-import {useNavigate} from "react-router-dom";
-import SearchContainer from "../components/home/SearchContainer";
-import useSearch from '../hooks/useSearch';
-import {SearchableItem} from "../types/types";
-import RankingChart from "../components/charts/RankingChart";
-import ActivityChart from "../components/charts/ActivityChart";
+import Layout from '../components/shared/Layout';
+import PaginatedGridList from '../components/shared/PaginatedGridList';
+import PartyCard from '../components/parties/PartyCard';
+import RankingChart from '../components/charts/RankingChart';
+import {ErrorMessage, Loading} from '../components/shared/Status';
+import {loadParties} from '../data/api';
+import {useData} from '../data/useData';
 
 const Parties: React.FC = () => {
-    const navigate = useNavigate();
-    const collectionName = 'party_averages';
-    const {results, handleSearch: search} = useSearch(collectionName);
-
-    const handleResultClick = (result: SearchableItem) => {
-        navigate(`/parties/${result.id}`);
-    };
+    const {data, loading, error} = useData(loadParties);
 
     return (
-        <Box
-            sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                minHeight: '100vh',
-            }}
-        >
-            <Header/>
-            <Box sx={{flex: 1}}>
-                <SearchContainer onSearch={search} results={results} onResultClick={handleResultClick}/>
-                <Box sx={{padding: 3}}>
-                    <Typography variant="h1" sx={{fontWeight: 'bold'}}>PARTITI</Typography>
-                </Box>
-                <Box sx={{padding: 3}}>
-                    <PartyGridList filteredData={results}/>
-                </Box>
-                <Box sx={{padding: 3}}>
-                    <RankingChart data={results}/>
-                </Box>
-                <Box sx={{padding: 3}}>
-                    <ActivityChart data={results} collectionName={collectionName}/>
-                </Box>
+        <Layout>
+            <Box sx={{p: 3}}>
+                <Typography variant="h1" sx={{fontWeight: 'bold'}}>PARTITI</Typography>
+                <Typography variant="body1" sx={{mb: 3, maxWidth: 760}}>
+                    Ogni partito somma le verifiche dei suoi esponenti attuali. I partiti con pochi esponenti
+                    verificati dipendono quasi interamente da una o due persone.
+                </Typography>
+                {loading && <Loading/>}
+                {error && <ErrorMessage message={error}/>}
+                {data && (
+                    <>
+                        <PaginatedGridList items={data} getKey={(p) => p.id} renderItem={(p) => <PartyCard party={p}/>}/>
+                        <Box sx={{mt: 8}}>
+                            <RankingChart title="CLASSIFICA" items={data}/>
+                        </Box>
+                    </>
+                )}
             </Box>
-            <Footer/>
-        </Box>
+        </Layout>
     );
 };
 

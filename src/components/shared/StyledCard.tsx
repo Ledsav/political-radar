@@ -6,25 +6,26 @@ import CardActionArea from '@mui/material/CardActionArea';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
 
 interface StyledCardProps {
-    id: string;
     title: string;
     subtitle: string;
     linkTo: string;
-    image: string;
+    image?: string | null;
     objectFit?: 'contain' | 'cover';
     objectPosition?: string;
+    children?: React.ReactNode;
 }
 
 const StyledCard: React.FC<StyledCardProps> = ({
-                                                   id,
                                                    title,
                                                    subtitle,
                                                    linkTo,
                                                    image,
                                                    objectFit = 'contain',
-                                                   objectPosition = 'center'
+                                                   objectPosition = 'center',
+                                                   children,
                                                }) => {
     const theme = useTheme();
 
@@ -49,19 +50,33 @@ const StyledCard: React.FC<StyledCardProps> = ({
                     }
                 }}
             >
-                <CardMedia
-                    component="img"
-                    height="140"
-                    image={image}
-                    alt={title}
-                    sx={{
-                        objectFit: objectFit,
-                        objectPosition: objectFit === 'cover' ? objectPosition : 'center',
-                        width: '100%',
+                {image ? (
+                    <CardMedia
+                        component="img"
+                        image={image}
+                        alt={title}
+                        loading="lazy"
+                        sx={{
+                            objectFit: objectFit,
+                            objectPosition: objectFit === 'cover' ? objectPosition : 'center',
+                            width: '100%',
+                            height: '280px',
+                            backgroundColor: theme.palette.secondary.main
+                        }}
+                    />
+                ) : (
+                    <Box sx={{
                         height: '280px',
-                        backgroundColor: theme.palette.secondary.main
-                    }}
-                />
+                        display: 'flex',
+                        alignItems: 'flex-end',
+                        p: 2,
+                        backgroundColor: theme.palette.primary.main,
+                    }}>
+                        <Typography variant="h2" component="span" sx={{fontSize: '2rem', lineHeight: 1.05, overflowWrap: 'anywhere'}}>
+                            {title.toUpperCase()}
+                        </Typography>
+                    </Box>
+                )}
                 <CardContent
                     sx={{
                         padding: '10px',
@@ -104,6 +119,7 @@ const StyledCard: React.FC<StyledCardProps> = ({
                     >
                         {subtitle}
                     </Typography>
+                    {children}
                 </CardContent>
             </CardActionArea>
         </Card>
