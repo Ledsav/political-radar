@@ -2843,5 +2843,10 @@
   "rating": "pinocchio",
   "hash": "b943abc0f48a7f59",
   "by": "claude-code-session"
+ },
+ "40794": {
+  "rating": "pinocchio",
+  "hash": "8db18f008481bde4",
+  "by": "openai/gpt-oss-120b"
  }
 }
