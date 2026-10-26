@@ -2848,5 +2848,15 @@
   "rating": "pinocchio",
   "hash": "8db18f008481bde4",
   "by": "openai/gpt-oss-120b"
+ },
+ "40913": {
+  "rating": "non_valutabile",
+  "hash": "8fb643a16511429b",
+  "by": "openai/gpt-oss-120b"
+ },
+ "40914": {
+  "rating": "non_valutabile",
+  "hash": "6197705e94b71054",
+  "by": "openai/gpt-oss-120b"
  }
 }
