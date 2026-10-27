@@ -121,27 +121,36 @@ The `/metodo` page states this to visitors; in short:
 
 ## Running it locally
 
-Requirements: Node 20+, Python 3.10+.
+Requirements: Node 20+ and Python 3.10+ (CI uses Node 20 and Python 3.12), plus a free Groq key (see below).
+
+```sh
+git clone https://github.com/Ledsav/political-radar.git
+cd political-radar
+```
 
 ### With VS Code tasks (`Terminal → Run Task…`)
 
+On a fresh clone, run **Setup (fresh clone)** once. It runs `npm ci`, creates `pipeline/.venv`, installs
+`requirements-dev.txt`, creates `pipeline/.env` from `.env.example` and stops there until `GROQ_API_KEY` is filled
+in. Run it again after pasting the key: it then runs `python -m radar all` (fetch, classify, build), which also
+fills `pipeline/data/raw/` so the offline rebuild works. **Dev** starts the dev server.
+
 | Task | What it does |
 |---|---|
+| **Setup (fresh clone)** | everything above, in order |
 | **App: start dev server** | `npm run dev`, then open http://localhost:5173 (also the default build task: `Ctrl+Shift+B`) |
 | **App: test** | Vitest |
 | **App: production build + preview** | builds to `build/` and serves it |
 | **Pipeline: set up Python environment** | creates `pipeline/.venv` (run once) |
 | **Pipeline: update data** | fetch, classify new verdicts, rebuild `public/data` |
-| **Pipeline: rebuild data from cache (offline)** | re-export from the last download, no network |
+| **Pipeline: rebuild data from cache (offline)** | re-export from the last download, no network (needs one prior fetch) |
 | **Pipeline: measure label agreement** | runs `evaluate` with your Groq key |
 | **Pipeline: test** / **Test everything** | pytest, or both test suites |
-
-Run `npm install` once before the App tasks.
 
 ### From a terminal
 
 ```sh
-npm install
+npm ci
 npm run dev                    # http://localhost:5173
 npm test
 
@@ -157,7 +166,9 @@ python -m venv .venv
 ### API key
 
 Copy `pipeline/.env.example` to `pipeline/.env` and paste your Groq key. `.env` is gitignored, and the pipeline
-reads it automatically. Without a key, everything works except rating newly published verdicts.
+reads it automatically. Without a key, everything works except rating newly published verdicts (the Setup task
+still insists on one, so a fresh clone ends up fully classified). `ANTHROPIC_API_KEY` is the optional alternative,
+commented out in `.env.example`.
 
 ---
 

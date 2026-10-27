@@ -2,6 +2,61 @@
   "version": "2.0.0",
   "tasks": [
     {
+      "label": "setup: install npm packages",
+      "type": "shell",
+      "command": "npm ci",
+      "problemMatcher": []
+    },
+    {
+      "label": "setup: create pipeline venv",
+      "type": "shell",
+      "command": "python3 -m venv pipeline/.venv",
+      "windows": {"command": "python -m venv pipeline\\.venv"},
+      "problemMatcher": []
+    },
+    {
+      "label": "setup: install pipeline requirements",
+      "type": "shell",
+      "options": {"cwd": "${workspaceFolder}/pipeline"},
+      "command": ".venv/bin/python -m pip install -r requirements-dev.txt",
+      "windows": {"command": ".venv\\Scripts\\python -m pip install -r requirements-dev.txt"},
+      "problemMatcher": []
+    },
+    {
+      "label": "setup: check pipeline/.env",
+      "detail": "Creates pipeline/.env from .env.example, then stops until GROQ_API_KEY is filled in",
+      "type": "shell",
+      "command": "node -e \"const fs=require('fs');const p='pipeline/.env';if(!fs.existsSync(p)){fs.copyFileSync('pipeline/.env.example',p);console.log('Created '+p+' from pipeline/.env.example')}if(!/^GROQ_API_KEY=\\S+/m.test(fs.readFileSync(p,'utf8'))){console.error('GROQ_API_KEY is empty: paste your key (https://console.groq.com/keys) into pipeline/.env, then run Setup (fresh clone) again.');process.exit(1)}console.log('pipeline/.env OK')\"",
+      "problemMatcher": []
+    },
+    {
+      "label": "setup: fetch, classify and build data",
+      "type": "shell",
+      "options": {"cwd": "${workspaceFolder}/pipeline", "env": {"PYTHONIOENCODING": "utf-8"}},
+      "command": ".venv/bin/python -m radar all",
+      "windows": {"command": ".venv\\Scripts\\python -m radar all"},
+      "problemMatcher": []
+    },
+    {
+      "label": "Setup (fresh clone)",
+      "detail": "npm ci, pipeline venv + requirements, pipeline/.env check, python -m radar all",
+      "dependsOrder": "sequence",
+      "dependsOn": [
+        "setup: install npm packages",
+        "setup: create pipeline venv",
+        "setup: install pipeline requirements",
+        "setup: check pipeline/.env",
+        "setup: fetch, classify and build data"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Dev",
+      "detail": "Same as App: start dev server",
+      "dependsOn": ["App: start dev server"],
+      "problemMatcher": []
+    },
+    {
       "label": "App: start dev server",
       "detail": "Vite on http://localhost:5173, reads public/data/*.json",
       "type": "npm",
@@ -22,9 +77,17 @@
       "group": "test"
     },
     {
+      "label": "App: production build",
+      "type": "npm",
+      "script": "build",
+      "problemMatcher": []
+    },
+    {
       "label": "App: production build + preview",
-      "type": "shell",
-      "command": "npm run build && npm run preview",
+      "detail": "Builds to build/ and serves it (no && so it also runs in Windows PowerShell 5.1)",
+      "type": "npm",
+      "script": "preview",
+      "dependsOn": ["App: production build"],
       "problemMatcher": []
     },
     {
