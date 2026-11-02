@@ -2858,5 +2858,15 @@
   "rating": "non_valutabile",
   "hash": "6197705e94b71054",
   "by": "openai/gpt-oss-120b"
+ },
+ "41015": {
+  "rating": "non_valutabile",
+  "hash": "ff868586eb6d8b20",
+  "by": "openai/gpt-oss-120b"
+ },
+ "41016": {
+  "rating": "non_valutabile",
+  "hash": "288615785facf48c",
+  "by": "openai/gpt-oss-120b"
  }
 }
