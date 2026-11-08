@@ -50,6 +50,12 @@ export const methodMeta = (): PageMeta => ({
     path: 'metodo',
 });
 
+export const projectMeta = (): PageMeta => ({
+    title: withSite('Il progetto'),
+    description: "Cos'è Radar Politico, perché oggi usa una sola fonte di verifiche e perché in Italia mancano fact-checker di centrodestra.",
+    path: 'progetto',
+});
+
 export const politicianMeta = (p: Politician): PageMeta => ({
     title: withSite(`${p.name}${p.party ? ` (${p.party})` : ''}`),
     description: `${p.name}: ${p.rated} ${p.rated === 1 ? 'dichiarazione verificata' : 'dichiarazioni verificate'} da Pagella Politica. ${scoreSentence(p)}`,

@@ -11,6 +11,7 @@ const Politicians = lazy(() => import('./pages/Politicians'));
 const Parties = lazy(() => import('./pages/Parties'));
 const PoliticianDetailPage = lazy(() => import('./pages/PoliticianDetails'));
 const PartyDetailPage = lazy(() => import('./pages/PartyDetails'));
+const Project = lazy(() => import('./pages/Project'));
 const Method = lazy(() => import('./pages/Method'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
@@ -23,6 +24,7 @@ export const AppRoutes: React.FC = () => (
         <Route path="/politicians/:id" element={<PoliticianDetailPage/>}/>
         <Route path="/parties/:id" element={<PartyDetailPage/>}/>
         <Route path="/metodo" element={<Method/>}/>
+        <Route path="/progetto" element={<Project/>}/>
         <Route path="*" element={<NotFound/>}/>
     </Routes>
     </Suspense>

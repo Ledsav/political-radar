@@ -26,9 +26,14 @@ const Footer: React.FC = () => (
             </Link>
             . Radar Politico è un progetto indipendente: ne riassume i verdetti e rimanda sempre all'articolo originale.
         </Typography>
-        <Typography variant="h1" component={RouterLink} to="/metodo" sx={{fontSize: '2rem'}}>
-            COME FUNZIONA
-        </Typography>
+        <Box sx={{display: 'flex', gap: 3, flexWrap: 'wrap'}}>
+            <Typography variant="h1" component={RouterLink} to="/progetto" sx={{fontSize: '2rem'}}>
+                IL PROGETTO
+            </Typography>
+            <Typography variant="h1" component={RouterLink} to="/metodo" sx={{fontSize: '2rem'}}>
+                COME FUNZIONA
+            </Typography>
+        </Box>
     </Box>
 );
 

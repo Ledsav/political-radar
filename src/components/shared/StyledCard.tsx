@@ -15,6 +15,8 @@ interface StyledCardProps {
     image?: string | null;
     objectFit?: 'contain' | 'cover';
     objectPosition?: string;
+    /** Shown instead of the image when there is none; defaults to the name in large type. */
+    fallback?: React.ReactNode;
     children?: React.ReactNode;
 }
 
@@ -25,6 +27,7 @@ const StyledCard: React.FC<StyledCardProps> = ({
                                                    image,
                                                    objectFit = 'contain',
                                                    objectPosition = 'center',
+                                                   fallback,
                                                    children,
                                                }) => {
     const theme = useTheme();
@@ -66,6 +69,10 @@ const StyledCard: React.FC<StyledCardProps> = ({
                             backgroundColor: theme.palette.secondary.main
                         }}
                     />
+                ) : fallback ? (
+                    <Box sx={{height: '280px', boxSizing: 'border-box', p: 3, bgcolor: theme.palette.secondary.main}}>
+                        {fallback}
+                    </Box>
                 ) : (
                     <Box sx={{
                         height: '280px',

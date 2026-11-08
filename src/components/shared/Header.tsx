@@ -24,8 +24,9 @@ const Header: React.FC = () => {
         ? '/politicians'
         : currentPath.startsWith('/parties')
             ? '/parties'
-            : currentPath.startsWith('/metodo')
-                ? '/metodo'
+            // /metodo has no tab of its own: it is the detail page of the project.
+            : currentPath.startsWith('/progetto') || currentPath.startsWith('/metodo')
+                ? '/progetto'
                 : '/';
 
     const handleMenuClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -40,7 +41,7 @@ const Header: React.FC = () => {
         {label: 'HOME', path: '/'},
         {label: 'POLITICI', path: '/politicians'},
         {label: 'PARTITI', path: '/parties'},
-        {label: 'METODO', path: '/metodo'},
+        {label: 'PROGETTO', path: '/progetto'},
     ];
 
     return (

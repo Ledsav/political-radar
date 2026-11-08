@@ -72,7 +72,9 @@ Parties add up the statements of their *current* members.
 `public/logos/` and records author and licence in `pipeline/data/party_logos.json`. Party pages show that credit.
 The list in `PARTY_LOGOS` is curated by hand, because automatic name matching kept picking the wrong party.
 Fratelli d'Italia, Italia Viva, Impegno Civico, Alleanza Verdi e Sinistra, Partito Liberaldemocratico and
-Futuro Nazionale have no free logo on Commons and get a typographic card instead. Run
+Futuro Nazionale have no free logo on Commons. They show an empty dashed circle labelled "simbolo non disponibile"
+(`src/components/parties/NoLogo.tsx`), and the party page explains why: party symbols are registered trademarks.
+(Italia Viva does have a public-domain file, `File:Italia Viva Logo.png`, not yet in the list.) Run
 `python -m radar logos` after editing the list.
 
 ### 5. Export
@@ -85,7 +87,13 @@ Futuro Nazionale have no free logo on Commons and get a typographic card instead
 `src/` is a Vite + React + MUI single-page app:
 
 - `src/data/` loads and caches the JSON and holds the types, the scale colours and the search logic
-- `src/pages/` has Home, Politicians, Parties, the detail pages, and `/metodo`, which explains the method and its accuracy
+- `src/pages/` has Home, Politicians, Parties, the detail pages, `/metodo`, which explains the method and its accuracy,
+  and `/progetto`, the landing page on the idea and on why there is only one source (no other independent Italian
+  fact-checker rates politicians' statements, and none from the centre-right). The sources reviewed are in
+  `src/data/sources.ts`, dated by `SURVEY_DATE`
+- `pipeline/scripts/probe_google_factcheck.py` counts Italian fact-checks per publisher in the Google Fact Check Tools
+  API (needs `GOOGLE_FACTCHECK_API_KEY` in `pipeline/.env`). In November 2026, 95% were Pagella Politica's, so it is not
+  integrated
 - `src/components/` holds the cards, verdict bar, score box, ranking chart and statement list
 
 Fonts are bundled via `@fontsource`, so the site makes no third-party requests.

@@ -19,8 +19,9 @@ import {dirname, join} from 'node:path';
 import type {Meta, Party, Politician, Statement} from '../src/data/types';
 import {RATING_BY_KEY} from '../src/data/ratings';
 import {
-    homeMeta, methodMeta, notFoundMeta, PageMeta, partiesMeta, partyMeta, politicianMeta, politiciansMeta, SITE_NAME,
+    homeMeta, methodMeta, projectMeta, notFoundMeta, PageMeta, partiesMeta, partyMeta, politicianMeta, politiciansMeta, SITE_NAME,
 } from '../src/seo/meta';
+import {SOURCES} from '../src/data/sources';
 
 const OUT = 'build';
 const SITE_URL = (process.env.SITE_URL || `http://localhost:4173${process.env.BASE_PATH || '/'}`).replace(/\/?$/, '/');
@@ -83,7 +84,7 @@ function write(file: string, html: string) {
     writeFileSync(join(OUT, file), html);
 }
 
-const nav = `<nav>${link('', 'Home')} · ${link('politicians/', 'Politici')} · ${link('parties/', 'Partiti')} · ${link('metodo', 'Come funziona')}</nav>`;
+const nav = `<nav>${link('', 'Home')} · ${link('politicians/', 'Politici')} · ${link('parties/', 'Partiti')} · ${link('metodo', 'Come funziona')} · ${link('progetto', 'Il progetto')}</nav>`;
 const scoreText = (s: {reliable: boolean; score: number; score_low: number; score_high: number; rated: number}) =>
     s.reliable ? `Attendibilità ${s.score}/100 (margine ${s.score_low}–${s.score_high}), ${s.rated} verifiche` : `Dati insufficienti (${s.rated} verifiche)`;
 
@@ -107,6 +108,11 @@ pages.push({
 pages.push({
     file: 'metodo.html', page: methodMeta(),
     body: `${nav}<h1>Come funziona</h1><p>${esc(methodMeta().description)}</p><p>Dati: ${link('', meta.source.name)} (${esc(meta.source.url)}).</p>`,
+});
+pages.push({
+    file: 'progetto.html', page: projectMeta(),
+    body: `${nav}<h1>Il progetto</h1><p>${esc(projectMeta().description)}</p>`
+        + `<h2>Le fonti che abbiamo valutato</h2><ul>${SOURCES.map((s) => `<li><strong>${esc(s.name)}</strong>: ${esc(s.note)}</li>`).join('')}</ul>`,
 });
 for (const p of politicians) {
     const statements = read<Statement[]>(`statements/${p.id}.json`);

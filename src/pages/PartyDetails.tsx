@@ -7,6 +7,7 @@ import ScoreBox from '../components/shared/ScoreBox';
 import VerdictBar from '../components/shared/VerdictBar';
 import PaginatedGridList from '../components/shared/PaginatedGridList';
 import PoliticianCard from '../components/politicians/PoliticianCard';
+import NoLogo from '../components/parties/NoLogo';
 import {ErrorMessage, Loading, NotFoundMessage} from '../components/shared/Status';
 import {assetUrl, loadMeta, loadParties, loadPoliticians} from '../data/api';
 import {useData} from '../data/useData';
@@ -39,6 +40,7 @@ const PartyDetailPage: React.FC = () => {
                     subtitle={`${party.politicians} ${party.politicians === 1 ? 'esponente verificato' : 'esponenti verificati'}`}
                     image={party.logo ? assetUrl(party.logo.path) : null}
                     imageFit="contain"
+                    fallback={<NoLogo name={party.name}/>}
                 />
                 <Grid container spacing={4}>
                     <Grid item xs={12} md={5}>
@@ -54,10 +56,17 @@ const PartyDetailPage: React.FC = () => {
                             Il punteggio somma le verifiche di chi oggi fa parte del partito, comprese quelle
                             di dichiarazioni fatte quando militava altrove. Pesa di più chi viene verificato più spesso.
                         </Typography>
-                        {party.logo && (
+                        {party.logo ? (
                             <Typography variant="caption" component="p" sx={{mt: 2, color: '#555'}}>
                                 Logo: {party.logo.author}, {party.logo.license}, via{' '}
                                 <Link href={party.logo.source} target="_blank" rel="noopener" color="inherit">Wikimedia Commons</Link>.
+                            </Typography>
+                        ) : (
+                            <Typography variant="caption" component="p" sx={{mt: 2, color: '#555'}}>
+                                Simbolo non disponibile: usiamo solo simboli con licenza libera pubblicati su{' '}
+                                <Link href="https://commons.wikimedia.org" target="_blank" rel="noopener" color="inherit">Wikimedia Commons</Link>,
+                                e per questo partito non ne abbiamo trovato uno. I simboli dei partiti sono marchi registrati e
+                                non li usiamo senza permesso.
                             </Typography>
                         )}
                     </Grid>

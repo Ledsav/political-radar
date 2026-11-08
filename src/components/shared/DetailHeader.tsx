@@ -6,9 +6,11 @@ interface DetailHeaderProps {
     subtitle: React.ReactNode;
     image?: string | null;
     imageFit?: 'cover' | 'contain';
+    /** Shown in the image slot when there is no image. */
+    fallback?: React.ReactNode;
 }
 
-const DetailHeader: React.FC<DetailHeaderProps> = ({name, subtitle, image, imageFit = 'cover'}) => (
+const DetailHeader: React.FC<DetailHeaderProps> = ({name, subtitle, image, imageFit = 'cover', fallback}) => (
     <Box sx={{
         bgcolor: 'primary.main',
         border: '1px solid black',
@@ -26,6 +28,11 @@ const DetailHeader: React.FC<DetailHeaderProps> = ({name, subtitle, image, image
                 {subtitle}
             </Typography>
         </Box>
+        {!image && fallback && (
+            <Box sx={{width: {xs: 110, sm: 220}, boxSizing: 'border-box', p: 1.5, borderLeft: '1px solid black', bgcolor: 'white', flexShrink: 0}}>
+                {fallback}
+            </Box>
+        )}
         {image && (
             <Box component="img" src={image} alt={name} sx={{
                 width: {xs: 110, sm: 220},

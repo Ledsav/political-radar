@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link as RouterLink} from 'react-router-dom';
 import {Box, Link, Typography} from '@mui/material';
 import Layout from '../components/shared/Layout';
 import {ErrorMessage, Loading} from '../components/shared/Status';
@@ -124,6 +125,11 @@ const Method: React.FC = () => {
                             Il punteggio misura come sono andate le dichiarazioni che Pagella Politica ha scelto di verificare, non
                             l'onestà complessiva di una persona. La redazione verifica più spesso chi parla di più, chi governa e le
                             affermazioni che sembrano dubbie: per questo i punteggi vanno letti insieme ai verdetti e agli articoli.
+                        </P>
+                        <P>
+                            Oggi tutte le verifiche vengono da un'unica redazione, perché in Italia non ne esistono altre
+                            indipendenti e attive sulle dichiarazioni dei politici. Perché, e cosa stiamo facendo, è spiegato in{' '}
+                            <Link component={RouterLink} to="/progetto" color="inherit" underline="always">Il progetto</Link>.
                         </P>
                         <P>
                             I partiti sommano le verifiche dei loro esponenti attuali, comprese le dichiarazioni fatte quando militavano

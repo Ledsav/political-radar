@@ -16,6 +16,7 @@ const politicians: Politician[] = [
 ];
 const parties: Party[] = [{...base, id: 'lega', name: 'Lega', politicians: 2,
     logo: {path: 'logos/lega.png', author: 'Lega', license: 'Public domain', source: 'https://commons.wikimedia.org/wiki/File:Lega.svg'}, rated: 7, breakdown, score: 62, score_low: 55, score_high: 69, reliable: true}];
+const partyWithoutLogo: Party = {...parties[0], id: 'fratelli-d-italia', name: "Fratelli d'Italia", politicians: 0, logo: null, reliable: false};
 const statements: Statement[] = [
     {id: 1, published: '2024-05-01', claim: 'Il PIL è cresciuto del 2%', claimDate: '1 maggio', claimSource: null,
         factCheck: 'https://pagellapolitica.it/articoli/pil', verdict: 'Il leader della Lega esagera.', rating: 'ni', ratedBy: 'llm'},
@@ -30,7 +31,7 @@ const meta = {
 
 const files: Record<string, unknown> = {
     'politicians.json': politicians,
-    'parties.json': parties,
+    'parties.json': [...parties, partyWithoutLogo],
     'meta.json': meta,
     'statements/matteo-salvini.json': statements,
 };
@@ -86,11 +87,28 @@ test('a party page lists its members', async () => {
     expect(screen.getByText(/Logo: Lega, Public domain, via/)).toBeInTheDocument();
 });
 
+test('a party without a free logo explains why it has none', async () => {
+    renderAt('/parties/fratelli-d-italia');
+    expect(await screen.findByText("FRATELLI D'ITALIA")).toBeInTheDocument();
+    expect(screen.getByText(/Simbolo non disponibile: usiamo solo simboli con licenza libera/)).toBeInTheDocument();
+    expect(screen.getByRole('img', {name: "Fratelli d'Italia: simbolo non disponibile"})).toBeInTheDocument();
+});
+
 test('the methodology page reports the counts from meta.json', async () => {
     renderAt('/metodo');
     expect(await screen.findByText(/Su 10 dichiarazioni pubblicate, 8 sono collegate/)).toBeInTheDocument();
     expect(screen.getByText(/il margine è di solito ampio circa 23 punti/)).toBeInTheDocument();
     expect(screen.getByText(/non è ancora stata misurata/)).toBeInTheDocument();
+    expect(screen.getByRole('link', {name: 'Il progetto'})).toHaveAttribute('href', '/progetto');
+});
+
+test('the project page explains the single source and lists the sources reviewed', async () => {
+    renderAt('/progetto');
+    expect(await screen.findByText('IL PROBLEMA: UNA SOLA FONTE')).toBeInTheDocument();
+    expect(screen.getByText('DOVE SONO I FACT-CHECKER DI CENTRODESTRA?')).toBeInTheDocument();
+    expect(screen.getByRole('link', {name: 'Lavoce.info'})).toHaveAttribute('href', 'https://lavoce.info');
+    expect(await screen.findByText('dichiarazioni con un verdetto')).toBeInTheDocument();
+    await waitFor(() => expect(document.title).toBe('Il progetto | Radar Politico'));
 });
 
 test('the home page lists politicians', async () => {
